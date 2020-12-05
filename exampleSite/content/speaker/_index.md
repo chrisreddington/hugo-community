@@ -4,5 +4,5 @@ title = "Speakers"
 [menu]
   [menu.main]
     identifier = "speakers"
-    weight = 2
+    weight = 10
 +++
