@@ -48,6 +48,8 @@ ul, ol {
   transition: .22s ease;
 }
 
+// Social Buttons for Speakers + Organizers
+
 .btn-social-small {
   width: 25px;
   height: 25px;
@@ -221,4 +223,81 @@ ul, ol {
 .btn-outline-youtube:hover {
   background: #e52d27;
   color: #ffffff
+}
+
+// Events
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
+.interactive-cards {
+  font-family: "Montserrat", sans-serif;
+  color: #8d97ad;
+  font-weight: 300;
+}
+
+.interactive-cards h1,
+.interactive-cards h2,
+.interactive-cards h3,
+.interactive-cards h4,
+.interactive-cards h5,
+.interactive-cards h6 {
+  color: #3e4555;
+}
+
+.interactive-cards .font-weight-medium {
+  font-weight: 500;
+}
+
+.interactive-cards .bg-light {
+  background-color: #f4f8fa !important;
+}
+
+.interactive-cards .subtitle {
+  color: #8d97ad;
+  line-height: 24px;
+}
+
+.interactive-cards .text-themecolor {
+  color: #316ce8;
+}
+
+.interactive-cards h5 {
+  line-height: 22px;
+  font-size: 18px;
+}
+
+.interactive-cards a.link {
+  color: #3e4555;
+}
+
+.interactive-cards a.link:hover {
+  color: #316ce8;
+}
+
+.interactive-cards .on-hover {
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.interactive-cards .on-hover:hover {
+  -webkit-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+
+.interactive-cards .date-pos {
+  right: 10px;
+  top: 10px;
+}
+
+.interactive-cards .date-pos span {
+  font-size: 30px;
+  line-height: 30px;
+}
+.interactive-cards .bg-info-gradiant {
+    background: #188ef4;
+    background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
+    background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
 }

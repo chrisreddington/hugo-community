@@ -1,5 +1,20 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Community, a Hugo Theme"
 themesdir = "../../"
 theme = "community"
+
+[params]
+  [params.home]
+    [params.home.jumbotron]
+      heading = "Community - The community theme for hugo"
+      text = "Welcome to our little community, we hope that you like it here. We're an open and inclusive environment, dedicated to help each other learn and grow. We would love your help to continue growing our community. Please explore our page to find more details!"
+      buttonText = "Contact"
+      buttonUrl = "/"
+  [params.footer]
+    copyright = "Copyright &copy; 2020 Your Name Here."
+
+[taxonomies]
+    speaker = "speakers"
+    skill = "skills"
+    tag = "tags"

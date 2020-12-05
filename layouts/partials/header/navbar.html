@@ -5,46 +5,22 @@
               <span class="navbar-toggler-icon"></span>
             </button> <a class="navbar-brand" href="#">{{ .Site.Title }}</a>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="navbar-nav">                
-              {{ $currentPage := . }}
-              {{ range .Site.Menus.main }}
-                  {{ if .HasChildren }}
-                      <li class="nav-item {{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-                          <a href="#">
-                              {{ .Pre }}
-                              <span>{{ .Name }}</span>
-                          </a>
-                      </li>
-                      <ul class="sub-menu">
-                          {{ range .Children }}
-                              <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
-                                  <a href="{{ .URL }}">{{ .Title }}</a>
-                              </li>
-                          {{ end }}
-                      </ul>
+              <ul class="navbar-nav">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                  {{ if.HasChildren }}
+                    <li class="nav-item dropdown {{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                      <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">{{ .Name }}</a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {{ range .Children }}
+                          <a class="dropdown-item" href="{{ .URL }}">{{ .Title }}</a>
+                        {{ end }}
+                      </div>
+                    </li>
                   {{ else }}
-                      <li>
-                          <a href="{{ .URL }}">
-                              {{ .Pre }}
-                              <span>{{ .Name }}</span>
-                          </a>
-                      </li>
+                    <li class="nav-item  {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"><a class="nav-link" href="{{ .URL | absURL }}">{{ .Name }} <span class="sr-only">(current)</span></a></li>
                   {{ end }}
-              {{ end }}
-                <li class="nav-item active">
-                   <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider">
-                    </div> <a class="dropdown-item" href="#">Separated link</a>
-                  </div>
-                </li>
+                {{ end }}
               </ul>
             </div>
           </nav>

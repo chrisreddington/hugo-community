@@ -2,13 +2,13 @@
         <div class="col-md-12">
           <div class="jumbotron">
             <h2>
-              Azure Thames Valley
+              {{ .Site.Params.home.jumbotron.heading }}
             </h2>
             <p>
-              Some explanation aout Azure Thames Valley blahblahblah
+              {{ .Site.Params.home.jumbotron.text }}
             </p>
             <p>
-              <a class="btn btn-primary btn-large" href="#">Join Us</a>
+              <a class="btn btn-primary btn-large" href="{{ .Site.Params.home.jumbotron.buttonUrl | absURL }}">{{ .Site.Params.home.jumbotron.buttonText }}</a>
             </p>
           </div>
         </div>
