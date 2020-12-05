@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <div class="row">
+    {{ partial "header/jumbotron.html" }}
+  </div>
+
+  
+{{ partial "speaker/speakers.html" . }}
+
+{{ partial "home/featurettes.html" . }}
+
+{{ end }}

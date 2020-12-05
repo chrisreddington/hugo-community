@@ -1,0 +1,224 @@
+.context-dark, .bg-gray-dark, .bg-primary {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+  color: #ffffff;
+}
+.nav-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+  margin-left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 23px;
+  font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+  content: "\f14f";
+  font: 400 21px/1 "Material Design Icons";
+  color: #4d6de6;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: -28px;
+  margin-right: 7px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .22s ease;
+}
+
+.btn-social-small {
+  width: 25px;
+  height: 25px;
+  padding: 0
+}
+
+.btn-social {
+  width: 40px;
+  height: 40px;
+  padding: 0
+}
+
+
+.btn.btn-rounded {
+  border-radius: 50px
+}
+
+.btn-facebook {
+  background: #3b579d;
+  color: #ffffff
+}
+
+.btn-facebook:hover,
+.btn-facebook:focus {
+  background: #2d4278;
+  color: #ffffff
+}
+
+.btn-outline-facebook {
+  border: 1px solid #3b579d;
+  color: #3b579d
+}
+
+.btn-outline-facebook:hover {
+  background: #3b579d;
+  color: #ffffff
+}
+
+.btn-github {
+  background: #333333;
+  color: #ffffff
+}
+
+.btn-github:hover,
+.btn-github:focus {
+  background: #000000;
+  color: #ffffff
+}
+
+.btn-outline-github {
+  border: 1px solid #333333;
+  color: #333333
+}
+
+.btn-outline-github:hover {
+  background: #333333;
+  color: #ffffff
+}
+
+.btn-instagram {
+  background: #dc4a38;
+  color: #ffffff
+}
+
+.btn-instagram:hover,
+.btn-instagram:focus {
+  background: #bf3322;
+  color: #ffffff
+}
+
+.btn-outline-instagram {
+  border: 1px solid #dc4a38;
+  color: #dc4a38
+}
+
+.btn-outline-instagram:hover {
+  background: #e52d27;
+  color: #ffffff
+}
+
+.btn-linkedin {
+  background: #0177b5;
+  color: #ffffff
+}
+
+.btn-linkedin:hover,
+.btn-linkedin:focus {
+  background: #015682;
+  color: #ffffff
+}
+
+.btn-outline-linkedin {
+  border: 1px solid #0177b5;
+  color: #0177b5
+}
+
+.btn-outline-linkedin:hover {
+  background: #0177b5;
+  color: #ffffff
+}
+
+.btn-twitch {
+  background: #6441a5;
+  color: #ffffff
+}
+
+.btn-twitch:hover,
+.btn-twitch:focus {
+  background: #3c2762;
+  color: #ffffff
+}
+
+.btn-outline-twitch {
+  border: 1px solid #333333;
+  color: #333333
+}
+
+.btn-outline-twitch:hover {
+  background: #333333;
+  color: #ffffff
+}
+
+.btn-twitter {
+  background: #2caae1;
+  color: #ffffff
+}
+
+.btn-twitter:hover,
+.btn-twitter:focus {
+  background: #1b8dbf;
+  color: #ffffff
+}
+
+.btn-outline-twitter {
+  border: 1px solid #2caae1;
+  color: #2caae1
+}
+
+.btn-outline-twitter:hover {
+  background: #2caae1;
+  color: #ffffff
+}
+
+.btn-website {
+  background: #fd7e14;
+  color: #ffffff
+}
+
+.btn-website:hover,
+.btn-website:focus {
+  background: #b15102;
+  color: #ffffff
+}
+
+.btn-youtube {
+  background: #e52d27;
+  color: #ffffff
+}
+
+.btn-youtube:hover,
+.btn-youtube:focus {
+  background: #c21d17;
+  color: #ffffff
+}
+
+.btn-outline-youtube {
+  border: 1px solid #e52d27;
+  color: #e52d27
+}
+
+.btn-outline-youtube:hover {
+  background: #e52d27;
+  color: #ffffff
+}

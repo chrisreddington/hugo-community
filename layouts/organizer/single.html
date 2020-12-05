@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+      {{ with .Site.GetPage "/organizer" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Organizers</a></li>{{ end }}
+      <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+    </ol>
+  </nav>
+
+  <center>
+    <img src="{{ .Params.thumbnail | absURL }}" width="140" height="140" border="0" class="rounded-circle"></a>
+    <h3>{{ .Title }} <small>Something here, TBC</small></h3>
+    <p><span>
+      {{ partial "helper/social-normal.html" . }}
+
+    </span>
+    </p>
+    <p>
+      <strong>Skills: </strong>
+      {{ range .Params.Skills }}
+        <span class="badge badge-pill badge-primary">{{ . }}</span>
+      {{ end }}
+    </p>
+    </center>
+    <hr>
+    <center>
+    <p class="text-left"><strong>Bio: </strong><br>
+        {{ .Content }}</p>
+    <hr>
+    <p class="text-left"><strong>Sessions: </strong></p>
+  </center>
+
+</div>
+
+{{ end }}

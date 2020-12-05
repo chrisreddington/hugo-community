@@ -1,0 +1,7 @@
+{{ with .Params.Facebook }}<a href="https://www.facebook.com/{{ . }}"><button type="button" class="btn btn-social-small btn-facebook btn-rounded"><i class="fab fa-facebook"></i></button></a>{{ end }}
+{{ with .Params.Youtube }}<a href="{{ . }}"><button type="button" class="btn btn-social-small btn-youtube btn-rounded"><i class="fab fa-youtube"></i></button></a>{{ end }}
+{{ with .Params.Twitter }}<a href="https://twitter.com/{{ . }}"><button type="button" class="btn btn-social-small btn-twitter btn-rounded"><i class="fab fa-twitter"></i></button></a>{{ end }}
+{{ with .Params.Website }}<a href="{{ . }}"><button type="button" class="btn btn-social-small btn-website btn-rounded"><i class="fas fa-newspaper"></i></button></a>{{ end }}
+{{ with .Params.Linkedin }}<a href="https://www.linkedin.com/in/{{ . }}"><button type="button" class="btn btn-social-small btn-linkedin btn-rounded"><i class="fab fa-linkedin"></i></button></a>{{ end }}
+{{ with .Params.Github }}<a href="https://github.com/{{ . }}"><button type="button" class="btn btn-social-small btn-github btn-rounded"><i class="fab fa-github"></i></button></a>{{ end }}
+{{ with .Params.Twitch }}<a href="https://twitch.tv/{{ . }}"><button type="button" class="btn btn-social-small btn-twitch btn-rounded"><i class="fab fa-twitch"></i></button></a>{{ end }}

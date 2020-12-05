@@ -1,0 +1,21 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Community"
+license = "MIT"
+licenselink = "https://github.com/chrisreddington/community/blob/master/LICENSE"
+description = "This is a Hugo Theme which is intended for local meet up groups"
+homepage = "https://github.com/chrisreddington/community/"
+tags = ["Meetup", "Meeting", "Community"]
+features = []
+min_version = "0.41.0"
+
+[author]
+  name = "Chris Reddington"
+  homepage = "https://www.cloudwithchris.com"
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""
