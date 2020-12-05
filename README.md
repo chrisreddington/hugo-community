@@ -11,7 +11,7 @@ You can find an example at [https://hugo-community.netlify.app/](https://hugo-co
 This theme is currently a work in development, and I have not yet prioritised installation instructions. If you are interested, please get in touch.
 
 ## Usage
-For further details on how to configure the theme and gain the most value from it, please view the [REFERENCE.MD](REFERENCE.MD).
+For further details on how to configure the theme and gain the most value from it, please view the [Reference](REFERENCE.md).
 
 ## Contributing
 
