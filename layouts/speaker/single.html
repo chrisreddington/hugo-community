@@ -17,14 +17,14 @@
 
     </span>
     </p>
+    {{ with .Params.Skills }}
     <p>
-      {{ with .Params.Skills }}
         <strong>Skills: </strong>
         {{ range . }}
           <span class="badge badge-pill badge-primary">{{ . }}</span>
         {{ end }}
-      {{ end }}
     </p>
+    {{ end }}
     </center>
     <hr>
     <center>

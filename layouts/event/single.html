@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-md-12">
       <img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img3.jpg" alt="{{ .Title }}">
-      <h1>{{ .Title }} <small>Test</small></h1>
+      <h1>{{ .Title }}</h1>
       <p>{{ dateFormat "Monday, Jan 2, 2006" .Params.eventDate }} @ {{ .Params.Venue }}</p>
     </div>
   </div>
@@ -27,12 +27,27 @@
       <p>{{ .Content }}</p>
     </div>
     <div class="col-md-4">
+      <h2>
+        {{ if ge (len .Params.Activities) 2 }}
+          {{ if and (isset .Params "activitiesName") (ne .Params.activitiesName "")}}
+            {{ .Params.ActivitiesName }}
+          {{ else }}
+            Activities
+          {{ end }}
+        {{ end }}</h2>
       {{ with .Params.Activities }}
             {{ range $key, $value := . }}            
               <div class="row">
                 <div class="col-md-6">
                   <p>{{ $value.title }}</p>
                   <p>{{ $value.date }}</p>
+                  {{ with $value.tags }}
+                  <p>
+                      {{ range . }}
+                        <span class="badge badge-pill badge-primary">{{ . }}</span>
+                      {{ end }}
+                  </p>
+                  {{ end }}
                 </div>
                 {{ with $value.speakers }}
                   <div class="col-md-6">                  
@@ -41,14 +56,7 @@
                       {{- range where $.Site.Pages "Type" "speaker" -}}
                         {{- if eq .File.BaseFileName ($.Scratch.Get "person") -}}
                           {{- $.Scratch.Set "host-exist" "true" -}}     
-                            <div class="row">
-                              <div class="col-md-6">
-                                <a href="{{ .Permalink | absURL}}">{{ .Title }}</a>
-                              </div>
-                              <div class="col-md-6">
-                                <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.thumbnail | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
-                              </div>
-                            </div>
+                              <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.thumbnail | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
                           {{- $.Scratch.Set "host-exist" "false" -}}
                         {{ end }}
                       {{- end -}}
@@ -59,6 +67,7 @@
               <hr>
             {{ end }}
       {{ end }}
+    </div>
   </div>
 </div>
 {{ end }}

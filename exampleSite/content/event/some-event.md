@@ -7,24 +7,25 @@ lastmod = "" #
 series = "" # 
 tags = "" #
 categories = "" #
+activitiesName = "Sessions"
 
 [[activities]]
-title = "Activity Name"
+title = "DevOps in a Cloudy World"
 publishDate = "" # Date Published
 date = "19:30" # Date the event is taking place
-venue = "" # Venue, as listed in the venue content folder
+location = "" #
 speakers = ["chris-reddington", "maria-vrabie"]
 series = "" # 
-tags = "" #
+tags = ["DevOps", "GitHub"] #
 categories = "" #
 
 [[activities]]
-title = "Activity Name"
+title = "Geode Pattern"
 publishDate = "" # Date Published
 date = "20:30" # Date the event is taking place
-venue = "" # Venue, as listed in the venue content folder
+location = "" # 
 speakers = ["will-eastbury"]
-tags = "" #
+tags = ["Cloud Architecture"] #
 categories = "" #
 
 +++

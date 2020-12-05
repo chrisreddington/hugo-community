@@ -13,11 +13,6 @@ twitch = "Cloud with Chris"
 github = "chrisreddington"
 skills = ["Azure DevOps", "GitHub", "Kubernetes"]
 thumbnail = "img/speakers/chris-reddington.jpg"
-
-[menu]
-  [menu.main]
-    name = "Chris"
-    parent = "speakers"
 +++
 Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
 
