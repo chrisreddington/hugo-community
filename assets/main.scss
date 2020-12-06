@@ -1,3 +1,20 @@
+// For structure, i.e. pushing footer down on pages with little content.
+body, wrapper {
+  min-height:100vh;
+}
+
+.flex-fill {
+  flex:1 1 auto;
+}
+
+// For error page
+
+.page-wrap {
+  min-height: 100vh;
+}
+
+// For footer
+
 .context-dark, .bg-gray-dark, .bg-primary {
   color: rgba(255, 255, 255, 0.8);
 }
