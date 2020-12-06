@@ -1,5 +1,6 @@
 +++
-title = "Azure Edinburgh"
+title = "Meetings R Us London"
+image = "./images/azure-london.jpg"
 category = ""
 tags = "" #
 website = ""

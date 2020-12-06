@@ -1,7 +1,7 @@
 +++
 title = "Contoso"
 publishDate = "" # Date Published
-image = "img/speakers/chris-reddington.jpg"
+image = "https://via.placeholder.com/150"
 page_type = "sponsor"
 +++
-Some information about Microsoft here, etc. etc.
+Some information about the sponsor here, etc. etc.
