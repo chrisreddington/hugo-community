@@ -26,7 +26,7 @@ In short, when you submit code changes, your submissions will be understood unde
 ### We require a Developer Certificate of Origin (DCO)
 What is a DCO? As explained over at [GitHub's probot site](https://probot.github.io/apps/dco/), the Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Contributors sign-off that they adhere to these requirements by adding a Signed-off-by line to commit messages.
 
-The DCO (copied below for convenience, can be found at [https://developercertificate.org/](https://developercertificate.org/).
+The DCO (copied below for convenience) can be found at [https://developercertificate.org/](https://developercertificate.org/).
 
 ```
 Developer's Certificate of Origin 1.1
