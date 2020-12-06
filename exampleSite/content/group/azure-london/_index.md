@@ -1,6 +1,6 @@
 ---
-title: "Azure Thames Valley" # Name of the group
-image: "./images/datacenter.jpg" # Location of the banner used for the group page, and in the group list
+title: "Azure London" # Name of the group
+image: "./images/london.jpg" # Location of the banner used for the group page, and in the group list
 
 #####
 # Social - Optional

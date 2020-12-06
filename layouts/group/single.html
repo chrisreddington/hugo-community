@@ -41,13 +41,15 @@
       </div>
     </div>
     <div class="col-md-4">
+      {{ partial "helper/social-normal.html" . }}
       <h2>Organizers</h2>
       {{ range .Sections }}        
         {{ $currentSection := .CurrentSection }}
         {{ range where $currentSection.Pages "Params.page_type" "organizer"  }}
           <div class="row">
             <div class="col-8">
-              {{ .Title }}
+              <p>{{ .Title }}</p>
+              {{ partial "helper/social-small.html" . }}
             </div>
             <div class="col-4">
               <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
@@ -64,7 +66,8 @@
         {{ range where $currentSection.Pages "Params.page_type" "sponsor"  }}
           <div class="row">
             <div class="col-8">
-              {{ .Title }}
+              <p>{{ .Title }}</p>
+              {{ partial "helper/social-small.html" . }}
             </div>
             <div class="col-4">
               <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
