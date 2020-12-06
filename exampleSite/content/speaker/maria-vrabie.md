@@ -5,7 +5,7 @@ publishDate = "" # Date Published
 lastmod = "" #
 tags = "" #
 twitter = "mariaVrb01"
-skills = ["Azure Bot Service"]
+topics = ["Azure Bot Service"]
 image = "img/speakers/maria-vrabie.jpg"
 +++
 Maria is an engineer working in the [FastTrack for Azure](https://azure.microsoft.com/en-gb/programs/azure-fasttrack/) team within the Engineering organization at Microsoft. 

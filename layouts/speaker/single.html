@@ -1,10 +1,12 @@
 {{ define "main" }}
 
+{{ $taxo := "topics" }}
+
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
-      {{ with .Site.GetPage "/speaker" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Speakers</a></li>{{ end }}
+      <li class="breadcrumb-item" aria-current="page"><a href="{{ .Section | urlize | absURL }}">{{ .Type | humanize | pluralize }}</a></li>
       <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
     </ol>
   </nav>
@@ -17,11 +19,14 @@
 
     </span>
     </p>
-    {{ with .Params.Skills }}
+    {{ with .Param $taxo }}
     <p>
         <strong>Skills: </strong>
-        {{ range . }}
-          <span class="badge badge-pill badge-primary">{{ . }}</span>
+
+        {{ range $index, $topic := . }}
+          {{ with $.Site.GetPage (printf "/%s/%s" $taxo $topic) }}
+            <a href="{{ .Permalink  }}"><span class="badge badge-pill badge-primary">{{ $topic }}</span></a>
+          {{- end -}}
         {{ end }}
     </p>
     {{ end }}

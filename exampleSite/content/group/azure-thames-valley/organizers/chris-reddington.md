@@ -10,7 +10,7 @@ website = "https://www.cloudwithchris.com"
 linkedin = "chrisreddington"
 twitch = "Cloud with Chris"
 github = "chrisreddington"
-skills = ["Azure DevOps", "GitHub", "Kubernetes"]
+topics = ["Azure DevOps", "GitHub", "Kubernetes"]
 image = "img/speakers/chris-reddington.jpg"
 page_type = "organizer"
 +++

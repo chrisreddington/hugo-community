@@ -1,4 +1,4 @@
-baseURL = "https://chrisreddington.github.io/hugo-community/"
+baseURL = "http://localhost:1313"
 languageCode = "en-us"
 title = "Community, a Hugo Theme"
 themesdir = "../../"
@@ -23,7 +23,7 @@ enableGitInfo = true
 
 [taxonomies]
     speaker = "speakers"
-    skill = "skills"
+    topic = "topics"
     tag = "tags"
 
 [languages]

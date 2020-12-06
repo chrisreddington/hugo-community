@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+    </ol>
+  </nav>
+
+  <div class = "row">
+    <div class = "col-md-12">
+      <h1>{{ .Data.Plural }}</h1>
+      <div class="row">
+      {{ range .Data.Terms.Alphabetical }}
+        <div class="col-md-3">
+          <div class="card">
+            <img class="img-fluid" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img3.jpg" alt="">
+            <div class="card-img-overlay">
+              <a href="{{ .Page.Permalink }}"><button type="button" class="btn btn-social btn-website btn-rounded">{{ .Count }}</button></a>
+            </div>
+            <div class="card-body">              
+                <a href="{{ .Page.Permalink }}"><h2 class="title-small">{{ .Page.Title }}</h2></a>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

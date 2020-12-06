@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+      <li class="breadcrumb-item" aria-current="page"><a href="{{ .Section | urlize | absURL }}">{{ .Type | humanize }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+    </ol>
+  </nav>
+
+  <div class = "row">
+    <div class = "col-md-12">
+      <h1>{{ .Title }}</h1>
+      <div class="row">
+        <div class = "col-md-12">
+          {{ $speakers := where .Data.Pages ".Section" "speaker"}}
+        <h2>Talks</h2>
+
+      {{ with $speakers }}
+        <h2>Speakers</h2>
+        {{ range . }}
+          <div class = "col-md-4">
+            {{ partial "speaker/speaker.html" . }}
+          </div>
+        {{ end }}
+      {{ end }}
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
