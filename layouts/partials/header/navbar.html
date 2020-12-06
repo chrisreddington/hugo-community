@@ -3,7 +3,7 @@
              
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="navbar-toggler-icon"></span>
-            </button> <a class="navbar-brand" href="#">{{ .Site.Title }}</a>
+            </button> <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="navbar-nav">
                 {{ $currentPage := . }}
