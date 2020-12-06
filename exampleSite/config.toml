@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://chrisreddington.github.io/hugo-community/"
 languageCode = "en-us"
 title = "Community, a Hugo Theme"
 themesdir = "../../"
