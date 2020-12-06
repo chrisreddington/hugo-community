@@ -8,9 +8,6 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./exampleSite
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
@@ -20,3 +17,4 @@ jobs:
         uses: chabad360/hugo-gh-pages@master        
         with:
           githubToken: ${{ secrets.PERSONAL_TOKEN }}
+          siteDir: /github/workspace/exampleSite
