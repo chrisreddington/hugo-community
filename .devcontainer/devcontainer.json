@@ -1,31 +1,40 @@
-# Update the NODE_VERSION arg in docker-compose.yml to pick a Node version: 10, 12, 14
-ARG NODE_VERSION=14
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${NODE_VERSION}
+{
+	"name": "Hugo (Community)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Update VARIANT to pick hugo variant.
+			// Example variants: hugo, hugo_extended
+			// Rebuild the container if it already exists to update.
+			"VARIANT": "hugo",
+			// Update VERSION to pick a specific hugo version.
+			// Example versions: latest, 0.73.0, 0,71.1
+			// Rebuild the container if it already exists to update.
+			"VERSION": "latest",
+			// Update NODE_VERSION to pick the Node.js version: 12, 14
+			"NODE_VERSION": "14",
+		}
+	},
 
-# VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
-ARG VARIANT=hugo
-# VERSION can be either 'latest' or a specific version number
-ARG VERSION=latest
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
 
-# Download Hugo
-RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
-    rm -rf /var/lib/apt/lists/* && \
-    case ${VERSION} in \
-    latest) \
-    export VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4)}') ;;\
-    esac && \
-    echo ${VERSION} && \
-    wget -O ${VERSION}.tar.gz https://github.com/gohugoio/hugo/releases/download/v${VERSION}/${VARIANT}_${VERSION}_Linux-64bit.tar.gz && \
-    tar xf ${VERSION}.tar.gz && \
-    mv hugo /usr/bin/hugo
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"bungcip.better-toml",
+		"davidanson.vscode-markdownlint"
+	],
 
-# Hugo dev server port
-EXPOSE 1313
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		1313
+	],
 
-# [Optional] Uncomment this section to install additional OS packages you may want.
-#
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
 
-# [Optional] Uncomment if you want to install more global node packages
-# RUN sudo -u node npm install -g <your-package-list-here>
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+}
