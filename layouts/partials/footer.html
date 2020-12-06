@@ -11,19 +11,20 @@
       </div>
       <div class="col-md-4">
         <h5>Contacts</h5>
+        {{ range .Site.Params.footer.contacts }}
         <dl class="contact-list">
-          <dt>email:</dt>
-          <dd><a href="mailto:#">tbc@tbc.com</a></dd>
+          <dt>{{ .key }}:</dt>
+          <dd>{{ .value }}</dd>
         </dl>
+        {{ end }}
       </div>
       <div class="col-md-4 col-xl-3">
         <h5>Links</h5>
         <ul class="nav-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contacts</a></li>
-          <li><a href="#">Pricing</a></li>
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.footer }}
+            <li><a href="{{ .URL | absURL }}">{{ .Title }}</a></li>
+          {{ end }}
         </ul>
       </div>
     </div>

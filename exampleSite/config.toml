@@ -19,7 +19,10 @@ enableGitInfo = true
       buttonText = "Contact"
       buttonUrl = "/"
   [params.footer]
-    copyright = "Copyright &copy; 2020 Your Name Here."
+    copyright = "Copyright © 2020 Your Name Here."
+    [[params.footer.contacts]]
+      key = "email"
+      value = "hello@somewhere.com"
 
 [taxonomies]
     speaker = "speakers"
