@@ -23,11 +23,9 @@
     <p>
         <strong>Skills: </strong>
 
-        {{ range $index, $topic := . }}
-          {{ with $.Site.GetPage (printf "/%s/%s" $taxo $topic) }}
-            <a href="{{ .Permalink  }}"><span class="badge badge-pill badge-primary">{{ $topic }}</span></a>
-          {{- end -}}
-        {{ end }}
+        {{ . }}
+
+        {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
     </p>
     {{ end }}
     </center>

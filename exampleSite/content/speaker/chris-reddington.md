@@ -11,7 +11,7 @@ website = "https://www.cloudwithchris.com"
 linkedin = "chrisreddington"
 twitch = "Cloud with Chris"
 github = "chrisreddington"
-topics = ["Azure DevOps", "GitHub", "Kubernetes"]
+topics = ["GitHub", "Kubernetes", "Azure DevOps"]
 image = "img/speakers/chris-reddington.jpg"
 +++
 Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!

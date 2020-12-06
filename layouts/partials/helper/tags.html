@@ -1,0 +1,8 @@
+{{ $taxo := .taxo }}
+{{ $site := .siteVariable }}
+
+{{ range $index, $value := .value }}
+  {{ with $site.GetPage (printf "/%s/%s" $taxo ($value | urlize)) }}
+    <a href="{{ .Permalink  }}"><span class="badge badge-pill badge-primary">{{ $value }}</span></a>
+  {{- end -}}
+{{ end }}

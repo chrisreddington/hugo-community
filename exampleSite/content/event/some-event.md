@@ -16,7 +16,7 @@ date = "19:30" # Date the event is taking place
 location = "" #
 speakers = ["chris-reddington", "maria-vrabie"]
 series = "" # 
-tags = ["DevOps", "GitHub"] #
+topics = ["Azure DevOps", "GitHub"] #
 categories = "" #
 
 [[activities]]
@@ -25,7 +25,7 @@ publishDate = "" # Date Published
 date = "20:30" # Date the event is taking place
 location = "" # 
 speakers = ["will-eastbury"]
-tags = ["Cloud Architecture"] #
+topics = ["Cloud Architecture"] #
 categories = "" #
 
 +++
