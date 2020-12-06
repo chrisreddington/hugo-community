@@ -23,6 +23,42 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 ## Any contributions you make will be under the MIT Software License
 In short, when you submit code changes, your submissions will be understood under the same [MIT License](https://github.com/chrisreddington/hugo-community/blob/main/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
 
+### We require a Developer Certificate of Origin (DCO)
+What is a DCO? As explained over at [GitHub's probot site](https://probot.github.io/apps/dco/), the Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Contributors sign-off that they adhere to these requirements by adding a Signed-off-by line to commit messages.
+
+The DCO (copied below for convenience, can be found at [https://developercertificate.org/](https://developercertificate.org/).
+
+```
+Developer's Certificate of Origin 1.1
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I
+    have the right to submit it under the open source license
+    indicated in the file; or
+
+(b) The contribution is based upon previous work that, to the
+    best of my knowledge, is covered under an appropriate open
+    source license and I have the right under that license to   
+    submit that work with modifications, whether created in whole
+    or in part by me, under the same open source license (unless
+    I am permitted to submit under a different license), as
+    Indicated in the file; or
+
+(c) The contribution was provided directly to me by some other
+    person who certified (a), (b) or (c) and I have not modified
+    it.
+
+(d) I understand and agree that this project and the contribution
+    are public and that a record of the contribution (including
+    all personal information I submit with it, including my
+    sign-off) is maintained indefinitely and may be redistributed
+    consistent with this project or the open source license(s)
+    involved.
+```
+
+We have added a GitHub application to automatically check that a DCO is present on commits which are made into the repository. To have a Pull Request merged into the repository, you **must** complete this. Don't worry if you forgot in advance! The GitHub Checks experience will flag the DCO failure, and provide steps to help you remediate that!
+
 ## Report bugs or request features using Github's [issues](https://github.com/chrisreddington/hugo-community/issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/chrisreddington/hugo-community/issues/new/choose); it's that easy!
 
