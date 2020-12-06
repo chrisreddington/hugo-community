@@ -3,8 +3,15 @@ languageCode = "en-us"
 title = "Community, a Hugo Theme"
 themesdir = "../../"
 theme = "community"
+enableGitInfo = true
 
 [params]
+  author = "Chris Reddington"
+  github = "chrisreddington"
+  twitter = "reddobowen"
+  [params.facebook]
+    app_id = ""
+    admins = ""
   [params.home]
     [params.home.jumbotron]
       heading = "Community - The community theme for hugo"
@@ -18,3 +25,9 @@ theme = "community"
     speaker = "speakers"
     skill = "skills"
     tag = "tags"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-us"
+    weight = 1
