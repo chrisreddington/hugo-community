@@ -18,3 +18,4 @@ jobs:
         with:
           githubToken: ${{ secrets.PERSONAL_TOKEN }}
           siteDir: /github/workspace/exampleSite
+          args: --minify --themesDir "/github/workspace/"
