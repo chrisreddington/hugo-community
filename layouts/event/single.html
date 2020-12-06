@@ -19,54 +19,67 @@
     <div class="col-md-12">
       <img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img3.jpg" alt="{{ .Title }}">
       <h1>{{ .Title }}</h1>
-      <p>{{ dateFormat "Monday, Jan 2, 2006" .Params.eventDate }} @ {{ .Params.Venue }}</p>
     </div>
   </div>
+
   
   <div class="row">
     <div class="col-md-8">
       <p>{{ .Content }}</p>
     </div>
     <div class="col-md-4">
-      <h2>
-        {{ if ge (len .Params.Activities) 2 }}
-          {{ if and (isset .Params "activitiesName") (ne .Params.activitiesName "")}}
-            {{ .Params.ActivitiesName }}
-          {{ else }}
-            Activities
-          {{ end }}
-        {{ end }}</h2>
-      {{ with .Params.Activities }}
-            {{ range $key, $value := . }}            
-              <div class="row">
-                <div class="col-md-6">
-                  <p>{{ $value.title }}</p>
-                  <p>{{ $value.date }}</p>
-                  {{ with $value.topics }}
-                  <p>
 
-                    
-                      {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
-                  </p>
-                  {{ end }}
-                </div>
-                {{ with $value.speakers }}
-                  <div class="col-md-6">                  
-                    {{ range $name := . }}
-                      {{ $.Scratch.Set "person" $name }}
-                      {{- range where $.Site.Pages "Type" "speaker" -}}
-                        {{- if eq .File.BaseFileName ($.Scratch.Get "person") -}}
-                          {{- $.Scratch.Set "host-exist" "true" -}}     
-                              <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
-                          {{- $.Scratch.Set "host-exist" "false" -}}
-                        {{ end }}
-                      {{- end -}}
+      {{ with .Params.group }}
+        <h2>Group</h2>
+        {{ with $.Site.GetPage "group" . }}
+          <a href="{{ .Permalink | absURL }}">{{ .Title }}</a>
+        {{ end }}
+      {{ end }}
+      
+      <h2>Speakers</h2>      
+      {{ range .CurrentSection.Pages }}
+        <div class="row">
+          <div class="col-8">
+            <strong>{{ .Title }}</strong>
+            {{ with .Params.topics }}
+              {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
+            {{ end }}
+          </div>
+          <div class="col-4">
+            {{ with .Params.speakers }}
+              <div class="col-md-6">                  
+                {{ range $name := . }}
+                  {{ $.Scratch.Set "person" $name }}
+                  {{- range where $.Site.Pages "Type" "speaker" -}}
+                    {{- if eq .File.BaseFileName ($.Scratch.Get "person") -}}
+                      {{- $.Scratch.Set "host-exist" "true" -}}     
+                          <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+                      {{- $.Scratch.Set "host-exist" "false" -}}
                     {{ end }}
-                  </div>
+                  {{- end -}}
                 {{ end }}
               </div>
-              <hr>
             {{ end }}
+          </div>
+        </div>
+
+    {{ end }}
+
+      
+      <h2>Sponsors</h2>
+      {{ range .Sections }}        
+        {{ $currentSection := .CurrentSection }}
+        {{ range where $currentSection.Pages "Params.page_type" "sponsor"  }}
+          <div class="row">
+            <div class="col-8">
+              {{ .Title }}
+            </div>
+            <div class="col-4">
+              <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+            </div>
+          </div>
+        {{ end }}
+
       {{ end }}
     </div>
   </div>

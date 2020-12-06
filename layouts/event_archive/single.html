@@ -1,0 +1,74 @@
+{{ define "main" }}
+{{ $taxo := "topics" }}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+          {{ with .Site.GetPage "/event" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Events</a></li>{{ end }}
+          <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-md-12">
+      <img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img3.jpg" alt="{{ .Title }}">
+      <h1>{{ .Title }}</h1>
+      <p>{{ dateFormat "Monday, Jan 2, 2006" .Params.eventDate }} @ {{ .Params.Venue }}</p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-8">
+      <p>{{ .Content }}</p>
+    </div>
+    <div class="col-md-4">
+      <h2>
+        {{ if ge (len .Params.Activities) 2 }}
+          {{ if and (isset .Params "activitiesName") (ne .Params.activitiesName "")}}
+            {{ .Params.ActivitiesName }}
+          {{ else }}
+            Activities
+          {{ end }}
+        {{ end }}</h2>
+      {{ with .Params.Activities }}
+            {{ range $key, $value := . }}            
+              <div class="row">
+                <div class="col-md-6">
+                  <p>{{ $value.title }}</p>
+                  <p>{{ $value.date }}</p>
+                  {{ with $value.topics }}
+                  <p>
+
+                    
+                      {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
+                  </p>
+                  {{ end }}
+                </div>
+                {{ with $value.speakers }}
+                  <div class="col-md-6">                  
+                    {{ range $name := . }}
+                      {{ $.Scratch.Set "person" $name }}
+                      {{- range where $.Site.Pages "Type" "speaker" -}}
+                        {{- if eq .File.BaseFileName ($.Scratch.Get "person") -}}
+                          {{- $.Scratch.Set "host-exist" "true" -}}     
+                              <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+                          {{- $.Scratch.Set "host-exist" "false" -}}
+                        {{ end }}
+                      {{- end -}}
+                    {{ end }}
+                  </div>
+                {{ end }}
+              </div>
+              <hr>
+            {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
