@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+          {{ with .Site.GetPage "/group" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Groups</a></li>{{ end }}
+          <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-md-12">
+      <img class="card-img-top" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img3.jpg" alt="{{ .Title }}">
+      <h1>{{ .Title }}</h1>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-8">
+      <p>{{ .Content }}</p>
+    </div>
+    <div class="col-md-4">
+      <h2>Organizers</h2>
+      {{ range .Sections }}        
+        {{ $currentSection := .CurrentSection }}
+        {{ range $currentSection.Pages }}
+          <div class="row">
+            <div class="col-8">
+              {{ .Title }}
+            </div>
+            <div class="col-4">
+              <img src="{{ .Params.thumbnail | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+            </div>
+          </div>
+        {{ end }}
+
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
