@@ -12,7 +12,7 @@ linkedin = "chrisreddington"
 twitch = "Cloud with Chris"
 github = "chrisreddington"
 skills = ["Azure DevOps", "GitHub", "Kubernetes"]
-thumbnail = "img/speakers/chris-reddington.jpg"
+image = "img/speakers/chris-reddington.jpg"
 +++
 Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
 

@@ -7,7 +7,7 @@
     </div>
     {{ range where .Site.RegularPages "Section" "speaker" }}
     <div class="col-lg-4">
-      <img class="rounded-circle" src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" width="140" height="140">
+      <img class="rounded-circle" src="{{ .Params.image | absURL }}" alt="{{ .Title }}" width="140" height="140">
       <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       <p><span>
         {{ partial "helper/social-small.html" . }}

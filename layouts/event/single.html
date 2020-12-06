@@ -56,7 +56,7 @@
                       {{- range where $.Site.Pages "Type" "speaker" -}}
                         {{- if eq .File.BaseFileName ($.Scratch.Get "person") -}}
                           {{- $.Scratch.Set "host-exist" "true" -}}     
-                              <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.thumbnail | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+                              <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
                           {{- $.Scratch.Set "host-exist" "false" -}}
                         {{ end }}
                       {{- end -}}

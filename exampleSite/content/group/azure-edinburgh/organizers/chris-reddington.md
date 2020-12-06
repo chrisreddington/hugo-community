@@ -1,17 +1,10 @@
 +++
-title = "Chris Reddington"
+title = "Joe Bloggs"
 publishDate = "" # Date Published
 lastmod = "" #
 tags = "" #
-facebook = "test"
-youtube = "https://www.youtube.com/c/CloudWithChris"
-twitter = "reddobowen"
-website = "https://www.cloudwithchris.com"
-linkedin = "chrisreddington"
-twitch = "Cloud with Chris"
-github = "chrisreddington"
-skills = ["Azure DevOps", "GitHub", "Kubernetes"]
 image = "img/speakers/chris-reddington.jpg"
+page_type = "organizer"
 +++
 Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
 
