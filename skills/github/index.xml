@@ -1,40 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>GitHub on Community, a Hugo Theme</title>
-    <link>http://example.org/skills/github/</link>
-    <description>Recent content in GitHub on Community, a Hugo Theme</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/skills/github/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Chris Reddington</title>
-      <link>http://example.org/group/azure-thames-valley/organizers/chris-reddington/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://example.org/group/azure-thames-valley/organizers/chris-reddington/</guid>
-      <description>Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
-Chris is currently a Senior Engineer on Microsoft&amp;rsquo;s FastTrack for Azure team.</description>
-    </item>
-    
-    <item>
-      <title>Chris Reddington</title>
-      <link>http://example.org/organizer/chris-reddington/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://example.org/organizer/chris-reddington/</guid>
-      <description>Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
-Chris is currently a Senior Engineer on Microsoft&amp;rsquo;s FastTrack for Azure team.</description>
-    </item>
-    
-    <item>
-      <title>Chris Reddington</title>
-      <link>http://example.org/speaker/chris-reddington/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://example.org/speaker/chris-reddington/</guid>
-      <description>Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
-Chris is currently a Senior Engineer on Microsoft&amp;rsquo;s FastTrack for Azure team.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub on Community, a Hugo Theme</title><link>https://chrisreddington.github.io/hugo-community/skills/github/</link><description>Recent content in GitHub on Community, a Hugo Theme</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://chrisreddington.github.io/hugo-community/skills/github/index.xml" rel="self" type="application/rss+xml"/><item><title>Chris Reddington</title><link>https://chrisreddington.github.io/hugo-community/group/azure-thames-valley/organizers/chris-reddington/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://chrisreddington.github.io/hugo-community/group/azure-thames-valley/organizers/chris-reddington/</guid><description>Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
+Chris is currently a Senior Engineer on Microsoft&amp;rsquo;s FastTrack for Azure team.</description></item><item><title>Chris Reddington</title><link>https://chrisreddington.github.io/hugo-community/organizer/chris-reddington/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://chrisreddington.github.io/hugo-community/organizer/chris-reddington/</guid><description>Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
+Chris is currently a Senior Engineer on Microsoft&amp;rsquo;s FastTrack for Azure team.</description></item><item><title>Chris Reddington</title><link>https://chrisreddington.github.io/hugo-community/speaker/chris-reddington/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://chrisreddington.github.io/hugo-community/speaker/chris-reddington/</guid><description>Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
+Chris is currently a Senior Engineer on Microsoft&amp;rsquo;s FastTrack for Azure team.</description></item></channel></rss>
