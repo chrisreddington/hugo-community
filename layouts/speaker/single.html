@@ -22,9 +22,7 @@
     {{ with .Param $taxo }}
     <p>
         <strong>Skills: </strong>
-
-        {{ . }}
-
+        
         {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
     </p>
     {{ end }}
