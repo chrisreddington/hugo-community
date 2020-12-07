@@ -5,7 +5,7 @@
 
   <div class="container">
   <div class="row">
-    {{ $shuffleSpeakerList := first $.Site.Params.homepage_speakers (shuffle (where .Site.RegularPages "Section" "speaker")) }}
+    {{ $shuffleSpeakerList := first $.Site.Params.home.speakers (shuffle (where .Site.RegularPages "Section" "speaker")) }}
     {{ range $shuffleSpeakerList }}
     <div class="col-lg-4">
       {{ partial "speaker/speaker.html" . }}
