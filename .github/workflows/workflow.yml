@@ -18,4 +18,4 @@ jobs:
         with:
           githubToken: ${{ secrets.PERSONAL_TOKEN }}
           siteDir: /github/workspace/exampleSite
-          args: --minify --theme "/github/workspace/" --baseURL "https://chrisreddington.github.io/hugo-community/"
+          args: --minify --theme "/github/workspace/" --baseURL "/"
