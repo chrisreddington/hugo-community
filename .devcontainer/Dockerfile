@@ -8,7 +8,8 @@ ARG VARIANT=hugo
 ARG VERSION=latest
 
 # Download Hugo
-RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
+RUN apt-get update && apt-get install -y ca-certificates openssl git curl  \
+    && apt-get -y install --no-install-recommends gnupg2 && \
     rm -rf /var/lib/apt/lists/* && \
     case ${VERSION} in \
     latest) \
@@ -18,6 +19,9 @@ RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
     wget -O ${VERSION}.tar.gz https://github.com/gohugoio/hugo/releases/download/v${VERSION}/${VARIANT}_${VERSION}_Linux-64bit.tar.gz && \
     tar xf ${VERSION}.tar.gz && \
     mv hugo /usr/bin/hugo
+
+RUN rm -rf /home/vscode/.gnupg
+RUN rm -rf /root/.gnupg
 
 # Hugo dev server port
 EXPOSE 1313
