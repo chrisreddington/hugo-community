@@ -3,9 +3,17 @@
     {{ partial "header/jumbotron.html" . }}
   </div>
 
-  
-{{ partial "speaker/speakers.html" . }}
+  <div class="container">
+  <div class="row">
+    {{ $shuffleSpeakerList := first $.Site.Params.homepage_speakers (shuffle (where .Site.RegularPages "Section" "speaker")) }}
+    {{ range $shuffleSpeakerList }}
+    <div class="col-lg-4">
+      {{ partial "speaker/speaker.html" . }}
+    </div><!-- /.col-lg-4 -->
+    {{ end }}
+  </div><!-- /.row -->
 
-{{ partial "home/featurettes.html" . }}
+  {{ partial "home/featurettes.html" . }}
+</div>
 
 {{ end }}

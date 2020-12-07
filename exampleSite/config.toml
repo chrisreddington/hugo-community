@@ -4,9 +4,12 @@ title = "Community, a Hugo Theme"
 themesdir = "../../"
 theme = "community"
 enableGitInfo = true
+disqusShortname = "hugo-community"
+paginate = 15
 
 [params]
   author = "Chris Reddington"
+  homepage_speakers = 6
   github = "chrisreddington"
   twitter = "reddobowen"
   [params.facebook]
@@ -23,6 +26,33 @@ enableGitInfo = true
     [[params.footer.contacts]]
       key = "email"
       value = "hello@somewhere.com"
+
+#####
+# Adjusting to make as private as possible, while not compromising on features that users would likely expect.
+# https://gohugo.io/about/hugo-and-gdpr/
+#####
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = false
+    respectDoNotTrack = true
+    useSessionStorage = false
+  [privacy.instagram]
+    disable = false
+    simple = false
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = false
+  [privacy.vimeo]
+    disable = true
+    enableDNT = false
+    simple = false
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true
 
 [taxonomies]
     speaker = "speakers"

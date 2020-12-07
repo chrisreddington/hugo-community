@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ $currentSection := .CurrentSection }}
+{{ $paginator := $.Paginate $currentSection.Pages }}
 
 <div class="container">
   <nav aria-label="breadcrumb">
@@ -9,10 +11,14 @@
   </nav>
 
   
+  <div class="row">
+    <center>
+      {{ template "_internal/pagination.html" . }}
+    </center>
+  </div>
   <div class="row mt-4 interactive-cards">
     <!-- Column -->
-    {{ $currentSection := .CurrentSection }}
-    {{ range .Pages }}
+    {{ range (.Paginate ($currentSection.Pages.ByTitle )).Pages }}
     <div class="col-md-4 on-hover">
       <div class="card border-0 mb-4">
         <a href="#"><img class="card-img-top" src="{{ .Permalink | absURL }}{{ .Params.image }}" alt="{{ .Title }}"></a>
@@ -22,6 +28,12 @@
       </div>
     </div>
     {{ end }}
+  </div>
+  
+  <div class="row">
+    <center>
+      {{ template "_internal/pagination.html" . }}
+    </center>
   </div>
 </div>
 {{ end }}
