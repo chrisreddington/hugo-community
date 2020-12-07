@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7cae3a12-995f-46ca-a5a4-a418d62b0e59/deploy-status)](https://app.netlify.com/sites/hugo-community/deploys)
+
 # Community, a Hugo Theme
 
 Community is a hugo theme intended for small community and meetup groups to easily get going. The theme is heavily driven around the concept of events and speakers, and would be well-suited to conferences, or groups that hold talks.
