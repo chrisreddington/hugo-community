@@ -4,7 +4,7 @@ Community is a hugo theme intended for small community and meetup groups to easi
 
 ## Example
 
-You can find an example at [https://chrisreddington.github.io/hugo-community/](https://chrisreddington.github.io/hugo-community/).
+You can find an example at [https://hugo-community.netlify.app//](https://hugo-community.netlify.app/).
 
 ## Installation
 
