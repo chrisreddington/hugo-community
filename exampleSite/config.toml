@@ -6,6 +6,7 @@ theme = "community"
 enableGitInfo = true
 disqusShortname = "hugo-community"
 paginate = 15
+defaultContentLanguage = "en"
 
 [params]
   author = "Chris Reddington"
