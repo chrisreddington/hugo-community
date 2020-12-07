@@ -28,8 +28,9 @@
     <div class="col-md-8">
       <p>{{ .Content }}</p>
       <hr>
-      Disqus below
-      {{ template "_internal/disqus.html" $context }}
+      {{ if eq .Site.Params.Config.disqus_enabled true }}
+        {{ template "_internal/disqus.html" $context }}
+      {{ end }}
     </div>
     <div class="col-md-4">
 
