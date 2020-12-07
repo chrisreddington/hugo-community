@@ -34,36 +34,39 @@
         {{ with $.Site.GetPage "group" . }}
           <a href="{{ .Permalink | absURL }}">{{ .Title }}</a>
         {{ end }}
+        <hr >
       {{ end }}
       
+      {{ with .CurrentSection.Pages }}
       <h2>Speakers</h2>      
-      {{ range .CurrentSection.Pages }}
-        <div class="row">
-          <div class="col-8">
-            <strong>{{ .Title }}</strong>
-            {{ with .Params.topics }}
-              {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
-            {{ end }}
+        {{ range . }}
+          <div class="row">
+            <div class="col-8">
+              <strong>{{ .Title }}</strong>
+              {{ with .Params.topics }}
+                {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
+              {{ end }}
+            </div>
+            <div class="col-4">
+              {{ with .Params.speakers }}
+                <div class="col-md-6">                  
+                  {{ range $name := . }}
+                    {{ $.Scratch.Set "person" $name }}
+                    {{- range where $.Site.Pages "Type" "speaker" -}}
+                      {{- if eq .File.BaseFileName ($.Scratch.Get "person") -}}
+                        {{- $.Scratch.Set "host-exist" "true" -}}     
+                            <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+                        {{- $.Scratch.Set "host-exist" "false" -}}
+                      {{ end }}
+                    {{- end -}}
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
           </div>
-          <div class="col-4">
-            {{ with .Params.speakers }}
-              <div class="col-md-6">                  
-                {{ range $name := . }}
-                  {{ $.Scratch.Set "person" $name }}
-                  {{- range where $.Site.Pages "Type" "speaker" -}}
-                    {{- if eq .File.BaseFileName ($.Scratch.Get "person") -}}
-                      {{- $.Scratch.Set "host-exist" "true" -}}     
-                          <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
-                      {{- $.Scratch.Set "host-exist" "false" -}}
-                    {{ end }}
-                  {{- end -}}
-                {{ end }}
-              </div>
-            {{ end }}
-          </div>
-        </div>
-
-    {{ end }}
+        {{ end }}
+        <hr >
+     {{ end }}
 
       
       {{ range .Sections }}        
@@ -74,10 +77,13 @@
           {{ range . }}
             <div class="row">
               <div class="col-8">
-                {{ .Title }}
+                <p>{{ .Title }}</p>
+                {{ partial "helper/social-small.html" . }}
               </div>
               <div class="col-4">
-                <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+                {{ if and (isset .Params "image") (ne .Params.image "") }}
+                  <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
+                {{ end }}
               </div>
             </div>
           {{ end }}

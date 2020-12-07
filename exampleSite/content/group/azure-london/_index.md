@@ -1,6 +1,9 @@
 ---
-title: "Azure London" # Name of the group
+#####
+# Required
+#####
 image: "./images/london.jpg" # Location of the banner used for the group page, and in the group list
+title: "Azure London" # Name of the group
 
 #####
 # Social - Optional

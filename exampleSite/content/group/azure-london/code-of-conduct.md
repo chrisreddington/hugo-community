@@ -1,6 +1,9 @@
 ---
+#####
+# Required
+#####
+starting_view: false # This boolean determines whether this information is the view on page load for your tabs
 title: "Code of Conduct" # This title will show in the tabs view on your group page. Make sure it's succinct.
-starting_view: false # This boolean determines whether this information is the view on page load for your tabs,
 
 #####
 # Please do not remove or change the below front matter.
