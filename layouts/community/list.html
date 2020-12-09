@@ -1,0 +1,31 @@
+{{ define "main" }}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <h1>Community Resources</h1>
+  
+  {{ with .Content }}<p>{{ . }}</p>{{ end }}
+
+  <div class="row">
+    <div class="col">      
+      <ul>
+        {{ range .CurrentSection.Pages }}
+          <li><h2>{{ .Title }}</h2>
+            <ul>
+          {{ range .Params.community_urls }}
+            <li><a href="{{ .value }}">{{ .key }}</a></li>
+          {{ end }}
+            </ul>
+        </li>
+        {{ end }}
+      </ul>
+      
+    </div>
+  </div>
+</div>
+{{ end }}

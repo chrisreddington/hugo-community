@@ -6,5 +6,17 @@
   </ol>
 </nav>
 
-{{ .Content }}
+<div class="container">
+  <div class="row">
+    <div class="col">      
+      <ul>
+        {{ range .CurrentSection.Pages }}
+          <li>{{ .Title }}</li>
+        {{ end }}
+      </ul>
+      
+      {{ .Content }}
+    </div>
+  </div>
+</div>
 {{ end }}

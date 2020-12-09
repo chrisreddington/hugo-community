@@ -12,8 +12,8 @@
 <div class="container">
 
   <center>
-    <img src="{{ .Params.image | absURL }}" width="140" height="140" border="0" class="rounded-circle"></a>
-    <h3>{{ .Title }} {{ with .Params.Pronouns }}<small>{{ . }}</small>{{ end }}</h3>
+    <img src="{{ .Params.image | absURL }}" width="140" height="140" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}"></a>
+    <h1>{{ .Title }} {{ with .Params.Pronouns }}<small>{{ . }}</small>{{ end }}</h1>
     <p><span>
       {{ partial "helper/social-normal.html" . }}
 
@@ -21,7 +21,7 @@
     </p>
     {{ with .Param $taxo }}
     <p>
-        <strong>Skills: </strong>
+        <h2>Skills: </h2>
         
         {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
     </p>
@@ -29,10 +29,10 @@
     </center>
     <hr>
     <center>
-    <p class="text-left"><strong>Bio: </strong><br>
+    <p class="text-left"><strong><h2>Bio:</h2> </strong><br>
         {{ .Content }}</p>
     <hr>
-    <p class="text-left"><strong>Upcoming Sessions: </strong></p>
+    <p class="text-left"><strong><h2>Sessions:</h2> </strong></p>
 
     <div class="row">
       {{ range where .Site.RegularPages ".Params.speakers" "intersect" (slice (.Title | urlize)) }}               

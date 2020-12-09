@@ -5,7 +5,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
-    {{ with .Site.GetPage "/event" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Events</a></li>{{ end }}
+    {{ with .Site.GetPage "/events" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Events</a></li>{{ end }}
     <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
   </ol>
 </nav>
