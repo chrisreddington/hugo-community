@@ -19,7 +19,7 @@ jobs:
           extended: true
 
       - name: Build site
-        run: hugo --minify --theme "../" --baseURL "/"
+        run:  hugo --minify --themesDir "../../" --theme "hugo-community" --baseURL "/"
         working-directory: "./exampleSite"
 
       - name: Run Lighthouse CI
