@@ -1,0 +1,33 @@
+name: Lighthouse CI for Netlify sites
+on: pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install & Build
+        run: |
+          yarn install
+          yarn build
+      - name: Wait for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: netlify
+        with:
+          site_name: 'hugo-community'
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          urls: |
+            ${{ steps.netlify.outputs.url }}
+            ${{ steps.netlify.outputs.url }}/community/
+            ${{ steps.netlify.outputs.url }}/events/
+            ${{ steps.netlify.outputs.url }}/groups/
+            ${{ steps.netlify.outputs.url }}/speakers/
+            ${{ steps.netlify.outputs.url }}/topics/
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
