@@ -13,7 +13,7 @@ location: "Reading Town Center, Somewhere" # Plain text that is displayed for th
 # Optional
 #####
 # activities_name: "" # Used as an override for the name to be displayed on the page for activities, e.g. "Sessions", "Lessons", "Dances", etc.
-# group: "" # The urlized version of the group, so that it can be displayed on the group's page.
+group: "azure-london" # The urlized version of the group, so that it can be displayed on the group's page.
 # lastmod: "" # Datetime that the file was last modified.
 
 #####
