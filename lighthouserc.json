@@ -1,0 +1,8 @@
+{
+    "ci": {
+      "url": ["http://localhost/", "http://localhost/speakers/", "http://localhost/events/", "http://localhost/topics", "http://localhost/groups"],
+      "collect": {
+        "staticDistDir": "./public"
+      }
+    }
+  }
