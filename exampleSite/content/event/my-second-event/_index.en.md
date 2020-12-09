@@ -7,7 +7,7 @@ startDate: "2020-12-01T09:00:00Z" # Date and time that the event starts
 endDate: "2020-12-25T10:00:00Z" # Date and time that the event starts
 publishDate: "" # Date that the event should be published on the site (Any builds that you run after this date will display the site). Useful if you want to time this with some kind of social media push/press release.
 title: "My Second Event" # Name of the group
-venue: "Reading Town Center, Somewhere" # Plain text that is displayed for the "Location" of the event. Could easily be text to say "Microsoft Teams Meeting" or "Zoom Call".
+location: "Reading Town Center, Somewhere" # Plain text that is displayed for the "Location" of the event. Could easily be text to say "Microsoft Teams Meeting" or "Zoom Call".
 
 #####
 # Optional
@@ -19,6 +19,6 @@ venue: "Reading Town Center, Somewhere" # Plain text that is displayed for the "
 #####
 # Please do not remove or change the below front matter.
 #####
-layout: "single" # This is used to make sure that the /layouts/groups/single.html template is used, and is an override for hugo
+layout: "single" # This is used to make sure that the /layouts/event/single.html template is used, and is an override for hugo
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel neque id augue dictum accumsan. Nam sapien dui, tincidunt quis mi et, cursus pharetra leo. Sed eget est ac urna finibus sollicitudin. Aenean dignissim enim eget risus facilisis auctor. Maecenas sit amet viverra libero, id sodales ipsum. Vivamus sed justo eget risus tincidunt rutrum in in felis. Proin auctor nisl eget efficitur bibendum. Duis sed facilisis lacus. Ut porta vulputate eros ac faucibus. Integer orci tortor, feugiat vel euismod nec, maximus id leo. Curabitur sit amet porttitor erat. Nulla at fermentum ante. Mauris lobortis facilisis molestie.
