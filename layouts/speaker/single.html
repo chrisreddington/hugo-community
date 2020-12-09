@@ -34,9 +34,13 @@
     <hr>
     <p class="text-left"><strong>Sessions: </strong></p>
 
-    {{ range where .Site.RegularPages ".Params.speakers" "intersect" (slice (.Title | urlize)) }}
-      <li><a href="{{ .Parent.Permalink }}">{{ .Title }} @ {{ .Parent.Title }}</a></li>
-    {{ end }}
+    <div class="row">
+      {{ range where .Site.RegularPages ".Params.speakers" "intersect" (slice (.Title | urlize)) }}               
+      <div class="col-md-4 on-hover">
+        {{ partial "helper/event.html" .Parent }}
+      </div>
+      {{ end }}
+   </div>
   </center>
 
 </div>
