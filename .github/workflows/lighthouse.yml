@@ -13,11 +13,11 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.55.6"
+          hugo-version: "0.79.0"
           extended: true
 
       - name: Build site
-        run: hugo
+        run: hugo --minify --theme "/github/workspace/" --baseURL "/
 
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v2
