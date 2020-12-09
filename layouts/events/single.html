@@ -33,7 +33,9 @@
       {{ with .Params.group }}
         <h2>Group</h2>
         {{ with $.Site.GetPage "group" . }}
-          <a href="{{ .Permalink | absURL }}">{{ .Title }}</a>
+          <div class="row">
+            {{ partial "helper/group.html" . }}
+          </div>
         {{ end }}
         <hr >
       {{ end }}
@@ -53,7 +55,7 @@
                 <div class="col-md-6">                  
                   {{ range $name := . }}
                     {{ $.Scratch.Set "person" ($name | urlize) }}
-                    {{- range where $.Site.Pages "Type" "speaker" -}}
+                    {{- range where $.Site.Pages "Type" "speakers" -}}
                       {{- if eq .File.TranslationBaseName ($.Scratch.Get "person") -}}
                       
                         {{- $.Scratch.Set "host-exist" "true" -}}     

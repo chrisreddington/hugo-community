@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{ $taxo := "topics" }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{{ .Section | urlize | absURL }}">{{ .Type | humanize | pluralize }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
+
+<div class="container">
+
+  <center>
+    <img src="{{ .Params.image | absURL }}" width="140" height="140" border="0" class="rounded-circle"></a>
+    <h3>{{ .Title }} {{ with .Params.Pronouns }}<small>{{ . }}</small>{{ end }}</h3>
+    <p><span>
+      {{ partial "helper/social-normal.html" . }}
+
+    </span>
+    </p>
+    {{ with .Param $taxo }}
+    <p>
+        <strong>Skills: </strong>
+        
+        {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
+    </p>
+    {{ end }}
+    </center>
+    <hr>
+    <center>
+    <p class="text-left"><strong>Bio: </strong><br>
+        {{ .Content }}</p>
+    <hr>
+    <p class="text-left"><strong>Upcoming Sessions: </strong></p>
+
+    <div class="row">
+      {{ range where .Site.RegularPages ".Params.speakers" "intersect" (slice (.Title | urlize)) }}               
+      <div class="col-md-4 on-hover">
+        {{ partial "helper/event.html" .Parent }}
+      </div>
+      {{ end }}
+   </div>
+  </div>
+  </center>
+
+</div>
+
+{{ end }}
