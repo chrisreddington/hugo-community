@@ -14,7 +14,7 @@ defaultContentLanguage: "en"        # Default content to be used across the site
 disqusShortname: "hugo-community"   # If you wish to use disqus, then
 enableGitInfo: true                 # Recommended to keep this enabled. If you are source controlling your repository, then it will allow hugo to determine when pages were last edited, and populate the lastMod property of the page. Otherwise, for the "last edited" functionality to work, relies upon you manually populating the lastMod frontmatter on your content pages.
 languageCode: "en-us"               # The default language code for the website. The theme is capable of multi-lingual support. You just need to add additional languages to the config file, and then ensure the appropriate language-code suffixes are set in the file extensions for content.
-theme: "community"                  # Name of the theme. Unless you decide to change themes, you should not change this.
+theme: "hugo-community"                  # Name of the theme. Unless you decide to change themes, you should not change this.
 themesdir: "../../"                 # Where the theme directory is stored. If you move the theme directory, you need to update this setting.
 title: "Community, a Hugo Theme"    # Title of the site. This will update the title in the Navigation Menu and all <title> tags across the site.
 paginate: 15                        # The number of results to be showed by pagination. Configure this as you prefer. As most views display 3 items per page, we have opted for 15 as a multiple of 3.
