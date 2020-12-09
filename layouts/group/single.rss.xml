@@ -1,0 +1,58 @@
+<!-- /layouts/_event/list.rss.xml -->
+{{ $currentContext:= . }}
+{{ $eventItems:= where .Site.Pages "Section" "events"}}
+{{ $groupItems:= where .Site.Pages ".Params.group" (.Title | urlize )}}
+{{ $GroupEvents := $eventItems | intersect $groupItems }}
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link>{{ .Permalink }}index.xml</link>
+    <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+    <generator>Hugo -- gohugo.io</generator>
+    {{ with .Site.LanguageCode }}
+      <language>{{.}}</language>
+    {{end}}
+    {{ with .Site.Author.email }}
+      <managingEditor>
+          {{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}
+      </managingEditor>
+    {{end}}
+    {{ with .Site.Author.email }}
+      <webMaster>
+          {{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}
+      </webMaster>
+    {{end}}
+    {{ with .Site.Copyright }}
+      <copyright>{{.}}</copyright>
+    {{end}}
+    {{ if not .Date.IsZero }}
+      <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{ end }}
+    {{ with .OutputFormats.Get "RSS" }}
+      {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{ end }}
+    {{ range $GroupEvents }}
+      <item>
+        <title>{{ .Title }}</title>
+        <link>{{ .Permalink }}</link>
+        {{ with .Params.publishDate }}
+          <pubDate>{{ dateFormat "Mon, 02 Jan 2006 15:04:05 -0700" . | safeHTML }}</pubDate>
+        {{ end }}
+        {{ with .Params.startDate }}
+          <startDate>{{ dateFormat "Mon, 02 Jan 2006 15:04:05 -0700" . | safeHTML }}</startDate>
+        {{ end }}
+        {{ with .Params.endDate }}
+          <endDate>{{ dateFormat "Mon, 02 Jan 2006 15:04:05 -0700" . | safeHTML }}</endDate>
+        {{ end }}
+        {{ with .Params.location }}
+          <location>{{ . | safeHTML }}</location>
+        {{ end }}
+          {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
+        <guid>{{ .Permalink }}</guid>
+        <description>{{- .Content | html -}}</description>
+        <source>{{ $currentContext.Permalink }}index.xml</source>
+      </item>
+    {{ end }}
+  </channel>
+</rss>

@@ -1,17 +1,25 @@
 {{ define "main" }}
 
+{{ $eventItems:= where .Site.Pages "Section" "events"}}
+{{ $groupItems:= where .Site.Pages ".Params.group" (.Title | urlize )}}
+{{ $pastItems := where .Site.Pages ".Params.startdate" "lt" (now.Format "2006-01-02")}}
+{{ $futureItems := where .Site.Pages ".Params.startdate" "ge" (now.Format "2006-01-02")}}
+{{ $pastGroupEvents := $eventItems | intersect $pastItems | intersect $groupItems }}
+{{ $futureGroupEvents := $eventItems | intersect $futureItems | intersect $groupItems }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+    {{ with .Site.GetPage "/group" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Groups</a></li>{{ end }}
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
+</div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
-          {{ with .Site.GetPage "/group" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Groups</a></li>{{ end }}
-          <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
-        </ol>
-      </nav>
-    </div>
-  </div>
 
   
   <div class="row">
@@ -25,26 +33,39 @@
   <div class="row">
     <div class="col-md-8">
       <ul class="nav nav-tabs">
-          <li class="group-information">
-            <a class="nav-link" data-toggle="tab" href="#events">Events</a>
-          </li>
         {{ range where .Pages "Params.show_tabs" true }}
           <li class="group-information">
             <a class="nav-link" data-toggle="tab" href="#{{ .Title | urlize }}">{{ .Title }}</a>
           </li>
         {{ end  }}
+        <li class="group-information">
+          <a class="nav-link" data-toggle="tab" href="#upcomingEvents">Upcoming Events</a>
+        </li>
+        <li class="group-information">
+          <a class="nav-link" data-toggle="tab" href="#pastEvents">Past Events</a>
+        </li>
       </ul>
       
       <div class="tab-content" id="group-informationContent">
-        <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-pane fade" id="upcomingEvents" role="tabpanel" aria-labelledby="nav-home-tab">
         <ul>
-          {{ range where .Site.Pages ".Params.group" (.Title | urlize ) }}          
+          {{ range $futureGroupEvents }}          
           <div class="col-md-4 on-hover">
             {{ partial "helper/event.html" . }}
           </div>
           {{ end }}
         </ul>
         </div>
+        
+        <div class="tab-pane fade" id="pastEvents" role="tabpanel" aria-labelledby="nav-home-tab">
+          <ul>
+            {{ range $pastGroupEvents }}          
+            <div class="col-md-4 on-hover">
+              {{ partial "helper/event.html" . }}
+            </div>
+            {{ end }}
+          </ul>
+          </div>
         {{ range where .Pages "Params.show_tabs" true }}
           <div class="tab-pane fade active {{ if eq .Params.starting_view true }}show{{ end }}" id="{{ .Title | urlize }}" role="tabpanel" aria-labelledby="nav-home-tab">
             {{ .Content }}

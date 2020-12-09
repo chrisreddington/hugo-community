@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+{{ $events := where .Site.Pages "Section" "events" }}
+{{ $pastItems := where .Site.Pages ".Params.startdate" "lt" (now.Format "2006-01-02")}}
+{{ $pastEvents := $events | intersect $pastItems }}
+
+{{ $paginator := $.Paginate $pastEvents  }}
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <h1>Past Events</h1>
+  
+    <div class="row">
+    </div>
+    <div class="row mt-4 interactive-cards">
+      <!-- Column -->
+      {{ range $pastEvents }}
+      <div class="col-md-4 on-hover">
+        {{ partial "helper/event.html" . }}
+      </div>
+      {{ end }}    
+    </div>
+    
+    <div class="row">
+    </div>
+  </div>
+
+{{ end }}

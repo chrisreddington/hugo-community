@@ -1,0 +1,97 @@
+{{ define "main" }}
+{{ $taxo := "topics" }}
+{{ $context := .}}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+    {{ with .Site.GetPage "/event" }}<li class="breadcrumb-item"><a href="{{ .Permalink }}">Events</a></li>{{ end }}
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
+
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-12">
+      <img class="card-img-top" src="{{ .Params.image }}" alt="{{ .Title }}">
+      <h1>{{ .Title }}</h1>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-md-8">
+      <p>{{ .Content }}</p>
+      <hr>
+      {{ if eq .Site.Params.Config.disqus_enabled true }}
+        {{ template "_internal/disqus.html" $context }}
+      {{ end }}
+    </div>
+    <div class="col-md-4">
+
+      {{ with .Params.group }}
+        <h2>Group</h2>
+        {{ with $.Site.GetPage "group" . }}
+          <a href="{{ .Permalink | absURL }}">{{ .Title }}</a>
+        {{ end }}
+        <hr >
+      {{ end }}
+      
+      {{ with .CurrentSection.Pages }}
+      <h2>Speakers</h2>      
+        {{ range . }}
+          <div class="row">
+            <div class="col-8">
+              <strong>{{ .Title }}</strong>
+              {{ with .Params.topics }}
+                {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
+              {{ end }}
+            </div>
+            <div class="col-4">
+              {{ with .Params.speakers }}
+                <div class="col-md-6">                  
+                  {{ range $name := . }}
+                    {{ $.Scratch.Set "person" ($name | urlize) }}
+                    {{- range where $.Site.Pages "Type" "speaker" -}}
+                      {{- if eq .File.TranslationBaseName ($.Scratch.Get "person") -}}
+                      
+                        {{- $.Scratch.Set "host-exist" "true" -}}     
+                            <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+                        {{- $.Scratch.Set "host-exist" "false" -}}
+                      {{ end }}
+                    {{- end -}}
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        <hr >
+     {{ end }}
+
+      
+      {{ range .Sections }}        
+        {{ $currentSection := .CurrentSection }}
+        {{ $sponsors := where $currentSection.Pages "Params.page_type" "sponsor" }}
+        {{ with $sponsors }}
+          <h2>Sponsors</h2>
+          {{ range . }}
+            <div class="row">
+              <div class="col-8">
+                <p>{{ .Title }}</p>
+                {{ partial "helper/social-small.html" . }}
+              </div>
+              <div class="col-4">
+                {{ if and (isset .Params "image") (ne .Params.image "") }}
+                  <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
