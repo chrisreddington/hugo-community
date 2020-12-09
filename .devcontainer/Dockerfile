@@ -3,7 +3,7 @@ ARG NODE_VERSION=14
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${NODE_VERSION}
 
 # VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
-ARG VARIANT=hugo
+ARG VARIANT=hugo_extended
 # VERSION can be either 'latest' or a specific version number
 ARG VERSION=latest
 
