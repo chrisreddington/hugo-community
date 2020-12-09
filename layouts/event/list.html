@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $currentSection := .CurrentSection }}
-{{ $paginator := $.Paginate $currentSection.Pages }}
+{{ $future := where $currentSection.Pages ".Params.startdate" "ge" (now.Format "2006-01-02") }}
+{{ $paginator := $.Paginate $future  }}
 
 <div class="container">
   <nav aria-label="breadcrumb">
@@ -23,6 +24,7 @@
         <a href="#"><img class="card-img-top" src="{{ .Permalink | absURL }}{{ .Params.image }}" alt="{{ .Title }}"></a>
         <h5 class="font-weight-medium mt-3"><a href="{{ .Permalink | absURL }}" class="text-decoration-none link">{{ .Title }}</a></h5>
         <p class="mt-3">{{ .Params.Venue }}</p>
+        <p>{{ dateFormat "Mon Jan 01 - 03:04PM" .Params.startDate  }}</p>
         <a href="{{ .Permalink | absURL }}" class="text-decoration-none linking text-themecolor mt-2">Learn More</a>
       </div>
     </div>
