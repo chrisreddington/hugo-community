@@ -36,6 +36,8 @@ params:
        - key: "email"
          value: "hello@somewhere.com"
   github: "chrisreddington"           # Optional: The information in this section can help with your SEO, and is used in the layout/partials/seo/meta.html file.
+  github_repo: "https://github.com/chrisreddington/hugo-community"     #Used within the "Last Edited" information on the page
+  github_repo_subfolder: "exampleSite/"     #Used within the "Last Edited" information on the page
   home:                                 # Information relating to the configuration of your homepage.
     jumbotron:                        # Information relating to the jumbotron on your homepage.
       heading: "Community - The community theme for hugo"
@@ -43,6 +45,7 @@ params:
       buttonText: "Contact"
       buttonUrl: "/"
     speakers: 6                       # Number of speakers to show on the homepage. This list is shuffled. If running as pre-built static content, it will be newly sorted on each new build of your website. If running as a server, then this should be on page load.
+  show_last_updated: true             # Boolean on whether the last_updated banner should be shown site-wide.
   twitter: "reddobowen"               # Optional: The information in this section can help with your SEO, and is used in the layout/partials/seo/meta.html file.
 
 #####

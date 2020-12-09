@@ -7,6 +7,9 @@
             <div id="content" class="container-fluid flex-fill mb-5">
             {{- block "main" . }}{{- end }}
             </div>
+            {{ if and (isset $.Site.Params "show_last_updated") $.Site.Params.show_last_updated }}
+                {{ partial "helper/last-update.html" . }}
+            {{ end }}
             {{- partial "footer.html" . -}}
         </wrapper>
     </body>
