@@ -11,20 +11,28 @@
   
   {{ with .Content }}<p>{{ . }}</p>{{ end }}
 
+  
+  <ul class="nav nav-tabs">
+  {{ range $term, $value := .Site.Taxonomies.communityTypes }}
+  <li class="group-information">
+    <a class="nav-link" data-toggle="tab" href="#{{ $term | urlize }}">{{ $term | humanize | pluralize }}</a>
+  </li>
+  {{ end }}
+  </ul>
+
   <div class="row">
-    <div class="col">      
-      <ul>
-        {{ range .CurrentSection.Pages }}
-          <li><h2>{{ .Title }}</h2>
-            <ul>
-          {{ range .Params.community_urls }}
-            <li><a href="{{ .value }}">{{ .key }}</a></li>
-          {{ end }}
-            </ul>
-        </li>
+    <div class="col">  
+      <div class="tab-content" id="group-informationContent">
+        {{ range $term, $value := .Site.Taxonomies.communityTypes }}
+          <div class="tab-pane fade" id="{{ $term | urlize }}" role="tabpanel" aria-labelledby="nav-home-tab">
+            {{ range $value }}
+              <div class="col-4">
+                {{ partial "helper/community.html" .Page }}
+              </div>
+            {{ end }}
+          </div>
         {{ end }}
-      </ul>
-      
+      </div>
     </div>
   </div>
 </div>
