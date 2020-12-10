@@ -8,3 +8,4 @@ menu:
   footer: 
     weight: 1
 ---
+Hello, and welcome to our community. We hope you'll like it here!
