@@ -8,12 +8,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">      
-      <ul>
-        {{ range .CurrentSection.Pages }}
-          <li>{{ .Title }}</li>
-        {{ end }}
-      </ul>
+    <div class="col"> 
+      <h1>{{ .Title }}</h1> 
       
       {{ .Content }}
     </div>
