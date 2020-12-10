@@ -49,10 +49,15 @@ jobs:
         with:
           hugo-version: '0.79.0'
           extended: true
+      - name: Wait for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: netlify
+        with:
+          site_name: 'hugo-community' 
       - name: "Build Hugo"
         run: |
           pushd './exampleSite'
-          hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL "/"
+          hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL ${{ steps.netlify.outputs.url }}
           popd
       - name: Check HTML
         uses: chabad360/htmlproofer@master
