@@ -14,13 +14,13 @@
       <div class="row">
         <div class = "col-md-12">
         <h2>Activities</h2>
-        {{ $activities := where .Data.Pages ".Section" "event" }}
+        {{ $activities := where .Data.Pages ".Section" "events" }}
         <ul>
         {{ range $activities }}
           <li><a href="{{ .Parent.Permalink }}">{{ .Title }} @ {{ .Parent.Title }}</a></li>
         {{ end }}
         </ul>
-      {{ $speakers := where .Data.Pages ".Section" "speaker" }}
+      {{ $speakers := where .Data.Pages ".Section" "speakers" }}
       {{ with $speakers }}
         <h2>Speakers</h2>
         {{ range . }}
