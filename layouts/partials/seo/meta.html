@@ -98,7 +98,7 @@
         "name": "{{ .Site.Title }}",
         "logo": {
           "@type": "imageObject",
-          "url": "https://www.example.com/images/brand/favicon.png"
+          "url": "{{ .Site.BaseURL }}/favicon.ico"
         }
       }
     }
@@ -111,13 +111,13 @@
   { 
     "@context": "http://schema.org", 
     "@type": "WebSite", 
-    "url": "{{ .Permalink }}", 
+    "url": {{ .Permalink }}, 
     "sameAs": [
-      "{{ printf "%s%s" "https://twitter.com/" .Site.Params.twitter }}", 
-      "{{ printf "%s%s" "https://github.com/" .Site.Params.github }}"
+      {{ printf "%s%s" "https://twitter.com/" .Site.Params.twitter | htmlUnescape |  safeHTML }}, 
+      {{ printf "%s%s" "https://github.com/" .Site.Params.github | htmlUnescape |  safeHTML }}
     ], 
     "name": "{{ .Title }}", 
-    "logo": "https://www.example.com/images/brand/favicon.png" 
+    "logo": {{ printf "%s%s" .Site.BaseURL "favicon.ico" }}
   }
 </script>
 
@@ -137,7 +137,7 @@
 {{ end }}
 
 <!-- Manifest File -->
-<link rel="manifest" href="/manifest.json" />
+<link rel="manifest" href="./manifest.json" />
 
 <!-- Theme Color -->
 <meta name="theme-color" content="#141414" /> 

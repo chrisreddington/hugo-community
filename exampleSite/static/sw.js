@@ -2,7 +2,7 @@ const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
     '/manifest.json',
-    '/img/favicon.ico',
+    '/favicon.ico',
     '/groups',
     '/community',
     '/',
