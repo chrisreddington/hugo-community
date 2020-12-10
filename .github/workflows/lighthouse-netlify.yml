@@ -41,7 +41,7 @@ jobs:
           hugo-version: '0.79.0'
           extended: true
       - name: "Build Hugo"
-        run: hugo --minify --theme "/github/workspace/" --baseURL "/"
+        run: hugo --minify --theme "hugo-community" --themesDir "/github/workspace/" --baseURL "/"
         working-directory: ./exampleSite
       - name: Check HTML
         uses: chabad360/htmlproofer@master
