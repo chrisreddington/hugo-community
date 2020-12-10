@@ -5,7 +5,7 @@ const BASE_CACHE_FILES = [
     '/script.js',
     '/search.json',
     '/manifest.json',
-    '/favicon.png',
+    '/img/favicon.ico',
 ];
 
 const OFFLINE_CACHE_FILES = [
