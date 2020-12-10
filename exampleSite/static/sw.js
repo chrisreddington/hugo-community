@@ -1,13 +1,7 @@
 const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
-    '/manifest.json',
-    '/favicon.ico',
-    '/groups',
-    '/community',
-    '/',
-    '/events',
-    '/speakers'
+    '/manifest.json'
 ];
 
 const OFFLINE_CACHE_FILES = [
