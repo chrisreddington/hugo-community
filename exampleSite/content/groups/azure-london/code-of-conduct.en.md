@@ -9,6 +9,7 @@ title: "Code of Conduct" # This title will show in the tabs view on your group p
 # Please do not remove or change the below front matter.
 #####
 show_tabs: true # This is used to make this page display in the "Tabs" view in the /layout/groups/single.html template
+private: true         # If false or unset, shows this in siteMap. Otherwise, does not.
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel neque id augue dictum accumsan. Nam sapien dui, tincidunt quis mi et, cursus pharetra leo. Sed eget est ac urna finibus sollicitudin. Aenean dignissim enim eget risus facilisis auctor.
 

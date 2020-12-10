@@ -20,6 +20,7 @@ youtube: "" # The channel you wish to link to, e.g. https://www.youtube.com/c/Cl
 # Please do not remove or change the below front matter.
 #####
 page_type: "organizer" # This is used as part of the queries in /layouts/groups/single.html
+private: true         # If false or unset, shows this in siteMap. Otherwise, does not.
 ---
 Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
 
