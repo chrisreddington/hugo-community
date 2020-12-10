@@ -23,10 +23,19 @@ jobs:
       ################################
       # Run Linter against code base #
       ################################
-      - name: Lint Code Base
+      - name: Lint Content Folder
         uses: github/super-linter@v3
         env:
           FILTER_REGEX_INCLUDE: ./exampleSite/content/**
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      
+      ################################
+      # Run Linter against code base #
+      ################################
+      - name: Lint Archetypes
+        uses: github/super-linter@v3
+        env:
+          FILTER_REGEX_INCLUDE: ./archetypes/**
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   htmlproofer:
     runs-on: ubuntu-latest
