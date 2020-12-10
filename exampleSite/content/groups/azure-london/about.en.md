@@ -9,5 +9,6 @@ title: "About" # This title will show in the tabs view on your group page. Make 
 # Please do not remove or change the below front matter.
 #####
 show_tabs: true # This is used to make this page display in the "Tabs" view in the /layout/groups/single.html template
+private: true         # If false or unset, shows this in siteMap. Otherwise, does not.
 ---
 Some lorem ipsum text

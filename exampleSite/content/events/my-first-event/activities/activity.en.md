@@ -18,5 +18,6 @@ topics: ["Azure DevOps", "GitHub"] # Topic metadata to be associated with the Ac
 # Please do not remove or change the below front matter.
 #####
 page_type: "activity" # This is used as part of the queries in /layouts/groups/single.html
+private: true         # If false or unset, shows this in siteMap. Otherwise, does not.
 ---
 Some information about the activity here.
