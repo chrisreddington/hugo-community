@@ -18,7 +18,8 @@ jobs:
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.6.x
-          lhci autorun --urls ${{ steps.netlify.outputs.url }} --url ${{ steps.netlify.outputs.url }}/community/ --url ${{ steps.netlify.outputs.url }}/events/ --url ${{ steps.netlify.outputs.url }}/groups/ --url ${{ steps.netlify.outputs.url }}/speakers/ --url ${{ steps.netlify.outputs.url }}/topics/
+          lhci collect --urls ${{ steps.netlify.outputs.url }} --url ${{ steps.netlify.outputs.url }}/community/ --url ${{ steps.netlify.outputs.url }}/events/ --url ${{ steps.netlify.outputs.url }}/groups/ --url ${{ steps.netlify.outputs.url }}/speakers/ --url ${{ steps.netlify.outputs.url }}/topics/
+          lhci upload --target "temporary-public-storage"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       #- name: Audit URLs using Lighthouse
