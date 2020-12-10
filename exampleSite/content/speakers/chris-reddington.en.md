@@ -2,6 +2,7 @@
 #####
 # Required
 #####
+description: "Chris is a Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser! He is  currently a Senior Engineer on Microsoft's FastTrack for Azure team." # This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches.
 image: "img/speakers/chris-reddington.jpg" # Location of the banner used for the group page, and in the group list
 title: "Chris Reddington" # Name of the group
 
