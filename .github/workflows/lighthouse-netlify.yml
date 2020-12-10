@@ -43,7 +43,7 @@ jobs:
       - name: "Build Hugo"
         run: |
           pushd './exampleSite'
-          hugo --minify --theme "hugo-community" --themesDir "../" --baseURL "/"
+          hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL "/"
           popd
       - name: Check HTML
         uses: chabad360/htmlproofer@master
