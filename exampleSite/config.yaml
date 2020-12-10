@@ -57,6 +57,7 @@ params:
 taxonomies:
     topic: "topics"
     tag: "tags"
+    communityType: "communityTypes"
 
 #####
 # Optional - Change at your own discretion.

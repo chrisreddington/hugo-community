@@ -1,0 +1,5 @@
+<div class="card border-0 mb-4">
+  <a href="{{ .Params.communityUrl }}"><img class="card-img-top" src="{{ .Params.image }}" alt="{{ .Title }}" title="{{ .Title }}"></a>
+  <h3 class="font-weight-medium mt-3"><a href="{{ .Params.communityUrl }}" class="text-decoration-none link">{{ .Title }}</a></h3>
+  <p>{{ partial "helper/social-small.html" . }}</p>
+</div>
