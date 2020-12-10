@@ -63,6 +63,7 @@ jobs:
         uses: chabad360/htmlproofer@master
         with:
           directory: "./exampleSite/public"
+          arguments: --allow-hash-href
   lighthouse:
     runs-on: ubuntu-latest
     steps:
