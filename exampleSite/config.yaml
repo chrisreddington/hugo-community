@@ -85,3 +85,17 @@ privacy:
   youtube:
     disable: false
     privacyEnhanced: true
+
+
+#####
+#####
+outputFormats:
+  manifest:
+    name: "manifest"
+    baseName: "manifest"
+    mediaType: "application/json"
+    notAlternative: "true"
+outputs:
+  home: 
+    - "HTML"
+    - "MANIFEST"
