@@ -1,7 +1,13 @@
 {
     "name": "{{ .Site.Title }}",
     "short_name": "{{ .Site.Title }}",
-    "icons": [
+    "icons": [      
+      {
+        "src": "img/maskable_icon.png",
+        "sizes": "196x196",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
       {
         "src": "/img/favicon-16x16.png",
         "sizes": "16x16",

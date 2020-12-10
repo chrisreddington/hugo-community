@@ -1,22 +1,20 @@
 const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
-    '/style.css',
-    '/script.js',
-    '/search.json',
     '/manifest.json',
     '/img/favicon.ico',
+    '/groups',
+    '/community',
+    '/',
+    '/events',
+    '/speakers'
 ];
 
 const OFFLINE_CACHE_FILES = [
-    '/style.css',
-    '/script.js',
     '/offline/index.html',
 ];
 
 const NOT_FOUND_CACHE_FILES = [
-    '/style.css',
-    '/script.js',
     '/404.html',
 ];
 
