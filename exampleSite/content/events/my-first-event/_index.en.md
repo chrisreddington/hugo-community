@@ -22,4 +22,8 @@ group: "azure-london" # The urlized version of the group, so that it can be disp
 #####
 layout: "single" # This is used to make sure that the /layouts/event/single.html template is used, and is an override for hugo
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel neque id augue dictum accumsan. Nam sapien dui, tincidunt quis mi et, cursus pharetra leo. Sed eget est ac urna finibus sollicitudin. Aenean dignissim enim eget risus facilisis auctor. Maecenas sit amet viverra libero, id sodales ipsum. Vivamus sed justo eget risus tincidunt rutrum in in felis. Proin auctor nisl eget efficitur bibendum. Duis sed facilisis lacus. Ut porta vulputate eros ac faucibus. Integer orci tortor, feugiat vel euismod nec, maximus id leo. Curabitur sit amet porttitor erat. Nulla at fermentum ante. Mauris lobortis facilisis molestie.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel neque id augue dictum accumsan. Nam sapien dui, tincidunt quis mi et, cursus pharetra leo. Sed eget est ac urna finibus sollicitudin. Aenean dignissim enim eget risus facilisis auctor.
+
+Maecenas sit amet viverra libero, id sodales ipsum. Vivamus sed justo eget risus tincidunt rutrum in in felis. Proin auctor nisl eget efficitur bibendum. Duis sed facilisis lacus. Ut porta vulputate eros ac faucibus. Integer orci tortor, feugiat vel euismod nec, maximus id leo.
+
+Curabitur sit amet porttitor erat. Nulla at fermentum ante. Mauris lobortis facilisis molestie.

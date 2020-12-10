@@ -6,7 +6,4 @@ description: "" # This is a short summary of the page, which is used for SEO (Se
 publishDate: "" # Date that the page should be published
 title: "Offline" # Title of the page
 ---
-
-# No Internet Access
-
 Oops! It looks like you're unable to access the internet right now :(

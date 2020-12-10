@@ -23,10 +23,19 @@ jobs:
       ################################
       # Run Linter against code base #
       ################################
-      - name: Lint Code Base
+      - name: Lint Content Folder
         uses: github/super-linter@v3
         env:
           FILTER_REGEX_INCLUDE: ./exampleSite/content/**
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      
+      ################################
+      # Run Linter against code base #
+      ################################
+      - name: Lint Archetypes
+        uses: github/super-linter@v3
+        env:
+          FILTER_REGEX_INCLUDE: ./archetypes/**
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   htmlproofer:
     runs-on: ubuntu-latest
@@ -40,15 +49,21 @@ jobs:
         with:
           hugo-version: '0.79.0'
           extended: true
+      - name: Wait for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: netlify
+        with:
+          site_name: 'hugo-community' 
       - name: "Build Hugo"
         run: |
           pushd './exampleSite'
-          hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL "/"
+          hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL ${{ steps.netlify.outputs.url }}
           popd
       - name: Check HTML
         uses: chabad360/htmlproofer@master
         with:
           directory: "./exampleSite/public"
+          arguments: --allow-hash-href --http-status-ignore "999"
   lighthouse:
     runs-on: ubuntu-latest
     steps:

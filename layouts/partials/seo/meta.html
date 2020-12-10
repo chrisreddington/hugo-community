@@ -137,7 +137,8 @@
 {{ end }}
 
 <!-- Manifest File -->
-<link rel="manifest" href="./manifest.json" />
+{{ $manifestUrl:= printf "%s%s" .Site.BaseURL "manifest.json" }}
+<link rel="manifest" href="{{ $manifestUrl }}" />
 
 <!-- Theme Color -->
 <meta name="theme-color" content="#141414" /> 
