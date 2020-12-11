@@ -29,23 +29,38 @@
       <div class="row">
         <h2>Speakers</h2>
 
-        <ul class="nav nav-tabs">
-          {{ $activities := where .CurrentSection.Pages "Params.page_type" "activity" }}
-          {{ $tracks := $activities.GroupByParam "event_track" }} 
-          {{ range $index, $value := $tracks }}
-            <li class="group-information">
-              <a class="nav-link" data-toggle="tab" href="#{{ .Key | urlize }}">{{ $value.Key | humanize }}</a>
-            </li>
-          {{ end  }}
-        </ul>
-        
-        <div class="tab-content" id="group-informationContent">
-          {{ range $index, $value := $tracks }}    
-          <div class="tab-pane fade active" id="{{ $value.Key | urlize }}" role="tabpanel" aria-labelledby="nav-home-tab">
-            {{ partial "helper/schedule.html" (dict "taxo" $taxo "value" $value "siteVariable" $.Site ) }}
-          </div>
+        {{ $activities := where .Pages "Params.page_type" "activity" }}
+        {{ $itemsWithTracks := where .CurrentSection.Pages "Params.event_track" "!=" nil }}
+        {{ $activitiesWithTracks := $activities | intersect $itemsWithTracks }}
+
+        {{ if gt (len $activities) 0 }}
+          {{ if gt (len $activitiesWithTracks) 0 }}       
+            {{ $tracks := $activities.GroupByParam "event_track" }} 
+            {{ if (gt (len $tracks) 1 )}}
+              <ul class="nav nav-tabs">
+                {{ range $index, $value := $tracks }}
+                  <li class="group-information">
+                    <a class="nav-link" data-toggle="tab" href="#{{ .Key | urlize }}">{{ $value.Key | humanize }}</a>
+                  </li>
+                {{ end  }}
+              </ul>
+              
+              <div class="tab-content" id="group-informationContent">
+                {{ range $index, $value := $tracks }}    
+                  <div class="tab-pane fade active" id="{{ $value.Key | urlize }}" role="tabpanel" aria-labelledby="nav-home-tab">
+                    {{ partial "helper/schedule.html" (dict "taxo" $taxo "value" $value.Pages "siteVariable" $.Site "scratch" $.Scratch ) }}
+                  </div>
+                {{ end }}          
+              </div>
+            {{ else }}
+              {{ partial "helper/schedule.html" (dict "taxo" $taxo "value" $activities "siteVariable" $.Site "scratch" $.Scratch ) }}
+            {{ end }}
+          {{ else }}
+            {{ partial "helper/schedule.html" (dict "taxo" $taxo "value" $activities "siteVariable" $.Site "scratch" $.Scratch ) }}
+          {{ end }}
+        {{ else }}
+          <p>Sorry, nothing is scheduled yet.</p>
         {{ end }}
-        </div>
       </div>
       <div class="row">
       <hr>

@@ -7,7 +7,7 @@ image: "./images/banner.jpg" # Location of the banner used for the group page, a
 startDate: "2020-12-01T09:00:00Z" # Date and time that the event starts
 endDate: "2020-12-25T10:00:00Z" # Date and time that the event starts
 publishDate: "" # Date that the event should be published on the site (Any builds that you run after this date will display the site). Useful if you want to time this with some kind of social media push/press release.
-title: "My Second Event" # Name of the group
+title: "My Empty Event" # Name of the group
 location: "Reading Town Center, Somewhere" # Plain text that is displayed for the "Location" of the event. Could easily be text to say "Microsoft Teams Meeting" or "Zoom Call".
 
 #####

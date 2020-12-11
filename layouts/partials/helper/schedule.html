@@ -1,6 +1,7 @@
 {{ $taxo := .taxo }}
 {{ $value := .value }}
 {{ $site := .siteVariable }}
+{{ $scratch := .scratch }}
 
 <table class="table table-hover table-striped">
     <thead>
@@ -12,7 +13,7 @@
       </tr>
     </thead>
     <tbody>        
-      {{ range $value.Pages }}
+      {{ range $value }}
         <tr>
           <th scope="row">
             {{ if .Params.startDate }}
@@ -20,20 +21,19 @@
               {{ if .Params.endDate }}
                 - {{ dateFormat "03:04" .Params.endDate }}
               {{ end }}
+            {{ else }}
+                <p>TBC</p>
             {{ end }}
           </th>
           <td>                    
             {{ with .Params.speakers }}              
               {{ range $name := . }}
-                {{ $.Scratch.Set "person" ($name | urlize) }}
+                {{ $scratch.Set "person" ($name | urlize) }}
                 {{- range where $site.Pages "Type" "speakers" -}}
-                    {{ .File.TranslationBaseName }}
-                    {{ $.Scratch.Get "person" }}
-                  {{- if eq .File.TranslationBaseName ($.Scratch.Get "person") -}}
-                  
-                    {{- $.Scratch.Set "host-exist" "true" -}}     
+                  {{- if eq .File.TranslationBaseName ($scratch.Get "person") -}}
+                    {{- $scratch.Set "host-exist" "true" -}}     
                         <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
-                    {{- $.Scratch.Set "host-exist" "false" -}}
+                    {{- $scratch.Set "host-exist" "false" -}}
                   {{ end }}
                 {{- end -}}
               {{ end }}
