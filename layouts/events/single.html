@@ -22,11 +22,37 @@
   
   <div class="row">
     <div class="col-md-8">
-      <p>{{ .Content }}</p>
+      <div class="row">
+        <p>{{ .Content }}</p>
+        <hr>
+      </div>
+      <div class="row">
+        <h2>Speakers</h2>
+
+        <ul class="nav nav-tabs">
+          {{ $activities := where .CurrentSection.Pages "Params.page_type" "activity" }}
+          {{ $tracks := $activities.GroupByParam "event_track" }} 
+          {{ range $index, $value := $tracks }}
+            <li class="group-information">
+              <a class="nav-link" data-toggle="tab" href="#{{ .Key | urlize }}">{{ $value.Key | humanize }}</a>
+            </li>
+          {{ end  }}
+        </ul>
+        
+        <div class="tab-content" id="group-informationContent">
+          {{ range $index, $value := $tracks }}    
+          <div class="tab-pane fade active" id="{{ $value.Key | urlize }}" role="tabpanel" aria-labelledby="nav-home-tab">
+            {{ partial "helper/schedule.html" (dict "taxo" $taxo "value" $value "siteVariable" $.Site ) }}
+          </div>
+        {{ end }}
+        </div>
+      </div>
+      <div class="row">
       <hr>
-      {{ if eq .Site.Params.Config.disqus_enabled true }}
-        {{ template "_internal/disqus.html" $context }}
-      {{ end }}
+        {{ if eq .Site.Params.Config.disqus_enabled true }}
+          {{ template "_internal/disqus.html" $context }}
+        {{ end }}
+      </div>
     </div>
     <div class="col-md-4">
 
@@ -40,44 +66,11 @@
         <hr >
       {{ end }}
       
-      {{ with .CurrentSection.Pages }}
-      <h2>Speakers</h2>      
-        {{ range . }}
-          <div class="row">
-            <div class="col-8">
-              <strong>{{ .Title }}</strong>
-              {{ with .Params.topics }}
-                {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
-              {{ end }}
-            </div>
-            <div class="col-4">
-              {{ with .Params.speakers }}
-                <div class="col-md-6">                  
-                  {{ range $name := . }}
-                    {{ $.Scratch.Set "person" ($name | urlize) }}
-                    {{- range where $.Site.Pages "Type" "speakers" -}}
-                      {{- if eq .File.TranslationBaseName ($.Scratch.Get "person") -}}
-                      
-                        {{- $.Scratch.Set "host-exist" "true" -}}     
-                            <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
-                        {{- $.Scratch.Set "host-exist" "false" -}}
-                      {{ end }}
-                    {{- end -}}
-                  {{ end }}
-                </div>
-              {{ end }}
-            </div>
-          </div>
-        {{ end }}
-        <hr >
-     {{ end }}
-
-      
       {{ range .Sections }}        
         {{ $currentSection := .CurrentSection }}
         {{ $sponsors := where $currentSection.Pages "Params.page_type" "sponsor" }}
         {{ with $sponsors }}
-          <h2>Sponsors</h2>
+          <h2>Event Sponsors</h2>
           {{ range . }}
             <div class="row">
               <div class="col-8">
