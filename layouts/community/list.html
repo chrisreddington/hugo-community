@@ -15,7 +15,7 @@
   <ul class="nav nav-tabs">
   {{ range $term, $value := .Site.Taxonomies.communityTypes }}
   <li class="group-information">
-    <a class="nav-link" data-toggle="tab" href="/#{{ $term | urlize }}">{{ $term | humanize | pluralize }}</a>
+    <a class="nav-link" data-toggle="tab" href="#{{ $term | urlize }}">{{ $term | humanize | pluralize }}</a>
   </li>
   {{ end }}
   </ul>

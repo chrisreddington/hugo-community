@@ -40,7 +40,7 @@
               <ul class="nav nav-tabs">
                 {{ range $index, $value := $tracks }}
                   <li class="group-information">
-                    <a class="nav-link" data-toggle="tab" href="/#{{ .Key | urlize }}">{{ $value.Key | humanize }}</a>
+                    <a class="nav-link" data-toggle="tab" href="#{{ .Key | urlize }}">{{ $value.Key | humanize }}</a>
                   </li>
                 {{ end  }}
               </ul>
