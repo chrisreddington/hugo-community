@@ -8,7 +8,8 @@ publishDate: ""                                   # Date that the page should be
 title: "Cloud with Chris"                         # Title of the page
 communityTypes: ["Podcast"]                          # For example, blog, podcast, etc.
 communityUrl: "https://www.cloudwithchris.com"    # The main url for the community resource
-topics: []                                        # Topics
+topics: ["DevOps", "Cloud Architecture"]          # Topics
+speakers: ["chris-reddington"]                    # Chris Reddington
 
 #####
 # Social - Optional
