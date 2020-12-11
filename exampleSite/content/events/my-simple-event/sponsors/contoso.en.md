@@ -2,7 +2,7 @@
 #####
 # Required
 #####
-title: "Contoso" # Name of the organizer
+title: "Contoso Simple Solutions" # Name of the organizer
 image: "https://via.placeholder.com/150" # Location of the banner used for the group page, and in the group list
 
 #####

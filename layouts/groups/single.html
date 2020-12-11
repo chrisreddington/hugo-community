@@ -75,6 +75,29 @@
     </div>
     <div class="col-md-4">
       {{ partial "helper/social-normal.html" . }}
+
+
+      {{ $organizers := where .Site.Pages "Params.page_type" "organizer" }}
+      {{ $currentItemChildren := .CurrentSection.Pages }}
+      {{ $currentItemOrganizers := $organizers | intersect $currentItemChildren }}
+      
+      {{ with $currentItemOrganizers }}
+        <h2>Organizers</h2>
+        {{ range . }}
+          <div class="row">
+            <div class="col-8">
+              <p>{{ .Title }}</p>
+              {{ partial "helper/social-small.html" . }}
+            </div>
+            <div class="col-4">
+              {{ if and (isset .Params "image") (ne .Params.image "") }}
+                <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+
       <h2>Organizers</h2>
       {{ range .Sections }}        
         {{ $currentSection := .CurrentSection }}
@@ -93,21 +116,25 @@
       {{ end }}
 
       
-      <h2>Sponsors</h2>
-      {{ range .Sections }}        
-        {{ $currentSection := .CurrentSection }}
-        {{ range where $currentSection.Pages "Params.page_type" "sponsor"  }}
+      {{ $sponsors := where .Site.Pages "Params.page_type" "sponsor" }}
+      {{ $currentItemChildren := .CurrentSection.Pages }}
+      {{ $currentItemSponsors := $sponsors | intersect $currentItemChildren }}
+      
+      {{ with $currentItemSponsors }}
+        <h2>Group Sponsors</h2>
+        {{ range . }}
           <div class="row">
             <div class="col-8">
               <p>{{ .Title }}</p>
               {{ partial "helper/social-small.html" . }}
             </div>
             <div class="col-4">
-              <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+              {{ if and (isset .Params "image") (ne .Params.image "") }}
+                <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
+              {{ end }}
             </div>
           </div>
         {{ end }}
-
       {{ end }}
     </div>
   </div>

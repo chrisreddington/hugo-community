@@ -80,25 +80,26 @@
         {{ end }}
         <hr >
       {{ end }}
+
       
-      {{ range .Sections }}        
-        {{ $currentSection := .CurrentSection }}
-        {{ $sponsors := where $currentSection.Pages "Params.page_type" "sponsor" }}
-        {{ with $sponsors }}
-          <h2>Event Sponsors</h2>
-          {{ range . }}
-            <div class="row">
-              <div class="col-8">
-                <p>{{ .Title }}</p>
-                {{ partial "helper/social-small.html" . }}
-              </div>
-              <div class="col-4">
-                {{ if and (isset .Params "image") (ne .Params.image "") }}
-                  <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
-                {{ end }}
-              </div>
+      {{ $sponsors := where .Pages "Params.page_type" "sponsor" }}
+      {{ $currentItemChildren := .CurrentSection.Pages }}
+      {{ $currentItemSponsors := $sponsors | intersect $currentItemChildren }}
+      
+      {{ with $currentItemSponsors }}
+        <h2>Event Sponsors</h2>
+        {{ range . }}
+          <div class="row">
+            <div class="col-8">
+              <p>{{ .Title }}</p>
+              {{ partial "helper/social-small.html" . }}
             </div>
-          {{ end }}
+            <div class="col-4">
+              {{ if and (isset .Params "image") (ne .Params.image "") }}
+                <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
+              {{ end }}
+            </div>
+          </div>
         {{ end }}
       {{ end }}
     </div>

@@ -3,7 +3,7 @@
 # Required
 #####
 image: "https://via.placeholder.com/150" # Location of the banner used for the group page, and in the group list
-title: "Contoso" # Name of the organizer
+title: "Contoso Thames Cruising" # Name of the organizer
 
 #####
 # Social - Optional
