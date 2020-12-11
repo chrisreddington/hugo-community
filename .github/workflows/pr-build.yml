@@ -19,7 +19,9 @@ jobs:
           hugo-version: ${{ matrix.hugo }}
           extended: true      
       - name: Build
-        run: hugo --minify    
+          pushd './exampleSite'
+          hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL ${{ steps.netlify.outputs.url }}
+          popd
   contentLinter:    
     # Name the Job
     name: "Linting Markdown Files"
