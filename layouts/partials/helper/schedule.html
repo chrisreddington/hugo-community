@@ -1,0 +1,54 @@
+{{ $taxo := .taxo }}
+{{ $value := .value }}
+{{ $site := .siteVariable }}
+{{ $scratch := .scratch }}
+
+<table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Session</th>
+        <th scope="col"></th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>        
+      {{ range $value }}
+        <tr>
+          <th scope="row">
+            {{ if .Params.startDate }}
+              {{ dateFormat "03:04" .Params.startDate }}
+              {{ if .Params.endDate }}
+                - {{ dateFormat "03:04" .Params.endDate }}
+              {{ end }}
+            {{ else }}
+                <p>TBC</p>
+            {{ end }}
+          </th>
+          <td>                    
+            {{ with .Params.speakers }}              
+              {{ range $name := . }}
+                {{ $scratch.Set "person" ($name | urlize) }}
+                {{- range where $site.Pages "Type" "speakers" -}}
+                  {{- if eq .File.TranslationBaseName ($scratch.Get "person") -}}
+                    {{- $scratch.Set "host-exist" "true" -}}     
+                        <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+                    {{- $scratch.Set "host-exist" "false" -}}
+                  {{ end }}
+                {{- end -}}
+              {{ end }}
+            {{ end }}
+          </td>
+          <td>
+            <p>{{ .Title }}</p>
+          </td>
+          <td>
+            <p>{{ .Content }}</p>
+            {{ with .Params.topics }}
+              <p>{{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $site ) }}</p>
+            {{ end }}
+          </td>
+        </tr>
+      {{ end }}
+    </tbody>
+</table>

@@ -9,8 +9,9 @@ title: "DevOps in a Cloud World" # Name of the activity, e.g. session name
 #####
 # Optional
 #####
-# activity_date: "" # Datetime that this specific activity takes place. e.g. The start time for this particular talk/session.
-# event_track: "" # Additional metadata to be associated with an activity if there are multiple "tracks" in the event which should be rendered separately. E.g. A track of sessions on DevOps, a track of sessions on Cloud Architecture, etc.
+startDate: "2020-12-25T09:00:00Z" # Date and time that the activity starts
+endDate: "2020-12-25T10:00:00Z" # Date and time that the activity starts
+event_track: "DevOps" # Additional metadata to be associated with an activity if there are multiple "tracks" in the event which should be rendered separately. E.g. A track of sessions on DevOps, a track of sessions on Cloud Architecture, etc.
 # location: "" # Location of this particular activity, e.g. rom number. Useful if being use for a conference type event, where there is one overall location, but activities (e.g. sessions) would beheld in different rooms smin a conference venue.
 topics: ["Azure DevOps", "GitHub"] # Topic metadata to be associated with the Activity. This will displayed as tags on the page, and will also be available underneath the /topics/ taxonomy on the website.
 
