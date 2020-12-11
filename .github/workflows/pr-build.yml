@@ -19,6 +19,7 @@ jobs:
           hugo-version: ${{ matrix.hugo }}
           extended: true      
       - name: Build
+        run: |
           pushd './exampleSite'
           hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL ${{ steps.netlify.outputs.url }}
           popd
