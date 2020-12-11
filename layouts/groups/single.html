@@ -35,14 +35,14 @@
       <ul class="nav nav-tabs">
         {{ range where .Pages "Params.show_tabs" true }}
           <li class="group-information">
-            <a class="nav-link" data-toggle="tab" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+            <a class="nav-link" data-toggle="tab" href="/#{{ .Title | urlize }}">{{ .Title }}</a>
           </li>
         {{ end  }}
         <li class="group-information">
-          <a class="nav-link" data-toggle="tab" href="#upcomingEvents">Upcoming Events</a>
+          <a class="nav-link" data-toggle="tab" href="/#upcomingEvents">Upcoming Events</a>
         </li>
         <li class="group-information">
-          <a class="nav-link" data-toggle="tab" href="#pastEvents">Past Events</a>
+          <a class="nav-link" data-toggle="tab" href="/#pastEvents">Past Events</a>
         </li>
       </ul>
       
