@@ -15,7 +15,8 @@
 </nav>
 
 <div class="container">
-  <h1>Past Events <small><a href="{{ printf "%s%s" .Site.BaseURL "/index.xml" }}">RSS Feed</a> | <a href="{{ printf "%s%s" .Site.BaseURL "/events" }}">Upcoming Events</a></small></h1>
+  <h1>Past Events <small>
+    <a href="{{ printf "%s%s%s" .Site.BaseURL .File.Dir "index.xml" }}">RSS Feed</a> | <a href="{{ printf "%s%s" .Site.BaseURL "/events" }}">Upcoming Events</a></small></h1>
   
     <div class="row">
     </div>

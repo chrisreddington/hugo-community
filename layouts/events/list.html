@@ -13,7 +13,11 @@
 <div class="container">
   
 
-  <h1>Upcoming Events <small><a href="index.xml">RSS Feed</a> | <a href="past">Past Events</a></small></h1>
+  <h1>Upcoming Events <small>
+    
+{{ with .OutputFormats.Get "RSS" }}
+  <a href="{{ .Permalink }}">RSS Feed</a>
+{{ end }}  | <a href="{{ "events/past" | relURL }}">Past Events</a></small></h1>
 
   <div class="row">
     <center>
