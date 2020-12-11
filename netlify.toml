@@ -13,7 +13,7 @@
   publish = "exampleSite/public/"
 
   # Default build command.
-  command = "ln -s /opt/build/repo /opt/build/hugo-community; hugo --minify --baseURL='$URL'"
+  command = "ln -s /opt/build/repo /opt/build/hugo-community; hugo --minify --baseURL $DEPLOY_PRIME_URL"
 
 # Production context: all deploys from the Production branch set in your site’s
 # deploy contexts will inherit these settings.
@@ -24,5 +24,5 @@
 # will inherit these settings.
 [context.deploy-preview]
   base = "/"
-  command = "ln -s /opt/build/repo /opt/build/hugo-community; cd exampleSite; hugo --minify --baseURL='$URL'"
+  command = "ln -s /opt/build/repo /opt/build/hugo-community; cd exampleSite; hugo --minify --baseURL $DEPLOY_PRIME_URL"
   environment = {  HUGO_VERSION = "0.79.0" }
