@@ -1,5 +1,33 @@
+{{ $taxo := "topics" }}
+
 <div class="card border-0 mb-4">
-  <a href="{{ .Params.communityUrl }}"><img class="card-img-top" src="{{ .Params.image }}" alt="{{ .Title }}" title="{{ .Title }}"></a>
-  <h3 class="font-weight-medium mt-3"><a href="{{ .Params.communityUrl }}" class="text-decoration-none link">{{ .Title }}</a></h3>
-  <p>{{ partial "helper/social-small.html" . }}</p>
+  <div class="row">
+    <a href="{{ .Params.communityUrl }}"><img class="card-img-top" src="{{ .Params.image }}" alt="{{ .Title }}" title="{{ .Title }}"></a>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <h3 class="font-weight-medium mt-3"><a href="{{ .Params.communityUrl }}" class="text-decoration-none link">{{ .Title }}</a></h3>
+      <p>{{ partial "helper/social-small.html" . }}</p>
+      <p>
+        {{ with .Params.topics }}
+          {{ partial "helper/tags.html" (dict "taxo" $taxo "value" . "siteVariable" $.Site ) }}
+        {{ end }}
+      </p>
+    </div>
+    {{ with .Params.speakers }}
+      <div class="col-3">                  
+        {{ range $name := . }}
+          {{ $.Scratch.Set "person" ($name | urlize) }}
+          {{- range where $.Site.Pages "Type" "speakers" -}}
+            {{- if eq .File.TranslationBaseName ($.Scratch.Get "person") -}}
+            
+              {{- $.Scratch.Set "host-exist" "true" -}}     
+                  <a href="{{ .Permalink | absURL}}"><img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
+              {{- $.Scratch.Set "host-exist" "false" -}}
+            {{ end }}
+          {{- end -}}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
 </div>
