@@ -11,7 +11,6 @@
   # root directory if a base has not been set. This sample publishes the
   # directory located at the absolute path "root/project/build-output"
   publish = "output/"
-  ignore = "git diff --quiet HEAD^ HEAD ./"
 
   # Default build command.
   command = "ln -s /opt/build/repo /opt/build/hugo-community; hugo --minify --baseURL='$URL'"
@@ -24,4 +23,6 @@
 # Deploy Preview context: all deploys that from a pull/merge request
 # will inherit these settings.
 [context.deploy-preview]
+  base = "/"
+  command = "ln -s /opt/build/repo /opt/build/hugo-community; cd exampleSite; hugo --minify --baseURL='$URL'"
   environment = {  HUGO_VERSION = "0.79.0" }
