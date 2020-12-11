@@ -5,7 +5,7 @@ This guide is intended for those that wish to use the theme.
 
 ## Site Config Settings
 
-Coming soon.
+Coming soon
 
 ## Archetypes
 
