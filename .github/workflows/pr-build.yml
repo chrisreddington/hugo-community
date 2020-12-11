@@ -9,6 +9,11 @@ jobs:
         node: [6, 8, 10]
         hugo: [0.76.5, 0.77.0, 0.78.2]
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
       - name: Setup Node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
