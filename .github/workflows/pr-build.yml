@@ -91,7 +91,7 @@ jobs:
         run: |
           pushd ./exampleSite/public
           sudo gem install html-proofer
-          html-proofer --allow-hash-href --http-status-ignore "999"
+          sudo html-proofer --allow-hash-href --http-status-ignore "999"
   lighthouse:
     name: "SEO, Accessibility and PWA Checks"
     runs-on: ubuntu-latest
