@@ -90,7 +90,7 @@ jobs:
       - name: "Check HTML Output"
         run: |
           pushd ./exampleSite/public
-          gem install html-proofer
+          sudo gem install html-proofer
           html-proofer --allow-hash-href --http-status-ignore "999"
   lighthouse:
     name: "SEO, Accessibility and PWA Checks"
