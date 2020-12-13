@@ -110,7 +110,7 @@ jobs:
           pushd ./exampleSite/public
           sudo gem install html-proofer
           htmlproofer -v
-          htmlproofer --allow-hash-href --http-status-ignore "999"
+          htmlproofer --allow-hash-href --http-status-ignore "999" --url-ignore "https://github.com/chrisreddington/hugo-community/edit/main/exampleSite/content/events/past/index.en.md,#about,#artificial-intelligence,#blog,#code-of-conduct,#devops,#podcast,#pastEvents,#upcomingEvents,https://fonts.googleapis.com"
   lighthouse:
     needs: htmlproofer
     name: "SEO, Accessibility and PWA Checks"
