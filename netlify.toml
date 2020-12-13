@@ -18,6 +18,7 @@
 # Production context: all deploys from the Production branch set in your site’s
 # deploy contexts will inherit these settings.
 [context.production]
+  publish = "public/"
   environment = {  HUGO_VERSION = "0.79.0" }
 
 # Deploy Preview context: all deploys that from a pull/merge request
