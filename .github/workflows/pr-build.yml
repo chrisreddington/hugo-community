@@ -1,69 +1,69 @@
 name: PR Build
 on: pull_request
 jobs:
-  matrixBuild:
-    name: "Build against Various Node & Hugo Versions"
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [6, 8, 10]
-        hugo: [0.76.5, 0.77.0, 0.78.2]
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-        with:
-          # Full git history is needed to get a proper list of changed files within `super-linter`
-          fetch-depth: 0
-      - name: Setup Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Setup Hugo ${{ matrix.hugo }}
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: ${{ matrix.hugo }}
-          extended: true      
-      - name: Build
-        run: |
-          pushd './exampleSite'
-          hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL "/"
-          popd
-  contentLinter:    
-    # Name the Job
-    name: "Linting Markdown Files"
-    # Set the agent to run on
-    runs-on: ubuntu-latest
+  # matrixBuild:
+  #   name: "Build against Various Node & Hugo Versions"
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node: [6, 8, 10]
+  #       hugo: [0.76.5, 0.77.0, 0.78.2]
+  #   steps:
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #       with:
+  #         # Full git history is needed to get a proper list of changed files within `super-linter`
+  #         fetch-depth: 0
+  #     - name: Setup Node ${{ matrix.node }}
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: ${{ matrix.node }}
+  #     - name: Setup Hugo ${{ matrix.hugo }}
+  #       uses: peaceiris/actions-hugo@v2
+  #       with:
+  #         hugo-version: ${{ matrix.hugo }}
+  #         extended: true      
+  #     - name: Build
+  #       run: |
+  #         pushd './exampleSite'
+  #         hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL "/"
+  #         popd
+  # contentLinter:    
+  #   # Name the Job
+  #   name: "Linting Markdown Files"
+  #   # Set the agent to run on
+  #   runs-on: ubuntu-latest
 
-    ##################
-    # Load all steps #
-    ##################
-    steps:
-      ##########################
-      # Checkout the code base #
-      ##########################
-      - name: Checkout Code
-        uses: actions/checkout@v2
-        with:
-          # Full git history is needed to get a proper list of changed files within `super-linter`
-          fetch-depth: 0
+  #   ##################
+  #   # Load all steps #
+  #   ##################
+  #   steps:
+  #     ##########################
+  #     # Checkout the code base #
+  #     ##########################
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #       with:
+  #         # Full git history is needed to get a proper list of changed files within `super-linter`
+  #         fetch-depth: 0
 
-      ################################
-      # Run Linter against code base #
-      ################################
-      - name: Lint exampleSite Content Folder
-        uses: github/super-linter@v3
-        env:
-          FILTER_REGEX_INCLUDE: ./exampleSite/content/**
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+  #     ################################
+  #     # Run Linter against code base #
+  #     ################################
+  #     - name: Lint exampleSite Content Folder
+  #       uses: github/super-linter@v3
+  #       env:
+  #         FILTER_REGEX_INCLUDE: ./exampleSite/content/**
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
       
-      ################################
-      # Run Linter against code base #
-      ################################
-      - name: Lint exampleSite Archetypes Folder
-        uses: github/super-linter@v3
-        env:
-          FILTER_REGEX_INCLUDE: ./archetypes/**
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     ################################
+  #     # Run Linter against code base #
+  #     ################################
+  #     - name: Lint exampleSite Archetypes Folder
+  #       uses: github/super-linter@v3
+  #       env:
+  #         FILTER_REGEX_INCLUDE: ./archetypes/**
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   htmlproofer:
     name: "Verify HTML Output from build"
     runs-on: ubuntu-latest
