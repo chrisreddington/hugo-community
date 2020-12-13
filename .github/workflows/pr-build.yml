@@ -87,11 +87,11 @@ jobs:
           pushd './exampleSite'
           hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL ${{ steps.netlify.outputs.url }}
           popd
-      - name: Check HTML
-        uses: chabad360/htmlproofer@master
-        with:
-          directory: "./exampleSite/public"
-          arguments: --allow-hash-href --http-status-ignore "999"
+      - name: "Check HTML Output"
+        run: |
+          pushd ./exampleSite/public
+          gem install html-proofer
+          html-proofer --allow-hash-href --http-status-ignore "999"
   lighthouse:
     name: "SEO, Accessibility and PWA Checks"
     runs-on: ubuntu-latest
