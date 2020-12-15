@@ -49,18 +49,22 @@
               </div>
             {{ end }}
             <div class="tab-pane fade" id="upcomingEvents" role="tabpanel" aria-labelledby="nav-home-tab">
-              {{ range $futureGroupEvents }}          
-                <div class="col-md-4 on-hover">
-                  {{ partial "helper/event.html" . }}
-                </div>
-              {{ end }}
+              <div class="row">
+                {{ range $futureGroupEvents }}          
+                  <div class="col-md-4 on-hover">
+                    {{ partial "helper/event.html" . }}
+                  </div>
+                {{ end }}
+              </div>
             </div>      
             <div class="tab-pane fade" id="pastEvents" role="tabpanel" aria-labelledby="nav-home-tab">
-              {{ range $pastGroupEvents }}          
-                <div class="col-md-4 on-hover">
-                  {{ partial "helper/event.html" . }}
-                </div>
-              {{ end }}
+              <div class="row">
+                {{ range $pastGroupEvents }}          
+                  <div class="col-md-4 on-hover">
+                    {{ partial "helper/event.html" . }}
+                  </div>
+                {{ end }}
+              </div>
             </div>
           </div>
         </div>
