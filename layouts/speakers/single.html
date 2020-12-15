@@ -35,14 +35,32 @@
     <p class="text-left"><strong><h2>Sessions:</h2> </strong></p>
 
     <div class="row">
-      {{ range where .Site.RegularPages ".Params.speakers" "intersect" (slice (.Title | urlize)) }}               
+      {{ $events := where .Site.Pages ".Section" "events" }}
+      {{ $itemsByCurrentSpeaker := where .Site.RegularPages ".Params.speakers" "intersect" (slice (.Title | urlize)) }}
+      {{ $eventsByCurrentSpeaker := $events | intersect $itemsByCurrentSpeaker }}
+      {{ range $eventsByCurrentSpeaker }}               
       <div class="col-md-4 on-hover">
         {{ partial "helper/event.html" .Parent }}
       </div>
       {{ end }}
    </div>
-  </div>
   </center>
+
+  
+  <hr>
+  <p class="text-left"><strong><h2>Community:</h2> </strong></p>
+
+  <div class="row">
+    {{ $community := where .Site.Pages ".Section" "community" }}
+    {{ $itemsByCurrentSpeaker := where .Site.RegularPages ".Params.speakers" "intersect" (slice (.Title | urlize)) }}
+    {{ $communityItemsByCurrentSpeaker := $community | intersect $itemsByCurrentSpeaker }}
+    {{ range $communityItemsByCurrentSpeaker }}               
+    <div class="col-md-4 on-hover">
+      {{ partial "helper/community.html" . }}
+    </div>
+    {{ end }}
+ </div>
+</center>
 
 </div>
 
