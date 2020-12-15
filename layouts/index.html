@@ -36,12 +36,7 @@
     {{ end }}
   </div><!-- /.row -->
 
-  <div class="row">
-    <div class="col-12">      
-      <h2>Group Showcase <small>{{ with .Site.GetPage "groups" }}<a href="{{ .Permalink }}">Meet some of the community groups</a>{{ end }}</small></h2>
-    </div>
-  </div>
-  {{ partial "home/featurettes.html" . }}
+  {{ partial "home/groups.html" . }}
 </div>
 
 {{ end }}
