@@ -66,6 +66,47 @@ menu:
       weight: 5
       url: "/community"
 
+      
+  ####
+  # The below is an example configuration for a site that has many groups, i.e. a platform for a type of community
+  ####
+  footermulti:
+    - name: "Home"
+      weight: 1
+      url: "/"
+    - name: "Groups"
+      weight: 2
+      url: "/groups"
+    - name: "Events"
+      weight: 3
+      url: "/events"
+    - name: "Speakers"
+      weight: 4
+      url: "/speakers"
+    - name: "Community"
+      weight: 5
+      url: "/community"
+
+  ####
+  # The below is an example configuration for a site that has a single group
+  ####
+  footersingle:
+    - name: "Home"
+      weight: 1
+      url: "/"
+    - name: "Group"
+      weight: 2
+      url: "/group"
+    - name: "Events"
+      weight: 3
+      url: "/events"
+    - name: "Speakers"
+      weight: 4
+      url: "/speakers"
+    - name: "Community"
+      weight: 5
+      url: "/community"
+
 
 #####
 # Community Theme Parameters
