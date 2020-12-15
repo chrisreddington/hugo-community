@@ -15,8 +15,10 @@
       </div>
     </div>
     <div class="row">   
+      {{ $future := where .Site.Pages ".Params.startdate" "ge" (now.Format "2006-01-02") }}
       {{ $events := (.Site.GetPage "events").Pages }}
-        {{ range where $events ".Title" "!=" "Past Events"  }}
+        {{ $futureEvents := $future | intersect $events }}
+        {{ range first $.Site.Params.home.events (sort ($futureEvents.ByParam "startdate"))  }}
         <div class="col">
           {{ partial "helper/event.html" . }}
         </div>

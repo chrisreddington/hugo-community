@@ -2,12 +2,12 @@
 #####
 # Required
 #####
-description: "This is the description for My First Event in Reading Town Center!" # This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches.populated the page's description metadata.
+description: "This is the description for My Second Event in Reading Town Center!" # This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches.populated the page's description metadata.
 image: "./images/banner.jpg" # Location of the banner used for the group page, and in the group list
-startDate: "2020-12-25T09:00:00Z" # Date and time that the event starts
-endDate: "2020-12-25T10:00:00Z" # Date and time that the event starts
-publishDate: "2020-12-01T10:00:00Z" # Date that the event should be published on the site (Any builds that you run after this date will display the site). Useful if you want to time this with some kind of social media push/press release.
-title: "My Conference Event" # Name of the group
+startDate: "2021-12-01T09:00:00Z" # Date and time that the event starts
+endDate: "2021-12-25T10:00:00Z" # Date and time that the event starts
+publishDate: "" # Date that the event should be published on the site (Any builds that you run after this date will display the site). Useful if you want to time this with some kind of social media push/press release.
+title: "My Future Empty Event" # Name of the group
 location: "Reading Town Center, Somewhere" # Plain text that is displayed for the "Location" of the event. Could easily be text to say "Microsoft Teams Meeting" or "Zoom Call".
 
 #####

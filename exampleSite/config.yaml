@@ -128,6 +128,7 @@ params:
   github_repo: "https://github.com/chrisreddington/hugo-community"     #Used within the "Last Edited" information on the page
   github_repo_subfolder: "exampleSite/"     #Used within the "Last Edited" information on the page
   home:                                 # Information relating to the configuration of your homepage.
+    events: 3                         # Number of events to show on the homepage. This list is sorted by order of start date chronologically.
     jumbotron:                        # Information relating to the jumbotron on your homepage.
       heading: "Community - The community theme for hugo"
       text: "Welcome to our little community, we hope that you like it here. We're an open and inclusive environment, dedicated to help each other learn and grow. We would love your help to continue growing our community. Please explore our page to find more details!"
