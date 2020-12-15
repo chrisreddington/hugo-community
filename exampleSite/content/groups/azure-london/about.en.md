@@ -5,6 +5,7 @@
 starting_view: true # This boolean determines whether this information is the view on page load for your tabs
 title: "About" # This title will show in the tabs view on your group page. Make sure it's succinct.
 
+aliases: ["/group/about"]
 #####
 # Please do not remove or change the below front matter.
 #####
