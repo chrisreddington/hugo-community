@@ -3,8 +3,10 @@
 {{ $events := where .Site.Pages "Section" "events" }}
 {{ $pastItems := where .Site.Pages ".Params.startdate" "lt" (now.Format "2006-01-02")}}
 {{ $pastEvents := $events | intersect $pastItems }}
+{{ $sortedPastEvents := sort $pastEvents ".Params.startdate" "desc" }}
 
-{{ $paginator := $.Paginate $pastEvents  }}
+
+{{ $paginator := $.Paginate $sortedPastEvents  }}
 
 
 <nav aria-label="breadcrumb">
@@ -22,7 +24,7 @@
     </div>
     <div class="row mt-4 interactive-cards">
       <!-- Column -->
-      {{ range $pastEvents }}
+      {{ range $sortedPastEvents }}
       <div class="col-md-4 on-hover">
         {{ partial "helper/event.html" . }}
       </div>
