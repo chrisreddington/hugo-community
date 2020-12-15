@@ -14,128 +14,104 @@
     <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
   </ol>
 </nav>
-</div>
-</div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-
-  
-  <div class="row">
-    <div class="col-md-12">
-      <img class="card-img-top" src="{{ .Params.image }}" alt="{{ .Title }}">
-      <h1>{{ .Title }}</h1>
-    </div>
-  </div>
-
-  
-  <div class="row">
-    <div class="col-md-8">
-      <ul class="nav nav-tabs">
-        {{ range where .Pages "Params.show_tabs" true }}
-          <li class="group-information">
-            <a class="nav-link" data-toggle="tab" href="#{{ .Title | urlize }}">{{ .Title }}</a>
-          </li>
-        {{ end  }}
-        <li class="group-information">
-          <a class="nav-link" data-toggle="tab" href="#upcomingEvents">Upcoming Events</a>
-        </li>
-        <li class="group-information">
-          <a class="nav-link" data-toggle="tab" href="#pastEvents">Past Events</a>
-        </li>
-      </ul>
-      
-      <div class="tab-content" id="group-informationContent">
-        {{ range where .Pages "Params.show_tabs" true }}
-          <div class="tab-pane fade active{{ if eq .Params.starting_view true }} show{{ end }}" id="{{ .Title | urlize }}" role="tabpanel" aria-labelledby="nav-home-tab">
-            {{ .Content }}
-          </div>
-        {{ end }}
-      </div>
-      <div class="tab-pane fade" id="upcomingEvents" role="tabpanel" aria-labelledby="nav-home-tab">
-      <ul>
-        {{ range $futureGroupEvents }}          
-        <div class="col-md-4 on-hover">
-          {{ partial "helper/event.html" . }}
+    <div class="col-md-12">  
+      <div class="row">
+        <div class="col-md-12">
+          <img class="card-img-top" src="{{ .Params.image }}" alt="{{ .Title }}">
+          <h1>{{ .Title }}</h1>
         </div>
-        {{ end }}
-      </ul>
       </div>
+
       
-      <div class="tab-pane fade" id="pastEvents" role="tabpanel" aria-labelledby="nav-home-tab">
-        <ul>
-          {{ range $pastGroupEvents }}          
-          <div class="col-md-4 on-hover">
-            {{ partial "helper/event.html" . }}
+      <div class="row">
+        <div class="col-md-8">
+          <ul class="nav nav-tabs">
+            {{ range where .Pages "Params.show_tabs" true }}
+              <li class="group-information">
+                <a class="nav-link" data-toggle="tab" href="#{{ .Title | urlize }}">{{ .Title }}</a>
+              </li>
+            {{ end  }}
+            <li class="group-information">
+              <a class="nav-link" data-toggle="tab" href="#upcomingEvents">Upcoming Events</a>
+            </li>
+            <li class="group-information">
+              <a class="nav-link" data-toggle="tab" href="#pastEvents">Past Events</a>
+            </li>
+          </ul>
+          
+          <div class="tab-content" id="group-informationContent">
+            {{ range where .Pages "Params.show_tabs" true }}
+              <div class="tab-pane fade{{ if eq .Params.starting_view true }} active show{{ end }}" id="{{ .Title | urlize }}" role="tabpanel" aria-labelledby="nav-home-tab">
+                {{ .Content }}
+              </div>
+            {{ end }}
+            <div class="tab-pane fade" id="upcomingEvents" role="tabpanel" aria-labelledby="nav-home-tab">
+              {{ range $futureGroupEvents }}          
+                <div class="col-md-4 on-hover">
+                  {{ partial "helper/event.html" . }}
+                </div>
+              {{ end }}
+            </div>      
+            <div class="tab-pane fade" id="pastEvents" role="tabpanel" aria-labelledby="nav-home-tab">
+              {{ range $pastGroupEvents }}          
+                <div class="col-md-4 on-hover">
+                  {{ partial "helper/event.html" . }}
+                </div>
+              {{ end }}
+            </div>
           </div>
+        </div>
+        <div class="col-md-4">
+          {{ partial "helper/social-normal.html" . }}        
+        
+          {{ $organizers := where .Site.Pages "Params.page_type" "organizer" }}
+          {{ $currentItemChildren := .CurrentSection.Pages }}
+          {{ $currentItemOrganizers := $organizers | intersect $currentItemChildren }}
+          
+          {{ with $currentItemOrganizers }}
+            <h2>Organizers</h2>
+            {{ range . }}
+              <div class="row">
+                <div class="col-8">
+                  <p>{{ .Title }}</p>
+                  {{ partial "helper/social-small.html" . }}
+                </div>
+                <div class="col-4">
+                  {{ if and (isset .Params "image") (ne .Params.image "") }}
+                    <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
           {{ end }}
-        </ul>
-        </div>
-    </div>
-    <div class="col-md-4">
-      {{ partial "helper/social-normal.html" . }}
-
-
-      {{ $organizers := where .Site.Pages "Params.page_type" "organizer" }}
-      {{ $currentItemChildren := .CurrentSection.Pages }}
-      {{ $currentItemOrganizers := $organizers | intersect $currentItemChildren }}
-      
-      {{ with $currentItemOrganizers }}
-        <h2>Organizers</h2>
-        {{ range . }}
-          <div class="row">
-            <div class="col-8">
-              <p>{{ .Title }}</p>
-              {{ partial "helper/social-small.html" . }}
-            </div>
-            <div class="col-4">
-              {{ if and (isset .Params "image") (ne .Params.image "") }}
-                <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
-              {{ end }}
-            </div>
-          </div>
-        {{ end }}
-      {{ end }}
-
-      <h2>Organizers</h2>
-      {{ range .Sections }}        
-        {{ $currentSection := .CurrentSection }}
-        {{ range where $currentSection.Pages "Params.page_type" "organizer"  }}
-          <div class="row">
-            <div class="col-8">
-              <p>{{ .Title }}</p>
-              {{ partial "helper/social-small.html" . }}
-            </div>
-            <div class="col-4">
-              <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" /></a>
-            </div>
-          </div>
-        {{ end }}
-
-      {{ end }}
-
-      
-      {{ $sponsors := where .Site.Pages "Params.page_type" "sponsor" }}
-      {{ $currentItemChildren := .CurrentSection.Pages }}
-      {{ $currentItemSponsors := $sponsors | intersect $currentItemChildren }}
-      
-      {{ with $currentItemSponsors }}
-        <h2>Group Sponsors</h2>
-        {{ range . }}
-          <div class="row">
-            <div class="col-8">
-              <p>{{ .Title }}</p>
-              {{ partial "helper/social-small.html" . }}
-            </div>
-            <div class="col-4">
-              {{ if and (isset .Params "image") (ne .Params.image "") }}
-                <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
-              {{ end }}
-            </div>
-          </div>
-        {{ end }}
-      {{ end }}
+        
+          
+          {{ $sponsors := where .Site.Pages "Params.page_type" "sponsor" }}
+          {{ $currentItemChildren := .CurrentSection.Pages }}
+          {{ $currentItemSponsors := $sponsors | intersect $currentItemChildren }}
+          
+          {{ with $currentItemSponsors }}
+            <h2>Group Sponsors</h2>
+            {{ range . }}
+              <div class="row">
+                <div class="col-8">
+                  <p>{{ .Title }}</p>
+                  {{ partial "helper/social-small.html" . }}
+                </div>
+                <div class="col-4">
+                  {{ if and (isset .Params "image") (ne .Params.image "") }}
+                    <img src="{{ .Params.image | absURL}}" width="70" height="70" border="0" class="rounded-circle" alt="{{ .Title }}" title="{{ .Title }}" />
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+        </div>      
+        
+      </div>
     </div>
   </div>
 </div>

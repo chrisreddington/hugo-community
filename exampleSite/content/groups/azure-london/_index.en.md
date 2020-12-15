@@ -17,6 +17,8 @@ twitter: "Azure" # The Twitter handle you wish to link to, e.g. CloudWithChris
 # website: "" # The website you wish to link to, e.g. www.cloudwithchris.com
 # youtube: "" # The channel you wish to link to, e.g. CloudWithChris
 
+aliases: ["/group"]
+
 #####
 # Please do not remove or change the below front matter.
 #####
