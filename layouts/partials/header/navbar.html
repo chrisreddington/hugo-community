@@ -7,17 +7,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="navbar-nav">
                 {{ $currentPage := . }}
-                {{ if isset .Site.Params "site_mode" }}
-                  {{ if eq .Site.Params.site_mode "single" }}
-                    {{ range .Site.Menus.mainsingle }}
-                      {{ partial "helper/navigation-menu.html" (dict "context" . "currentPage" $currentPage) }}
-                    {{ end }}
-                  {{ else }}
-                    {{ range .Site.Menus.mainmulti }}
-                      {{ partial "helper/navigation-menu.html" (dict "context" . "currentPage" $currentPage) }}
-                    {{ end }}
+                  {{ range .Site.Menus.main }}
+                    {{ partial "helper/navigation-menu.html" (dict "context" . "currentPage" $currentPage) }}
                   {{ end }}
-                {{ end }}
               </ul>
             </div>
           </nav>

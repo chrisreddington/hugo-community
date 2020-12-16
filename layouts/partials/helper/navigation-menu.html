@@ -7,7 +7,7 @@
       <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">{{ .Name }}</a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         {{ range .Children }}
-          <a class="dropdown-item" href="{{ .URL }}">{{ .Title }}</a>
+          <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
         {{ end }}
       </div>
     </li>

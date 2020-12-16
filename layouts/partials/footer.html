@@ -22,17 +22,9 @@
         <h5>Links</h5>
         <ul class="nav-list">
           {{ $currentPage := . }}
-            {{ if isset .Site.Params "site_mode" }}
-              {{ if eq .Site.Params.site_mode "single" }}
-                {{ range .Site.Menus.footersingle }}
-                  {{ partial "helper/navigation-footer.html" . }}
-                {{ end }}
-              {{ else }}
-                {{ range .Site.Menus.footermulti }}
-                  {{ partial "helper/navigation-footer.html" . }}
-                {{ end }}
+            {{ range .Site.Menus.footer }}
+              {{ partial "helper/navigation-footer.html" . }}
             {{ end }}
-          {{ end }}
         </ul>
       </div>
     </div>
