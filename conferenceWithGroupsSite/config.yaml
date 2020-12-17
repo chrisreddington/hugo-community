@@ -230,8 +230,8 @@ params:
       buttonText: "Contact"
       buttonUrl: "/"
     speakers: 6                       # Number of speakers to show on the homepage. This list is shuffled. If running as pre-built static content, it will be newly sorted on each new build of your website. If running as a server, then this should be on page load.
-  group_configuration: "single"                  # single, multi
-  event_configuration: "multi"                  # single, multi
+  group_configuration: "multi"                  # single, multi
+  event_configuration: "single"                  # single, multi
   show_last_updated: true             # Boolean on whether the last_updated banner should be shown site-wide.
   twitter: "reddobowen"               # Optional: The information in this section can help with your SEO, and is used in the layout/partials/seo/meta.html file.
 
