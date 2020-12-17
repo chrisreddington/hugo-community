@@ -20,56 +20,56 @@ title: "Community, a Hugo Theme"    # Title of the site. This will update the ti
 paginate: 15                        # The number of results to be showed by pagination. Configure this as you prefer. As most views display 3 items per page, we have opted for 15 as a multiple of 3.
 
 ####
-# Mode: Single Group, Single Event
+# Mode: Conference
 # 
 # Use-cases: A conference that wants to have a website for this specific conference event only.
 ####
-# permalinks:
-#   events: /event/
-#   groups: /group/:title
+permalinks:
+  events: /event/
+  groups: /group/:title
 
-# menu:
-#   main:
-#     - name: "Home"
-#       weight: 1
-#       url: "/"
-#     - name: "Group"
-#       weight: 2
-#       url: "/group"
-#       identifier: "group"
-#     - name: "About"
-#       weight: 1
-#       url: "/group/about"
-#       parent: "group"
-#     - name: "Code of Conduct"
-#       weight: 2
-#       url: "/group/code-of-conduct"
-#       parent: "group"
-#     - name: "Event"
-#       weight: 3
-#       url: "/event"
-#     - name: "Speakers"
-#       weight: 4
-#       url: "/speakers"
-#     - name: "Community"
-#       weight: 5
-#       url: "/community"
-#   footer:
-#     - name: "Home"
-#       weight: 1
-#       url: "/"
-#     - name: "Group"
-#       weight: 2
-#       url: "/group"
-#     - name: "Event"
-#       weight: 3
-#       url: "/event"
-#     - name: "Speakers"
-#       weight: 4
-#       url: "/speakers"
-#     - name: "Community"
-#       weight: 5
-#       url: "/community"
+menu:
+  main:
+    - name: "Home"
+      weight: 1
+      url: "/"
+    - name: "Group"
+      weight: 2
+      url: "/group"
+      identifier: "group"
+    - name: "About"
+      weight: 1
+      url: "/group/about"
+      parent: "group"
+    - name: "Code of Conduct"
+      weight: 2
+      url: "/group/code-of-conduct"
+      parent: "group"
+    - name: "Event"
+      weight: 3
+      url: "/event"
+    - name: "Speakers"
+      weight: 4
+      url: "/speakers"
+    - name: "Community"
+      weight: 5
+      url: "/community"
+  footer:
+    - name: "Home"
+      weight: 1
+      url: "/"
+    - name: "Group"
+      weight: 2
+      url: "/group"
+    - name: "Event"
+      weight: 3
+      url: "/event"
+    - name: "Speakers"
+      weight: 4
+      url: "/speakers"
+    - name: "Community"
+      weight: 5
+      url: "/community"
 
 ####
 # Mode: Single Group, Many Events
@@ -169,39 +169,39 @@ paginate: 15                        # The number of results to be showed by pagi
 #
 # Use-cases: A website that is a "platform" for many local groups,communities. E.g. showing all of the  groups for a certain technology that are within a given country
 ####
-menu:
-  main:
-    - name: "Home"
-      weight: 1
-      url: "/"
-    - name: "Groups"
-      weight: 2
-      url: "/groups"
-    - name: "Events"
-      weight: 3
-      url: "/events"
-    - name: "Speakers"
-      weight: 4
-      url: "/speakers"
-    - name: "Community"
-      weight: 5
-      url: "/community"
-  footer:
-    - name: "Home"
-      weight: 1
-      url: "/"
-    - name: "Groups"
-      weight: 2
-      url: "/groups"
-    - name: "Events"
-      weight: 3
-      url: "/events"
-    - name: "Speakers"
-      weight: 4
-      url: "/speakers"
-    - name: "Community"
-      weight: 5
-      url: "/community"
+# menu:
+#   main:
+#     - name: "Home"
+#       weight: 1
+#       url: "/"
+#     - name: "Groups"
+#       weight: 2
+#       url: "/groups"
+#     - name: "Events"
+#       weight: 3
+#       url: "/events"
+#     - name: "Speakers"
+#       weight: 4
+#       url: "/speakers"
+#     - name: "Community"
+#       weight: 5
+#       url: "/community"
+#   footer:
+#     - name: "Home"
+#       weight: 1
+#       url: "/"
+#     - name: "Groups"
+#       weight: 2
+#       url: "/groups"
+#     - name: "Events"
+#       weight: 3
+#       url: "/events"
+#     - name: "Speakers"
+#       weight: 4
+#       url: "/speakers"
+#     - name: "Community"
+#       weight: 5
+#       url: "/community"
 
 #####
 # Community Theme Parameters
@@ -230,8 +230,8 @@ params:
       buttonText: "Contact"
       buttonUrl: "/"
     speakers: 6                       # Number of speakers to show on the homepage. This list is shuffled. If running as pre-built static content, it will be newly sorted on each new build of your website. If running as a server, then this should be on page load.
-  group_configuration: "multi"                  # single, multi
-  event_configuration: "multi"                  # single, multi
+  group_configuration: "single"                  # single, multi
+  event_configuration: "single"                  # single, multi
   show_last_updated: true             # Boolean on whether the last_updated banner should be shown site-wide.
   twitter: "reddobowen"               # Optional: The information in this section can help with your SEO, and is used in the layout/partials/seo/meta.html file.
 
