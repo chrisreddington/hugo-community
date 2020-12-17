@@ -25,5 +25,5 @@
 # will inherit these settings.
 [context.deploy-preview]
   base = "/"
-  command = "ln -s /opt/build/repo /opt/build/hugo-community; cd conferenceSingleGroupSite; hugo --minify --baseURL $DEPLOY_PRIME_URL"
+  command = "ln -s /opt/build/repo /opt/build/hugo-community; hugo --minify --baseURL $DEPLOY_PRIME_URL"
   environment = {  HUGO_VERSION = "0.79.0" }
