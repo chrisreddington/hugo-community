@@ -99,7 +99,7 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
-          site_name: 'hugo-community' 
+          site_name: 'hugo-community-platform' 
       - name: "Build Hugo"
         run: |
           pushd './exampleSite'
