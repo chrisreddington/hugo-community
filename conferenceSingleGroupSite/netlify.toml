@@ -24,6 +24,5 @@
 # Deploy Preview context: all deploys that from a pull/merge request
 # will inherit these settings.
 [context.deploy-preview]
-  base = "/"
   command = "ln -s /opt/build/repo /opt/build/hugo-community; hugo --minify --baseURL $DEPLOY_PRIME_URL"
   environment = {  HUGO_VERSION = "0.79.0" }
