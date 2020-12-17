@@ -128,7 +128,7 @@ paginate: 15                        # The number of results to be showed by pagi
 # Use-cases: A conference that wants to have a website for this specific conference event only, but have many "community groups". E.g. Web Designers, Backend Developers, etc.
 ####
 permalinks:
-  events: /event/:title
+  events: /event/
 menu:
   main:
     - name: "Home"
