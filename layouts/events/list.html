@@ -17,7 +17,9 @@
     
 {{ with .OutputFormats.Get "RSS" }}
   <a href="{{ .Permalink | absURL }}">RSS Feed</a>
-{{ end }}  | <a href="{{ "events/past" | absURL }}">Past Events</a></small></h1>
+{{ end }} 
+
+{{ if and (isset .Site.Params "event_configuration") (eq .Site.Params.event_configuration "multi") }}  | <a href="{{ "events/past" | absURL }}">Past Events</a>{{ end }}</small></h1>
 
   <div class="row">
     <center>
