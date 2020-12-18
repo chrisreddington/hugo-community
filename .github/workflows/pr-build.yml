@@ -24,6 +24,15 @@ jobs:
       matrix:
         node: [6, 8, 10]
         hugo: [0.76.5, 0.77.0, 0.78.2]
+        include:
+          - path: exampleSite
+            url:  hugo-community-platform
+          - path: singleGroupManyEventsSite
+            url:  hugo-community-group
+          - path: singleEventManyGroupsSite
+            url:  hugo-community-conference-groups
+          - path: singleGroupSingleEventSite
+            url:  hugo-community-conference
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -45,15 +54,19 @@ jobs:
           hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL "/"
           popd
   contentLinter:  
-    needs: matrixBuild  
-    # Name the Job
-    name: "Linting Markdown Files"
-    # Set the agent to run on
     runs-on: ubuntu-latest
-
-    ##################
-    # Load all steps #
-    ##################
+    name: "Run linting"
+    strategy:
+      matrix:
+        include:
+          - path: exampleSite
+            url:  hugo-community-platform
+          - path: singleGroupManyEventsSite
+            url:  hugo-community-group
+          - path: singleEventManyGroupsSite
+            url:  hugo-community-conference-groups
+          - path: singleGroupSingleEventSite
+            url:  hugo-community-conference
     steps:
       ##########################
       # Checkout the code base #
@@ -67,10 +80,10 @@ jobs:
       ################################
       # Run Linter against code base #
       ################################
-      - name: Lint exampleSite Content Folder
+      - name: Lint ${{ matrix.path }} Content
         uses: github/super-linter@v3
         env:
-          FILTER_REGEX_INCLUDE: ./exampleSite/content/**
+          FILTER_REGEX_INCLUDE: ./${{ matrix.path }}/content/**
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
       
       ################################
@@ -81,6 +94,43 @@ jobs:
         env:
           FILTER_REGEX_INCLUDE: ./archetypes/**
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # contentLinter:  
+  #   needs: matrixBuild  
+  #   # Name the Job
+  #   name: "Linting Markdown Files"
+  #   # Set the agent to run on
+  #   runs-on: ubuntu-latest
+
+  #   ##################
+  #   # Load all steps #
+  #   ##################
+  #   steps:
+  #     ##########################
+  #     # Checkout the code base #
+  #     ##########################
+  #     - name: Checkout Code
+  #       uses: actions/checkout@v2
+  #       with:
+  #         # Full git history is needed to get a proper list of changed files within `super-linter`
+  #         fetch-depth: 0
+
+  #     ################################
+  #     # Run Linter against code base #
+  #     ################################
+  #     - name: Lint exampleSite Content Folder
+  #       uses: github/super-linter@v3
+  #       env:
+  #         FILTER_REGEX_INCLUDE: ./exampleSite/content/**
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      
+  #     ################################
+  #     # Run Linter against code base #
+  #     ################################
+  #     - name: Lint exampleSite Archetypes Folder
+  #       uses: github/super-linter@v3
+  #       env:
+  #         FILTER_REGEX_INCLUDE: ./archetypes/**
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   htmlproofer:
     needs: matrixBuild
     name: "Verify HTML Output from build"
