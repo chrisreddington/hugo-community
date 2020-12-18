@@ -138,11 +138,22 @@ jobs:
           htmlproofer --allow-hash-href --http-status-ignore "999" --url-ignore "/https://github.com/,/https://twitter.com/,https://fonts.googleapis.com"
   lighthouse:
     needs: matrixBuild
-    name: "SEO, Accessibility and PWA Checks"
+    name: "Lighthouse Eval"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - path: exampleSite
+            url:  hugo-community-platform
+          - path: singleGroupManyEventsSite
+            url:  hugo-community-group
+          - path: singleEventManyGroupsSite
+            url:  hugo-community-conference-groups
+          - path: singleGroupSingleEventSite
+            url:  hugo-community-conference
     steps:
       - uses: actions/checkout@v2
-      - name: Wait for the Netlify Preview
+      - name: Wait for ${{ matrix.url }} Preview
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
@@ -151,7 +162,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
-      - name: run Lighthouse CI
+      - name: "Lighthouse ${{ matrix.url }} (Preview)"
         run: |
           npm install -g @lhci/cli@0.6.x
           lhci collect --urls ${{ steps.netlify.outputs.url }} --url ${{ steps.netlify.outputs.url }}/community/ --url ${{ steps.netlify.outputs.url }}/events/ --url ${{ steps.netlify.outputs.url }}/groups/ --url ${{ steps.netlify.outputs.url }}/speakers/ --url ${{ steps.netlify.outputs.url }}/topics/
