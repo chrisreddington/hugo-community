@@ -55,6 +55,7 @@ jobs:
           popd
   contentLinter:  
     runs-on: ubuntu-latest
+    needs: matrixBuild
     name: "Run linting"
     strategy:
       matrix:
@@ -94,47 +95,21 @@ jobs:
         env:
           FILTER_REGEX_INCLUDE: ./archetypes/**
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  # contentLinter:  
-  #   needs: matrixBuild  
-  #   # Name the Job
-  #   name: "Linting Markdown Files"
-  #   # Set the agent to run on
-  #   runs-on: ubuntu-latest
-
-  #   ##################
-  #   # Load all steps #
-  #   ##################
-  #   steps:
-  #     ##########################
-  #     # Checkout the code base #
-  #     ##########################
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v2
-  #       with:
-  #         # Full git history is needed to get a proper list of changed files within `super-linter`
-  #         fetch-depth: 0
-
-  #     ################################
-  #     # Run Linter against code base #
-  #     ################################
-  #     - name: Lint exampleSite Content Folder
-  #       uses: github/super-linter@v3
-  #       env:
-  #         FILTER_REGEX_INCLUDE: ./exampleSite/content/**
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
-      
-  #     ################################
-  #     # Run Linter against code base #
-  #     ################################
-  #     - name: Lint exampleSite Archetypes Folder
-  #       uses: github/super-linter@v3
-  #       env:
-  #         FILTER_REGEX_INCLUDE: ./archetypes/**
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   htmlproofer:
     needs: matrixBuild
-    name: "Verify HTML Output from build"
+    name: "Verify ${{ matrix.path }} HTML Output"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - path: exampleSite
+            url:  hugo-community-platform
+          - path: singleGroupManyEventsSite
+            url:  hugo-community-group
+          - path: singleEventManyGroupsSite
+            url:  hugo-community-conference-groups
+          - path: singleGroupSingleEventSite
+            url:  hugo-community-conference
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
@@ -149,20 +124,20 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
-          site_name: 'hugo-community-platform' 
+          site_name: ${{ matrix.url }}
       - name: "Build Hugo"
         run: |
-          pushd './exampleSite'
+          pushd './${{ matrix.path }}'
           hugo --minify --theme "hugo-community" --themesDir "../../" --baseURL ${{ steps.netlify.outputs.url }}
           popd
       - name: "Check HTML Output"
         run: |
-          pushd ./exampleSite/public
+          pushd ./${{ matrix.path }}/public
           sudo gem install html-proofer
           htmlproofer -v
           htmlproofer --allow-hash-href --http-status-ignore "999" --url-ignore "/https://github.com/,/https://twitter.com/,https://fonts.googleapis.com"
   lighthouse:
-    needs: contentLinter #htmlproofer when # links show as internal.. until then, leaving that disabled
+    needs: matrixBuild
     name: "SEO, Accessibility and PWA Checks"
     runs-on: ubuntu-latest
     steps:
@@ -171,7 +146,7 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
-          site_name: 'hugo-community-platform'      
+          site_name: ${{ matrix.url }}  
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
