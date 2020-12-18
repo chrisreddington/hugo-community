@@ -13,4 +13,4 @@ title:                            ""
 # publishDate:                    ""
 # topics:                         []
 ---
-Description/Information about the Community Resource.
+Some content here.
