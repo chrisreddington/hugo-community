@@ -425,11 +425,146 @@ hugo new --kind group group/your-intended-directory-name
 The group archetype contains a bundle of files, including - 
 * The _index.md file which contains information about the group itself.
 * Several additional optional markdown files in the **your-intended-directory-name** folder. These can be shown using the tabbed interface of the Group page. Do take note of the frontmatter that drives this functionality. Details on these can be found in the comments of the example markdown files in the [archetypes/group folder](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/group) folder.
-* A subfolder called activities, which can contain many files. These files represent individual sessions/talks/etc. To create more activities, just copy/paste the files in the activities subfolder.
 * A subfolder called organizers, which can contain many files. These files represent organizers of this particular event. To create more organizers, just copy/paste the files in the organizers subfolder.
 * A subfolder called sponsors, which can contain many files. These files represent sponsors of this particular event. To create more sponsors, just copy/paste the files in the organizers subfolder.
 
 Rather than duplicating effort, we have provided clear comments inline in the files on which fields are required, optional, and should be left untouched. You can find that information in the [archetypes/group folder](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/group). You can find this information by looking at the raw version of the file (rather than any markdown rendered view, as the comments will be stripped).
+
+#### Group Frontmatter Details
+```
+---
+#####
+# Required
+#####
+description:                      "A fictitious Technical Community for the theme demo."
+image:                            "./images/london.jpg"
+title:                            "London Meetup Group"
+
+#####
+# Social - Optional
+#####
+# facebook:                       ""
+# github:                         ""
+# linkedin:                       ""
+# twitter:                        ""
+# twitch:                         ""
+# website:                        ""
+# youtube:                        ""
+
+#####
+# Please do not remove or change the below front matter.
+#####
+layout:                           "multi-group-single"
+show_tabs:                        false
+---
+Enter your page's content here.
+```
+
+| Field Name      | Required | Description                                                                                                                                                                                                                                                                                                                                                                       | Example                                                                             |
+|-----------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| description     | Yes      | This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches. | A fictitious Technical Community for the purposes of the Hugo Community theme demo. |
+| image           | Yes      | Location of the banner which is shown on the group page. If using the site in a "Multi Group" mode, then it also displays the group banner in any relevant group listings.                                                                                                                                                                                                        | images/london.jpg                                                                   |
+| title           | Yes      | This is the "User friendly" name of the group.                                                                                                                                                                                                                                                                                                                                    | London Meetup Group                                                                 |
+| social.facebook | No       | The URL of the facebook page to link to.                                                                                                                                                                                                                                                                                                                                          | https://facebook.com/myfacebookpage                                                 |
+| social.github   | No       | The GitHub alias/repo that you wish to link to, e.g. chrisreddington or chrisreddington/hugo-community                                                                                                                                                                                                                                                                            | chrisreddington OR chrisreddington/hugo-community                                   |
+| social.linkedin | No       | The LinkedIn alias that you wish to link to.                                                                                                                                                                                                                                                                                                                                      | chrisreddington                                                                     |
+| social.twitter  | No       | The Twitter handle that you wish to link to.                                                                                                                                                                                                                                                                                                                                      | CloudWithChris                                                                      |
+| social.twitch   | No       | The Twitch Page that you wish to link to.                                                                                                                                                                                                                                                                                                                                         | CloudWithChris                                                                      |
+| social.website  | No       | The URL of the website that you wish to link to.                                                                                                                                                                                                                                                                                                                                  | https://www.cloudwithchris.com                                                      |
+| social.youtube  | No       | The channel that you wish to link to.                                                                                                                                                                                                                                                                                                                                             | CloudWithChris                                                                      |
+| layout          | Yes      | This is a native-hugo property, and is used to override which underlying layout hugo uses to generate the page. Please see the details in the single group / multi group site sections below.                                                                                                                                                                                     | See below.                                                                          |
+| show_tabs       | Yes      | Boolean value to determine whether the page should show in the "Tabs" view on the group page. For any non index/_index file, then you should set to true, so that it can be shown in the list of menu items on the group's page in multi-group mode.                                                                                                                                                                                                                                                                                    | true / false                                                                        |
+
+#### Group Organizer Frontmatter Details
+```
+---
+#####
+# Required
+#####
+image:                "images/chris-reddington.jpg"
+title:                "Chris Reddington"
+
+#####
+# Social - Optional
+#####
+# facebook:                       ""
+# github:                         ""
+# linkedin:                       ""
+# twitter:                        ""
+# twitch:                         ""
+# website:                        ""
+# youtube:                        ""
+
+#####
+# Please do not remove or change the below front matter.
+#####
+page_type:                        "organizer"
+private:                          true
+---
+Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
+
+Chris is currently a Senior Engineer on Microsoft's [FastTrack for Azure](https://azure.microsoft.com/en-gb/programs/azure-fasttrack/) team.
+Enter your page's content here.
+```
+
+| Field Name      | Required           | Description                                                                                                                                                                                                                      | Example                                           |
+|-----------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| image           | Yes                | Location of the image which is used when referencing the organizer.                                                                                                                                                              | images/chris-reddington.jpg                       |
+| title           | Yes                | This is the name of the organizer.                                                                                                                                                                                               | Chris Reddington                                  |
+| social.facebook | No                 | The URL of the facebook page to link to.                                                                                                                                                                                         | https://facebook.com/myfacebookpage               |
+| social.github   | No                 | The GitHub alias/repo that you wish to link to, e.g. chrisreddington or chrisreddington/hugo-community                                                                                                                           | chrisreddington OR chrisreddington/hugo-community |
+| social.linkedin | No                 | The LinkedIn alias that you wish to link to.                                                                                                                                                                                     | chrisreddington                                   |
+| social.twitter  | No                 | The Twitter handle that you wish to link to.                                                                                                                                                                                     | CloudWithChris                                    |
+| social.twitch   | No                 | The Twitch Page that you wish to link to.                                                                                                                                                                                        | CloudWithChris                                    |
+| social.website  | No                 | The URL of the website that you wish to link to.                                                                                                                                                                                 | https://www.cloudwithchris.com                    |
+| social.youtube  | No                 | The channel that you wish to link to.                                                                                                                                                                                            | CloudWithChris                                    |
+| show_tabs       | Yes                | Boolean value to determine whether the page should show in the "Tabs" view on the group page.                                                                                                                                    | true / false                                      |
+| page_type       | Yes - Don't change | This extra metadata is required to power the queries used in the theme to display the organizers in appropriate places for groups.                                                                                                 | Must be set to **organizer**                      |
+| private         | Yes                | If this property is set to "false" or unset, then this page will show up in the sitemap. Otherwise, it will not. There may be future work to remove this property, and determine that based upon the group_configuration option. | true / false                                      |
+
+#### Group Sponsor Frontmatter Details
+```
+---
+#####
+# Required
+#####
+image:                "https://via.placeholder.com/150"
+title:                "Contoso of London"
+
+#####
+# Social - Optional
+#####
+# facebook:                       ""
+# github:                         ""
+# linkedin:                       ""
+# twitter:                        ""
+# twitch:                         ""
+# website:                        ""
+# youtube:                        ""
+
+#####
+# Please do not remove or change the below front matter.
+#####
+page_type:                        "sponsor"
+private:                          true
+---
+Some information about the sponsor here.
+```
+
+| Field Name      | Required           | Description                                                                                                                                                                                                                      | Example                                           |
+|-----------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| image           | Yes                | Location of the image which is used when referencing the sponsor.                                                                                                                                                                | https://via.placeholder.com/150                   |
+| title           | Yes                | This is the name of the sponsor.                                                                                                                                                                                                 | Contoso of London                                 |
+| social.facebook | No                 | The URL of the facebook page to link to.                                                                                                                                                                                         | https://facebook.com/myfacebookpage               |
+| social.github   | No                 | The GitHub alias/repo that you wish to link to, e.g. chrisreddington or chrisreddington/hugo-community                                                                                                                           | chrisreddington OR chrisreddington/hugo-community |
+| social.linkedin | No                 | The LinkedIn alias that you wish to link to.                                                                                                                                                                                     | chrisreddington                                   |
+| social.twitter  | No                 | The Twitter handle that you wish to link to.                                                                                                                                                                                     | CloudWithChris                                    |
+| social.twitch   | No                 | The Twitch Page that you wish to link to.                                                                                                                                                                                        | CloudWithChris                                    |
+| social.website  | No                 | The URL of the website that you wish to link to.                                                                                                                                                                                 | https://www.cloudwithchris.com                    |
+| social.youtube  | No                 | The channel that you wish to link to.                                                                                                                                                                                            | CloudWithChris                                    |
+| show_tabs       | Yes                | Boolean value to determine whether the page should show in the "Tabs" view on the group page.                                                                                                                                    | true / false                                      |
+| page_type       | Yes - Don't change | This extra metadata is required to power the queries used in the theme to display the sponsors in appropriate places for groups.                                                                                                 | Must be set to **sponsor**                        |
+| private         | Yes                | If this property is set to "false" or unset, then this page will show up in the sitemap. Otherwise, it will not. There may be future work to remove this property, and determine that based upon the group_configuration option. | true / false                                      |
 
 #### Single Group Sites
 
