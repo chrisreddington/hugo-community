@@ -99,7 +99,7 @@ params:
       buttonUrl:                    "/"
     speakers:                       6
   group_configuration:              "multi"
-  event_configuration:              "single"
+  event_configuration:              "multi"
   show_last_updated:                true
   twitter:                          "reddobowen"
 
