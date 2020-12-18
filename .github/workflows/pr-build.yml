@@ -110,7 +110,7 @@ jobs:
           pushd ./exampleSite/public
           sudo gem install html-proofer
           htmlproofer -v
-          htmlproofer --allow-hash-href --http-status-ignore "999" --url-ignore "https://github.com,https://twitter.com,https://fonts.googleapis.com"
+          htmlproofer --allow-hash-href --http-status-ignore "999" --url-ignore "/https://github.com/,/https://twitter.com/,https://fonts.googleapis.com"
   lighthouse:
     needs: contentLinter #htmlproofer when # links show as internal.. until then, leaving that disabled
     name: "SEO, Accessibility and PWA Checks"
