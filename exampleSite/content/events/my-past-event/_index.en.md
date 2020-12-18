@@ -14,7 +14,7 @@ location:             "Ye olde Reading"
 # Optional
 #####
 # activities_name:    ""
-# group:              "meetup-group-london"
+group:                "cardiff"
 # lastMod:            ""
 
 #####
