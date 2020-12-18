@@ -121,7 +121,7 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
-          site_name: 'hugo-community'      
+          site_name: 'hugo-community-platform'      
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
