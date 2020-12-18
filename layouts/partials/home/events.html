@@ -1,0 +1,28 @@
+
+{{ if isset .Site.Params "event_configuration" }}
+  {{ if ne .Site.Params.event_configuration "multi" }} 
+  <div class="row">
+    <div class="col-12">   
+      <h2>Upcoming Sessions</h2>
+      
+      <p>TBC</p>
+    </div>
+  </div>
+  {{ else }}
+  <div class="row">
+    <div class="col-12">      
+      <h2>Next Events <small>{{ with .Site.GetPage "events" }}<a href="{{ .Permalink }}">Take a look at the full list</a>{{ end }}</small></h2>
+    </div>
+  </div>
+  <div class="row">   
+    {{ $future := where .Site.Pages ".Params.startdate" "ge" (now.Format "2006-01-02") }}
+    {{ $events := (.Site.GetPage "events").Pages }}
+      {{ $futureEvents := $future | intersect $events }}
+      {{ range first $.Site.Params.home.events (sort ($futureEvents.ByParam "startdate"))  }}
+      <div class="col">
+        {{ partial "helper/event.html" . }}
+      </div>
+    {{ end }}
+  </div>
+  {{ end }}
+{{ end }}

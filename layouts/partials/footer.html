@@ -22,9 +22,9 @@
         <h5>Links</h5>
         <ul class="nav-list">
           {{ $currentPage := . }}
-          {{ range .Site.Menus.footer }}
-            <li><a href="{{ .URL | absURL }}">{{ .Title }}</a></li>
-          {{ end }}
+            {{ range .Site.Menus.footer }}
+              {{ partial "helper/navigation-footer.html" . }}
+            {{ end }}
         </ul>
       </div>
     </div>

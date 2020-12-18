@@ -7,20 +7,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="navbar-nav">
                 {{ $currentPage := . }}
-                {{ range .Site.Menus.main }}
-                  {{ if.HasChildren }}
-                    <li class="nav-item dropdown {{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-                      <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">{{ .Name }}</a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        {{ range .Children }}
-                          <a class="dropdown-item" href="{{ .URL }}">{{ .Title }}</a>
-                        {{ end }}
-                      </div>
-                    </li>
-                  {{ else }}
-                    <li class="nav-item  {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"><a class="nav-link" href="{{ .URL | absURL }}">{{ .Name }} <span class="sr-only">(current)</span></a></li>
+                  {{ range .Site.Menus.main }}
+                    {{ partial "helper/navigation-menu.html" (dict "context" . "currentPage" $currentPage) }}
                   {{ end }}
-                {{ end }}
               </ul>
             </div>
           </nav>

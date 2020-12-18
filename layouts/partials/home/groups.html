@@ -1,0 +1,36 @@
+
+{{ if isset .Site.Params "group_configuration" }}
+  {{ if ne .Site.Params.group_configuration "single" }}
+  <div class="row">
+    <div class="col-12">      
+      <h2>Group Showcase <small>{{ with $.Site.GetPage "groups" }}<a href="{{ .Permalink }}">Meet some of the community groups</a>{{ end }}</small></h2>
+    </div>
+  </div>
+    <hr class="featurette-divider">
+
+    {{ $groups := first 4 (.Site.GetPage "groups").Pages }}
+    {{ range $index, $groups := $groups }}
+      {{if not (modBool $index 2)}}    
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">{{ .Title }}. <small>{{ partial "helper/social-normal.html" . }}</small></h2>
+            <p class="lead">{{ range first 1 (where .Pages ".Title" "About") }}{{ .Content }}{{ end }}</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" alt="{{ .Title }}" title="{{ .Title }}" src="{{ printf "%s%s" .Permalink .Params.image }}" data-holder-rendered="true">
+          </div>
+        </div>
+      {{ else }}
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">{{ .Title }}. <small>{{ partial "helper/social-normal.html" . }}</small></h2>
+            <p class="lead">{{ range first 1 (where .Pages ".Title" "About") }}{{ .Content }}{{ end }}</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto"  alt="{{ .Title }}" title="{{ .Title }}" src="{{ printf "%s%s" .Permalink .Params.image }}" data-holder-rendered="true" style="width: 500px; height: 500px;">
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

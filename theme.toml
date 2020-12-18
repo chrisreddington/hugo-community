@@ -4,18 +4,12 @@
 name = "Community"
 license = "MIT"
 licenselink = "https://github.com/chrisreddington/community/blob/master/LICENSE"
-description = "This is a Hugo Theme which is intended for local meet up groups"
-homepage = "https://github.com/chrisreddington/community/"
-tags = ["Meetup", "Meeting", "Community"]
+description = "This is a Hugo Theme which is intended for local meet up groups, or conference events"
+homepage = "https://github.com/chrisreddington/hugo-community/"
+tags = ["Meetup", "Meeting", "Community", "conference"]
 features = []
 min_version = "0.41.0"
 
 [author]
   name = "Chris Reddington"
   homepage = "https://www.cloudwithchris.com"
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
