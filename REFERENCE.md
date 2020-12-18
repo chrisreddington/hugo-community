@@ -3,6 +3,32 @@ Community is a hugo theme intended for small community and meetup groups to easi
 
 This guide is intended for those that wish to use the theme.
 
+- [Reference](#reference)
+  * [Site Config Settings](#site-config-settings)
+    + [Core Site Configuration](#core-site-configuration)
+    + [Site Rendering Options](#site-rendering-options)
+    + [Site Configuration](#site-configuration)
+    + [Site Required Settings](#site-required-settings)
+    + [Privacy Settings](#privacy-settings)
+  * [Archetypes](#archetypes)
+    + [Community](#community)
+      - [Community Frontmatter Details](#community-frontmatter-details)
+    + [Event](#event)
+      - [Event Frontmatter Details](#event-frontmatter-details)
+      - [Event Activity Frontmatter Details](#event-activity-frontmatter-details)
+      - [Event Sponsor Frontmatter Details](#event-sponsor-frontmatter-details)
+      - [Single Event Sites](#single-event-sites)
+      - [Multi Event Sites](#multi-event-sites)
+    + [Group](#group)
+      - [Group Frontmatter Details](#group-frontmatter-details)
+      - [Group Organizer Frontmatter Details](#group-organizer-frontmatter-details)
+      - [Group Sponsor Frontmatter Details](#group-sponsor-frontmatter-details)
+      - [Single Group Sites](#single-group-sites)
+      - [Multi Group Sites](#multi-group-sites)
+    + [Speaker](#speaker)
+      - [Speaker Frontmatter Details](#speaker-frontmatter-details)
+
+
 ## Site Config Settings
 
 Below is an example configuration for the Hugo Community Theme. Be aware that this contains extra configuration that may not be needed in your specific deployment, and is purely to show the end-to-end options available for the configuration. For example, the permalink and menu sections are duplicated in the below snippet, to represent the common configuration options that you may want to choose from.
