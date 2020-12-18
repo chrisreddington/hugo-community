@@ -490,8 +490,6 @@ The event archetype contains a bundle of files, including -
 * A subfolder called activities, which can contain many files. These files represent individual sessions/talks/etc. To create more activities, just copy/paste the files in the activities subfolder.
 * A subfolder called sponsors, which can contain many files. These files represent sponsors of this particular event. To create more sponsors, just copy/paste the files in the organizers subfolder.
 
-Rather than duplicating effort, we have provided clear comments inline in the files on which fields are required, optional, and should be left untouched. You can find that information in the [archetypes/event folder](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/event). You can find this information by looking at the raw version of the file (rather than any markdown rendered view, as the comments will be stripped).
-
 #### Event Frontmatter Details
 ```
 ---
@@ -638,8 +636,6 @@ The group archetype contains a bundle of files, including -
 * Several additional optional markdown files in the **your-intended-directory-name** folder. These can be shown using the tabbed interface of the Group page. Do take note of the frontmatter that drives this functionality. Details on these can be found in the comments of the example markdown files in the [archetypes/group folder](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/group) folder.
 * A subfolder called organizers, which can contain many files. These files represent organizers of this particular event. To create more organizers, just copy/paste the files in the organizers subfolder.
 * A subfolder called sponsors, which can contain many files. These files represent sponsors of this particular event. To create more sponsors, just copy/paste the files in the organizers subfolder.
-
-Rather than duplicating effort, we have provided clear comments inline in the files on which fields are required, optional, and should be left untouched. You can find that information in the [archetypes/group folder](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/group). You can find this information by looking at the raw version of the file (rather than any markdown rendered view, as the comments will be stripped).
 
 #### Group Frontmatter Details
 ```
@@ -793,9 +789,7 @@ To create a new group, use the following command in your site folder
 hugo new speaker/speaker-name.md
 ```
 
-**Note:** Be aware of the different syntax between events/groups and speakers. The speaker example does not require the --kind parameter, as it is a single page, rather than a bundle. This is also why we need to specify the .md extension, to represent that we wish to create a markdown file.
-
-Rather than duplicating effort, we have provided clear comments inline in the [archetypes/speaker.md file](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/speaker.md). You can find this information by looking at the raw version of the file (rather than any markdown rendered view, as the comments will be stripped).
+**Note:** Be aware of the different syntax between events/groups and community/speakers. The community example does not require the --kind parameter, as it is a single page, rather than a bundle. This is also why we need to specify the .md extension, to represent that we wish to create a markdown file.
 
 #### Speaker Frontmatter Details
 ```

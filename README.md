@@ -13,8 +13,6 @@ There are four example configurations of this theme, which you can find demo sit
 * A "Community Group" Configuration [https://hugo-community-group.netlify.app/](https://hugo-community-group.netlify.app/) (AKA Many Event, Single Group)
 * A "Community Groups Platform" Configuration [https://hugo-community-platform.netlify.app/](https://hugo-community-platform.netlify.app/) (AKA Many Event, Single Group)
 
-You can find an example at [https://hugo-community.netlify.app//](https://hugo-community.netlify.app/).
-
 ## Installation
 
 This theme is currently a work in development, and I have not yet prioritised installation instructions. If you are interested, please get in touch.
