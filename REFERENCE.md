@@ -390,6 +390,67 @@ Archetypes are a concept within Hugo. They are templates which can be easily use
 
 The Community theme leverages a number of archetypes to deliver the site's content. Please refer to the information below on how to use archetypes, so that you can add additional content to your site.
 
+### Community
+
+To create a new community resource, use the following command in your site folder
+
+```
+hugo new community/community-item.md
+```
+
+**Note:** Be aware of the different syntax between events/groups and community/speakers. The community example does not require the --kind parameter, as it is a single page, rather than a bundle. This is also why we need to specify the .md extension, to represent that we wish to create a markdown file.
+
+#### Community Frontmatter Details
+```
+---
+#####
+# Required
+#####
+description:                      "Exploring Cloud concepts with Chris Reddington (Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!). We will regularly invite guests to talk about their experiences with the cloud and hear about some of the lessons learned around their cloud journey. Cloud with Chris is a community-driven personal podcast. Content from episodes do not represent the views of any company or organisation."
+image:                            "images/cloud-with-chris.png"
+title:                            "Chris Reddington"
+communityTypes:                   ["Podcast"]
+communityUrl:                     "https://www.cloudwithchris.com"
+
+#####
+# Optional
+#####
+# publishDate:                    ""
+# topics:                         ["DevOps", "Cloud Architecture"]
+# speakers:                       []
+
+#####
+# Social - Optional
+#####
+# facebook:                       ""
+# github:                         ""
+# linkedin:                       ""
+# twitter:                        ""
+# twitch:                         ""
+# website:                        ""
+# youtube:                        ""
+---
+Description/Information about the Community Resource.
+```
+
+| Field Name      | Required | Description                                                                                                                                                                                                                                                                                                                                                                       | Example                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|-----------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| description     | Yes      | This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches. | Exploring Cloud concepts with Chris Reddington (Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!). We will regularly invite guests to talk about their experiences with the cloud and hear about some of the lessons learned around their cloud journey. Cloud with Chris is a community-driven personal podcast. Content from episodes do not represent the views of any company or organisation |
+| image           | Yes      | Location of the image which is used when referencing the community resource.                                                                                                                                                                                                                                                                                                      | images/cloud-with-chris.png                                                                                                                                                                                                                                                                                                                                                                                                            |
+| title           | Yes      | This is the name of the Community Resource.                                                                                                                                                                                                                                                                                                                                       | Cloud With Chris                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| CommunityTypes  | Yes      | The type of this resources, for example Blog, Podcast, Sample Code, etc.                                                                                                                                                                                                                                                                                                          | ["Podcast"]                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| communityUrl    | No       | The URL to the community resources                                                                                                                                                                                                                                                                                                                                                | https://www.cloudwithchris.com                                                                                                                                                                                                                                                                                                                                                                                                         |
+| publishDate     | No       | Datetime that the speaker should be published on the site (i.e. any builds that you run after this date will display the speaker on the site). Useful if you want to time this with some kind of social media push/press release.                                                                                                                                                 | 2020-12-01T10:00:00Z                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| topics          | No       | The list of topics that the speaker is known for. These will appear as tags in the speaker's profile page, and also be used to populate speaker details in the taxonomy pages of the site. This should be an array of strings.                                                                                                                                                    | ["DevOps", "Cloud Architecture"]                                                                                                                                                                                                                                                                                                                                                                                                       |
+| speakers        | no       | A list of speakers, in their URLized form (i.e. their filename). This will link the speaker's profile page to the community resource, and also display the speaker's icon next to the item on the community page.                                                                                                                                                                 | ["chris-reddington"]                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| social.facebook | No       | The URL of the facebook page to link to.                                                                                                                                                                                                                                                                                                                                          | https://facebook.com/myfacebookpage                                                                                                                                                                                                                                                                                                                                                                                                    |
+| social.github   | No       | The GitHub alias/repo that you wish to link to, e.g. chrisreddington or chrisreddington/hugo-community                                                                                                                                                                                                                                                                            | chrisreddington OR chrisreddington/hugo-community                                                                                                                                                                                                                                                                                                                                                                                      |
+| social.linkedin | No       | The LinkedIn alias that you wish to link to.                                                                                                                                                                                                                                                                                                                                      | chrisreddington                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| social.twitter  | No       | The Twitter handle that you wish to link to.                                                                                                                                                                                                                                                                                                                                      | CloudWithChris                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| social.twitch   | No       | The Twitch Page that you wish to link to.                                                                                                                                                                                                                                                                                                                                         | CloudWithChris                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| social.website  | No       | The URL of the website that you wish to link to.                                                                                                                                                                                                                                                                                                                                  | https://www.cloudwithchris.com                                                                                                                                                                                                                                                                                                                                                                                                         |
+| social.youtube  | No       | The channel that you wish to link to.                                                                                                                                                                                                                                                                                                                                             | CloudWithChris                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
 ### Event
 
 To create a new event, use the following command in your site folder
@@ -404,6 +465,130 @@ The event archetype contains a bundle of files, including -
 * A subfolder called sponsors, which can contain many files. These files represent sponsors of this particular event. To create more sponsors, just copy/paste the files in the organizers subfolder.
 
 Rather than duplicating effort, we have provided clear comments inline in the files on which fields are required, optional, and should be left untouched. You can find that information in the [archetypes/event folder](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/event). You can find this information by looking at the raw version of the file (rather than any markdown rendered view, as the comments will be stripped).
+
+#### Event Frontmatter Details
+```
+---
+#####
+# Required
+#####
+description:          "This is the description for My First Event in Reading Town Center!"
+image:                "./images/banner.jpg"
+title:                ""
+lastMod:              ""
+startDate:            "2023-12-25T09:00:00Z"
+endDate:              "2023-12-25T10:00:00Z"
+publishDate:          "2020-12-01T10:00:00Z" 
+location:             "Reading Town Center, Somewhere"
+
+#####
+# Optional
+#####
+# activities_name:    ""
+# group:              "meetup-group-london"
+# lastMod:            ""
+---
+Test Event!!!
+```
+| Field Name      | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Example                                                            |
+|-----------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| description     | Yes      | This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches.                                                                                      | This is the description for My First Event in Reading Town Center! |
+| image           | Yes      | Location of the banner which is shown on the event page. If using the site in a "Multi Event" mode, then it also displays the event banner in any relevant event listings.                                                                                                                                                                                                                                                                                             | https://via.placeholder.com/150                                    |
+| title           | Yes      | This is the name of the event.                                                                                                                                                                                                                                                                                                                                                                                                                                         | Contoso of London                                                  |
+| startDate       | Yes      | Datetime that the event starts. This is used for display purposes on the website, and will be rendered in a more user friendly format. If the site is in a multi-event configuration, then it will be used to order the events chronologically.                                                                                                                                                                                                                        | 2023-12-25T09:00:00Z                                               |
+| endDate         | Yes      | Datetime that the event finishes. This is used for display purposes on the website, and will be rendered in a more user friendly format.                                                                                                                                                                                                                                                                                                                               | 2023-12-25T09:00:00Z                                               |
+| publishDate     | No       | Datetime that the speaker should be published on the site (i.e. any builds that you run after this date will display the speaker on the site). Useful if you want to time this with some kind of social media push/press release.                                                                                                                                                                                                                                      | 2020-12-01T10:00:00Z                                               |
+| location        | No       | Plain text that is displayed for the "Location" of the event. Could easily be adjusted to show "Virtual Event" / "Microsoft Teams Meeting" / "Zoom Call" if this is not a physical event.                                                                                                                                                                                                                                                                              |                                                                    |
+| activities_name | No       | Used as an override of the name that describes the activities associated. For example, "Talks", "Lessons", "Sessions", etc. allowing flexibility for different event types.                                                                                                                                                                                                                                                                                            | "Sessions"                                                         |
+| group           | No       | The URLized version of the group (The folder name). This is used, so that the group that is associated with the event can be displayed on the event. Additionally, the event will also be available on the group's page. This is optional, and not really required in a "Single Group" configuration of the site, but is particularly useful in a "Multi Group" configuration for a cohesive experience.                                                               | meetup-group-london                                                |
+| lastMod         | No       | Datetime that the file was last modified. This is not necessary if you are storing the source in a Git Repository and have the enableGitInfo parameter set in Site Configuration. In that scenario, hugo will set the last modified value of the page to the last commit in Version Control. Otherwise, if you have enable_last_updated set to true, and are not using Git/enableGitInfo, then you will need to set the lastMod property manually in your frontmatter. | 2020-12-01T10:00:00Z                                               |
+
+
+#### Event Activity Frontmatter Details
+```
+---
+---
+#####
+# Required
+#####
+title:                  "DevOps in a Cloud World"
+publishDate:            ""
+
+#####
+# Optional
+#####
+# speakers:               ["chris-reddington"]
+# startDate:              "2020-12-25T09:00:00Z"
+# endDate:                "2020-12-25T10:00:00Z"
+# event_track:            "DevOps"
+# location:               ""
+# topics:                 ["Azure DevOps", "GitHub"]
+
+#####
+# Please do not remove or change the below front matter.
+#####
+page_type:                "activity"
+private:                  true
+---
+Some information/background about the activity here (e.g. session description)
+```
+| Field Name      | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Example                                           |
+|-----------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| title           | Yes      | This is the name of the activity, e.g. The name of the session/talk.                                                                                                                                                                                                                                                                                                                                                                                                   | DevOps in a Cloud World                           |
+| publishDate     | No       | Datetime that the activity should be published on the site (i.e. any builds that you run after this date will display the speaker on the site). Useful if you want to time this with some kind of social media push/press release.                                                                                                                                                                                                                                     | 2020-12-01T10:00:00Z                              |
+| speakers        | No       | A list of speakers, in their URLized form (i.e. their filename). This will link the speaker's profile page to the event, and also display the speaker's icon next to the activity on the event page.                                                                                                                                                                                                                                                                   | ["chris-reddington"]                              |
+| startDate       | No       | Datetime that the activity starts. This is used for display purposes on the website, and will be rendered in a more user friendly format. This also helps display the schedule of the event in a chronological order.                                                                                                                                                                                                                                                  | 2020-12-01T10:00:00Z                              |
+| endDate         | No       | Datetime that the activity finishes. This is used for display purposes on the website, and will be rendered in a more user friendly format.                                                                                                                                                                                                                                                                                                                            | 2020-12-01T10:00:00Z                              |
+| event_track     | No       | Additional metadata to be associated with an activity. If there are multiple tracks in an event, then it will render a tabbed layout to switch between the tracks of the event. E.g. A track of sessions on DevOps, a track of sessions on Cloud Architecture, etc.                                                                                                                                                                                                    | DevOps                                            |
+| location        | No       | Location of this particular activity, e.g. rom number. Useful if being use for a conference type event, where there is one overall location, but activities (e.g. sessions) would beheld in different rooms in a conference venue                                                                                                                                                                                                                                    | Room 101                                                 |
+| topics          | No       | The list of topics that the activity is associated with. These will appear as tags on the event's page, and also be used to populate event details in the topics taxonomy page of the site. This should be an array of strings.                                                                                                                                                                                                                                        | ["Azure DevOps", "GitHub"]                                           |
+| page_type       | Yes - Don't change | This extra metadata is required to power the queries used in the theme to display the organizers in appropriate places for groups.                                                                                                 | Must be set to **organizer**                      |
+| private         | Yes                | If this property is set to "false" or unset, then this page will show up in the sitemap. Otherwise, it will not. There may be future work to remove this property, and determine that based upon the group_configuration option. | true / false                                      |
+
+#### Event Sponsor Frontmatter Details
+```
+---
+#####
+# Required
+#####
+image:                "https://via.placeholder.com/150"
+title:                "Contoso Conferences"
+
+#####
+# Social - Optional
+#####
+# facebook:                       ""
+# github:                         ""
+# linkedin:                       ""
+# twitter:                        ""
+# twitch:                         ""
+# website:                        ""
+# youtube:                        ""
+
+#####
+# Please do not remove or change the below front matter.
+#####
+page_type:                        "sponsor"
+private:                          true
+---
+Some information about the sponsor here.
+```
+
+| Field Name      | Required           | Description                                                                                                                                                                                                                      | Example                                           |
+|-----------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| image           | Yes                | Location of the image which is used when referencing the sponsor.                                                                                                                                                                | https://via.placeholder.com/150                   |
+| title           | Yes                | This is the name of the sponsor.                                                                                                                                                                                                 | Contoso of London                                 |
+| social.facebook | No                 | The URL of the facebook page to link to.                                                                                                                                                                                         | https://facebook.com/myfacebookpage               |
+| social.github   | No                 | The GitHub alias/repo that you wish to link to, e.g. chrisreddington or chrisreddington/hugo-community                                                                                                                           | chrisreddington OR chrisreddington/hugo-community |
+| social.linkedin | No                 | The LinkedIn alias that you wish to link to.                                                                                                                                                                                     | chrisreddington                                   |
+| social.twitter  | No                 | The Twitter handle that you wish to link to.                                                                                                                                                                                     | CloudWithChris                                    |
+| social.twitch   | No                 | The Twitch Page that you wish to link to.                                                                                                                                                                                        | CloudWithChris                                    |
+| social.website  | No                 | The URL of the website that you wish to link to.                                                                                                                                                                                 | https://www.cloudwithchris.com                    |
+| social.youtube  | No                 | The channel that you wish to link to.                                                                                                                                                                                            | CloudWithChris                                    |
+| show_tabs       | Yes                | Boolean value to determine whether the page should show in the "Tabs" view on the group page.                                                                                                                                    | true / false                                      |
+| page_type       | Yes - Don't change | This extra metadata is required to power the queries used in the theme to display the sponsors in appropriate places for groups.                                                                                                 | Must be set to **sponsor**                        |
+| private         | Yes                | If this property is set to "false" or unset, then this page will show up in the sitemap. Otherwise, it will not. There may be future work to remove this property, and determine that based upon the group_configuration option. | true / false                                      |
+
 
 #### Single Event Sites
 
@@ -585,3 +770,54 @@ hugo new speaker/speaker-name.md
 **Note:** Be aware of the different syntax between events/groups and speakers. The speaker example does not require the --kind parameter, as it is a single page, rather than a bundle. This is also why we need to specify the .md extension, to represent that we wish to create a markdown file.
 
 Rather than duplicating effort, we have provided clear comments inline in the [archetypes/speaker.md file](https://github.com/chrisreddington/hugo-community/tree/main/archetypes/speaker.md). You can find this information by looking at the raw version of the file (rather than any markdown rendered view, as the comments will be stripped).
+
+#### Speaker Frontmatter Details
+```
+---
+#####
+# Required
+#####
+description:                      "Chris is a Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser! He is  currently a Senior Engineer on Microsoft's FastTrack for Azure team."
+image:                            "img/speakers/chris-reddington.jpg"
+title:                            "Chris Reddington"
+
+#####
+# Optional
+#####
+# lastmod:                        ""
+# pronouns:                       ""
+# publishDate:                    ""
+# topics:                         []
+
+#####
+# Social - Optional
+#####
+# facebook:                       ""
+# github:                         ""
+# linkedin:                       ""
+# twitter:                        ""
+# twitch:                         ""
+# website:                        ""
+# youtube:                        ""
+---
+Welsh Tech Geek, Cloud Advocate, Musical Theatre Enthusiast and Improving Improviser!
+
+Chris is currently a Senior Engineer on Microsoft's [FastTrack for Azure](https://azure.microsoft.com/en-gb/programs/azure-fasttrack/) team.
+```
+
+| Field Name      | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Example                                           |
+|-----------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| description     | Yes      | This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches.                                                                                      |                                                   |
+| image           | Yes      | Location of the image which is used when referencing the speaker.                                                                                                                                                                                                                                                                                                                                                                                                      | https://via.placeholder.com/150                   |
+| title           | Yes      | This is the name of the speaker.                                                                                                                                                                                                                                                                                                                                                                                                                                       | Contoso of London                                 |
+| lastMod         | No       | Datetime that the file was last modified. This is not necessary if you are storing the source in a Git Repository and have the enableGitInfo parameter set in Site Configuration. In that scenario, hugo will set the last modified value of the page to the last commit in Version Control. Otherwise, if you have enable_last_updated set to true, and are not using Git/enableGitInfo, then you will need to set the lastMod property manually in your frontmatter. | 2020-12-01T10:00:00Z                              |
+| pronouns        | No       | The speaker's preferred pronouns.                                                                                                                                                                                                                                                                                                                                                                                                                                      | He/him, She/her, They/Them                        |
+| publishDate     | No       | Datetime that the speaker should be published on the site (i.e. any builds that you run after this date will display the speaker on the site). Useful if you want to time this with some kind of social media push/press release.                                                                                                                                                                                                                                          | 2020-12-01T10:00:00Z                              |
+| topics          | No       | The list of topics that the speaker is known for. These will appear as tags in the speaker's profile page, and also be used to populate speaker details in the taxonomy pages of the site. This should be an array of strings.                                                                                                                                                                                                                                         | ["GitHub", "Kubernetes", "Azure DevOps"]          |
+| social.facebook | No       | The URL of the facebook page to link to.                                                                                                                                                                                                                                                                                                                                                                                                                               | https://facebook.com/myfacebookpage               |
+| social.github   | No       | The GitHub alias/repo that you wish to link to, e.g. chrisreddington or chrisreddington/hugo-community                                                                                                                                                                                                                                                                                                                                                                 | chrisreddington OR chrisreddington/hugo-community |
+| social.linkedin | No       | The LinkedIn alias that you wish to link to.                                                                                                                                                                                                                                                                                                                                                                                                                           | chrisreddington                                   |
+| social.twitter  | No       | The Twitter handle that you wish to link to.                                                                                                                                                                                                                                                                                                                                                                                                                           | CloudWithChris                                    |
+| social.twitch   | No       | The Twitch Page that you wish to link to.                                                                                                                                                                                                                                                                                                                                                                                                                              | CloudWithChris                                    |
+| social.website  | No       | The URL of the website that you wish to link to.                                                                                                                                                                                                                                                                                                                                                                                                                       | https://www.cloudwithchris.com                    |
+| social.youtube  | No       | The channel that you wish to link to.                                                                                                                                                                                                                                                                                                                                                                                                                                  | CloudWithChris                                    |
