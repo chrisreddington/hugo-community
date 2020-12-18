@@ -18,7 +18,18 @@
       <h1>{{ .Title }}</h1>
     </div>
   </div>
-  <h2>{{ .Page.Params.startDate | dateFormat "02 Jan 2006" }} - {{ .Page.Params.endDate  | dateFormat "02 Jan 2006" }} at {{ .Page.Params.Location }}</h2>
+  <h2>
+    {{ with .Params.startDate }}
+      {{ dateFormat "02 Jan 2006" . }}
+    {{ end }}
+    {{ with .Params.endDate }}
+       - {{ dateFormat "02 Jan 2006" . }}
+    {{ end }}
+    {{ with .Params.location }}
+       at {{ . }}
+    {{ end }}
+  </h2>
+  
   <div class="row">
     <div class="col-md-8">
       <div class="row">

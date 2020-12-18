@@ -499,11 +499,9 @@ The event archetype contains a bundle of files, including -
 description:          "This is the description for My First Event in Reading Town Center!"
 image:                "./images/banner.jpg"
 title:                ""
-lastMod:              ""
+publishDate:          "2020-12-01T10:00:00Z" 
 startDate:            "2023-12-25T09:00:00Z"
 endDate:              "2023-12-25T10:00:00Z"
-publishDate:          "2020-12-01T10:00:00Z" 
-location:             "Reading Town Center, Somewhere"
 
 #####
 # Optional
@@ -511,6 +509,12 @@ location:             "Reading Town Center, Somewhere"
 # activities_name:    ""
 # group:              "meetup-group-london"
 # lastMod:            ""
+# location:           "London, Somewhere"
+
+#####
+# Please do not remove or change the below front matter.
+#####
+layout:                           "single"
 ---
 Test Event!!!
 ```
@@ -519,9 +523,9 @@ Test Event!!!
 | description     | Yes      | This is a short summary of the page, which is used for SEO (Search Engine Optimisation purposes) It does not appear to the users, but is used as part of the site's metadata, which is used by search engines. Therefore, it's strongly recommended to set this to something meaningful, as it will have a positive impact on discoverability of your content in public searches.                                                                                      | This is the description for My First Event in Reading Town Center! |
 | image           | Yes      | Location of the banner which is shown on the event page. If using the site in a "Multi Event" mode, then it also displays the event banner in any relevant event listings.                                                                                                                                                                                                                                                                                             | https://via.placeholder.com/150                                    |
 | title           | Yes      | This is the name of the event.                                                                                                                                                                                                                                                                                                                                                                                                                                         | Contoso of London                                                  |
+| publishDate     | No       | Datetime that the speaker should be published on the site (i.e. any builds that you run after this date will display the speaker on the site). Useful if you want to time this with some kind of social media push/press release.                                                                                                                                                                                                                                      | 2020-12-01T10:00:00Z                                               |
 | startDate       | Yes      | Datetime that the event starts. This is used for display purposes on the website, and will be rendered in a more user friendly format. If the site is in a multi-event configuration, then it will be used to order the events chronologically.                                                                                                                                                                                                                        | 2023-12-25T09:00:00Z                                               |
 | endDate         | Yes      | Datetime that the event finishes. This is used for display purposes on the website, and will be rendered in a more user friendly format.                                                                                                                                                                                                                                                                                                                               | 2023-12-25T09:00:00Z                                               |
-| publishDate     | No       | Datetime that the speaker should be published on the site (i.e. any builds that you run after this date will display the speaker on the site). Useful if you want to time this with some kind of social media push/press release.                                                                                                                                                                                                                                      | 2020-12-01T10:00:00Z                                               |
 | location        | No       | Plain text that is displayed for the "Location" of the event. Could easily be adjusted to show "Virtual Event" / "Microsoft Teams Meeting" / "Zoom Call" if this is not a physical event.                                                                                                                                                                                                                                                                              |                                                                    |
 | activities_name | No       | Used as an override of the name that describes the activities associated. For example, "Talks", "Lessons", "Sessions", etc. allowing flexibility for different event types.                                                                                                                                                                                                                                                                                            | "Sessions"                                                         |
 | group           | No       | The URLized version of the group (The folder name). This is used, so that the group that is associated with the event can be displayed on the event. Additionally, the event will also be available on the group's page. This is optional, and not really required in a "Single Group" configuration of the site, but is particularly useful in a "Multi Group" configuration for a cohesive experience.                                                               | meetup-group-london                                                |
@@ -530,7 +534,6 @@ Test Event!!!
 
 #### Event Activity Frontmatter Details
 ```
----
 ---
 #####
 # Required
@@ -786,7 +789,7 @@ Additional information, TBC
 To create a new group, use the following command in your site folder
 
 ```
-hugo new speaker/speaker-name.md
+hugo new --kind speaker speakers/speaker-name.en.md
 ```
 
 **Note:** Be aware of the different syntax between events/groups and community/speakers. The community example does not require the --kind parameter, as it is a single page, rather than a bundle. This is also why we need to specify the .md extension, to represent that we wish to create a markdown file.

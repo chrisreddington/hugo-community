@@ -4,16 +4,8 @@
 #####
 description:                      ""
 image:                            ""
-title:                            ""
-communityTypes:                   []
-communityUrl:                     ""
-
-#####
-# Optional
-#####
-# publishDate:                    ""
-# topics:                         []
-# speakers:                       []
+title:                            "Code of Conduct"
+starting_view:                    false
 
 #####
 # Social - Optional
@@ -25,5 +17,10 @@ communityUrl:                     ""
 # twitch:                         ""
 # website:                        ""
 # youtube:                        ""
+
+#####
+# Please do not remove or change the below front matter.
+#####
+show_tabs:                        true
 ---
-Description/Information about the Community Resource.
+Here you can find our code of conduct.
