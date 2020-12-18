@@ -20,5 +20,6 @@ jobs:
           config_file: changelog-ci-config.json
         # Add this if you are using it on a private repository
         # Or if you have turned on commenting through the config file.
+        # Dummy commit to trigger PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
