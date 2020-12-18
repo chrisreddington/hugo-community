@@ -2,7 +2,7 @@
 #####
 # Required
 #####
-image:                "./images/chris-reddington.jpg"
+image:                "img/speakers/chris-reddington.jpg"
 title:                "Chris Reddington"
 
 #####
