@@ -27,7 +27,7 @@ paginate:                  15
 
 ####
 #
-# Mode: Multi Group, Many Events
+# Mode: Multi Group, Multi Events
 #
 # Use-cases: A website that is a "platform" for many local groups,communities. E.g. showing all of the  groups for a certain technology that are within a given country.
 #
