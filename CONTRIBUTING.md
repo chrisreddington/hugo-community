@@ -20,6 +20,29 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 5. Make sure your code lints.
 6. Issue that pull request!
 
+### Some additional Pull Request good practices - 
+
+* Make sure that you name your Pull Request as something meaningful. The names of the PRs will be pulled as-is into the changelog/release notes, so should be descriptive and clear.
+* Make sure that you appropriately label your Pull Requests using the GitHub issue Labels. These are once again used by the changelog/release notes to determine the appropriate category as-is.
+* If you are contributing a Pull Request, please be clear about any GitHub Issues that this PR fixes, so that we can maintain the GitHub issues easily. GitHub will automatically close linked issues when the PR is merged if you have "Fixes #xyz" in a Commit Message of the PR / Initial PR description.
+* If you are looking to get an update from someone in particular, please tag them in the discussion so that they can get notified.
+
+## Setting up your development environment
+
+To make contributing to the project easier, we have included the [necessary files](.devcontainer) to use **Dev Containers** within Visual Studio Code or GitHub Codespaces.
+
+You can find more about Dev Containers [here](https://code.visualstudio.com/docs/remote/containers). If you already have docker and Visual Studio Code installed on your machine, then this will mean that you don't need to install hugo and it's pre-requisites directly onto your machine, but can use the "Visual Studio Code Remote - Containers" extension to develop locally.
+
+Pre-Requisites:
+* Either - 
+  * Visual Studio Code installed on your machine ([Link](https://code.visualstudio.com/download))
+  * Visual Studio Code's Remote - Containers extension installed on your machine ([Link](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers))
+  * Docker installed on your machine ([Link](https://docs.docker.com/get-docker/))
+* Or - 
+  * Access to the GitHub Codespaces beta ([Link](https://github.com/features/codespaces))
+
+If you do not wish to use Visual Studio Code / Docker and want to understand the necessary steps to get your local development environment configured, please get in touch. We will continue to update this contributing document over time with additional details.
+
 ## Any contributions you make will be under the MIT Software License
 In short, when you submit code changes, your submissions will be understood under the same [MIT License](https://github.com/chrisreddington/hugo-community/blob/main/LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
 

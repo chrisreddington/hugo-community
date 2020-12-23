@@ -2,16 +2,16 @@
 
 # Community, a Hugo Theme
 
-Community is a hugo theme intended for small community and meetup groups to easily get going. The theme is heavily driven around the concept of events and speakers, and would be well-suited to conferences, or groups that hold talks.
+Community is a hugo theme intended for small community groups to easily get going and establish their presence. The theme is heavily driven around the concept of events and speakers, and is well-suited (but not limited!) to conferences or groups that hold talks.
 
 ## Example Sites
 
 There are four example configurations of this theme, which you can find demo sites of below - 
 
-* A "Conference Event without Groups" Configuration at [https://hugo-community-conference.netlify.app/](https://hugo-community-conference.netlify.app/) (AKA, Single Event, Single Group)
-* A "Conference Event with Groups" Configuration [https://hugo-community-conference-groups.netlify.app/](https://hugo-community-conference-groups.netlify.app/) (AKA Single Event, Multi Group)
-* A "Community Group" Configuration [https://hugo-community-group.netlify.app/](https://hugo-community-group.netlify.app/) (AKA Many Event, Single Group)
-* A "Community Groups Platform" Configuration [https://hugo-community-platform.netlify.app/](https://hugo-community-platform.netlify.app/) (AKA Many Event, Single Group)
+* A Single Group/Single Event Configuration at [https://hugo-community-conference.netlify.app/](https://hugo-community-conference.netlify.app/) (e.g. a site for a conference event without groups)
+* A Single Group/Multi Event Configuration [https://hugo-community-group.netlify.app/](https://hugo-community-group.netlify.app/) (e.g. a site for a local community group that wants to establish their presence)
+* A Multi Group/Single Event Configuration [https://hugo-community-conference-groups.netlify.app/](https://hugo-community-conference-groups.netlify.app/) (e.g. a site for a conference event with groups)
+* A Multi Event/Multi Group Configuration [https://hugo-community-platform.netlify.app/](https://hugo-community-platform.netlify.app/) (e.g. a site which is used as a platform for finding out about the events across many groups)
 
 ## Installation
 
