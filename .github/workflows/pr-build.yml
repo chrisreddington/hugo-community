@@ -40,7 +40,7 @@ jobs:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
       - name: Setup Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
       - name: Setup Hugo ${{ matrix.hugo }}
@@ -159,7 +159,7 @@ jobs:
         with:
           site_name: ${{ matrix.url }}  
       - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 10.x
       - name: "Lighthouse ${{ matrix.url }} (Preview)"
